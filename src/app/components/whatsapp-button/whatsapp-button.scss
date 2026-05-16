@@ -1,0 +1,96 @@
+.whatsapp-wrapper {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: var(--z-floating);
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    bottom: 1.25rem;
+    right: 1.25rem;
+  }
+}
+
+.tooltip {
+  position: absolute;
+  right: calc(100% + 0.75rem);
+  background: rgba(15, 23, 42, 0.95);
+  color: var(--text-primary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  padding: 0.5rem 0.875rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transform: translateX(10px);
+  transition: all 0.25s ease;
+  pointer-events: none;
+
+  &.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-color: transparent transparent transparent rgba(15, 23, 42, 0.95);
+  }
+}
+
+.whatsapp-btn {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+  transition: all 0.3s var(--transition-spring);
+  text-decoration: none;
+
+  &:hover {
+    transform: scale(1.1) translateY(-3px);
+    box-shadow: 0 10px 35px rgba(37, 211, 102, 0.55);
+  }
+
+  &:active { transform: scale(0.95); }
+}
+
+.wa-icon {
+  width: 28px;
+  height: 28px;
+  color: #fff;
+  position: relative;
+  z-index: 2;
+}
+
+/* Pulse rings */
+.wa-pulse-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(37, 211, 102, 0.5);
+  animation: wa-pulse 2.5s ease-out infinite;
+}
+
+.wa-pulse-ring.delay {
+  animation-delay: 0.8s;
+}
+
+@keyframes wa-pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(2); opacity: 0; }
+}

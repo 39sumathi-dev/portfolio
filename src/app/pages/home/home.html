@@ -1,0 +1,323 @@
+<section class="hero-section">
+  <div class="hero-bg">
+    <div class="hero-grid"></div>
+    <div class="hero-orb orb-1"></div>
+    <div class="hero-orb orb-2"></div>
+    <div class="hero-orb orb-3"></div>
+    <div class="hero-lines">
+      <div class="line" *ngFor="let i of [1,2,3,4,5]"></div>
+    </div>
+  </div>
+
+  <div class="container hero-container">
+    <!-- Hero Content -->
+    <div class="hero-content">
+      <div class="hero-badge reveal">
+        <span class="badge-dot"></span>
+        🚀 Now Accepting New Clients for 2025
+      </div>
+
+      <h1 class="hero-title reveal">
+        Smart Digital Solutions<br>
+        <span class="gradient-text">for Modern Businesses</span>
+      </h1>
+
+      <div class="hero-typewriter reveal">
+        <span class="tw-label">We specialize in </span>
+        <span class="tw-text">{{ typewriterText }}<span class="tw-cursor">|</span></span>
+      </div>
+
+      <p class="hero-desc reveal">
+        We build websites, applications, ERP systems, dashboards, AI automation solutions, and scalable digital products for modern businesses ready to grow.
+      </p>
+
+      <div class="hero-actions reveal">
+        <a routerLink="/contact" class="btn btn-primary btn-lg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.07 9.81 19.79 19.79 0 01.33 4.18 2 2 0 012.31 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 9.91a16 16 0 006.18 6.18l.76-.76a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          Get Free Consultation
+        </a>
+        <a routerLink="/projects" class="btn btn-outline btn-lg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          View Portfolio
+        </a>
+      </div>
+
+      <!-- Social Proof -->
+      <div class="hero-social-proof reveal">
+        <div class="avatar-stack">
+          <div class="avatar" *ngFor="let a of ['RS','PP','AM','SK','VK']">{{ a }}</div>
+        </div>
+        <div class="proof-text">
+          <strong>80+ happy clients</strong> trust us with their digital growth
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Visual -->
+    <div class="hero-visual reveal-right">
+      <div class="hero-card-stack">
+        <!-- Main Dashboard Card -->
+        <div class="dashboard-card animate-float">
+          <div class="dc-header">
+            <div class="dc-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <span class="dc-title">Analytics Dashboard</span>
+          </div>
+          <div class="dc-chart">
+            <div class="chart-bars">
+              <div class="bar" *ngFor="let h of [60,80,45,90,70,85,95]" [style.height]="h + '%'"></div>
+            </div>
+            <div class="chart-stats">
+              <div class="cs-item">
+                <span class="cs-val gradient-text">↑ 47%</span>
+                <span class="cs-label">Revenue</span>
+              </div>
+              <div class="cs-item">
+                <span class="cs-val" style="color:#10b981">↑ 23%</span>
+                <span class="cs-label">Users</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating Cards -->
+        <div class="float-card fc-1 animate-float-delay">
+          <div class="fc-icon">🤖</div>
+          <div>
+            <p class="fc-title">AI Automation</p>
+            <p class="fc-sub">Active</p>
+          </div>
+          <div class="fc-badge">Live</div>
+        </div>
+
+        <div class="float-card fc-2 animate-float">
+          <div class="fc-icon">✅</div>
+          <div>
+            <p class="fc-title">Project Deployed</p>
+            <p class="fc-sub">2 mins ago</p>
+          </div>
+        </div>
+
+        <div class="float-card fc-3 animate-float-delay">
+          <div class="fc-icon">⚡</div>
+          <div>
+            <p class="fc-title">98/100</p>
+            <p class="fc-sub">Performance Score</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="scroll-indicator">
+    <div class="scroll-mouse">
+      <div class="scroll-wheel"></div>
+    </div>
+    <span>Scroll to explore</span>
+  </div>
+</section>
+
+<!-- ========== STATS SECTION ========== -->
+<section class="stats-section section-sm">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card reveal" *ngFor="let counter of counters; let i = index" [style.animation-delay]="(i * 0.1) + 's'">
+        <div class="stat-icon">{{ counter.icon }}</div>
+        <div class="stat-value gradient-text">{{ counter.value }}{{ counter.suffix }}</div>
+        <div class="stat-label">{{ counter.label }}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SERVICES SECTION ========== -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">What We Do</span>
+      <h2>Comprehensive <span class="gradient-text">Digital Services</span></h2>
+      <p>From concept to launch, we provide end-to-end digital solutions that drive real business results.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card reveal" *ngFor="let svc of services; let i = index"
+           [style.animation-delay]="(i * 0.05) + 's'">
+        <div class="svc-icon-wrap" [style.background]="'rgba(' + hexToRgbStr(svc.color) + ', 0.12)'"
+             [style.border-color]="'rgba(' + hexToRgbStr(svc.color) + ', 0.25)'">
+          <span class="svc-icon">{{ svc.icon }}</span>
+        </div>
+        <h3 class="svc-title">{{ svc.title }}</h3>
+        <p class="svc-desc">{{ svc.desc }}</p>
+        <a routerLink="/services" class="svc-link">
+          Learn More
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <div class="svc-glow" [style.background]="'radial-gradient(circle, rgba(' + hexToRgbStr(svc.color) + ', 0.15) 0%, transparent 70%)'"></div>
+      </div>
+    </div>
+
+    <div class="text-center" style="margin-top: 3rem;">
+      <a routerLink="/services" class="btn btn-outline btn-lg">
+        View All Services
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== WHY CHOOSE US ========== -->
+<section class="section why-section">
+  <div class="why-bg-mesh"></div>
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Why Conceptra Labs</span>
+      <h2>The <span class="gradient-text">Unfair Advantage</span> for Your Business</h2>
+      <p>We're not just developers — we're strategic partners who care about your growth.</p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card reveal" *ngFor="let item of whyUs; let i = index" [style.animation-delay]="(i * 0.1) + 's'">
+        <div class="why-icon">{{ item.icon }}</div>
+        <h3 class="why-title">{{ item.title }}</h3>
+        <p class="why-desc">{{ item.desc }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FEATURED PROJECTS ========== -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Our Work</span>
+      <h2>Featured <span class="gradient-text">Projects</span></h2>
+      <p>Real solutions we've built for real businesses — each one a story of transformation.</p>
+    </div>
+
+    <div class="projects-grid">
+      <div class="project-card reveal" *ngFor="let project of projects; let i = index"
+           [style.animation-delay]="(i * 0.15) + 's'">
+        <div class="proj-thumb" [style.background]="'linear-gradient(135deg, ' + project.color + '22 0%, ' + project.color + '08 100%)'">
+          <div class="proj-emoji">{{ project.emoji }}</div>
+          <div class="proj-glow" [style.background]="'radial-gradient(circle, ' + project.color + '40 0%, transparent 70%)'"></div>
+        </div>
+        <div class="proj-content">
+          <div class="proj-meta">
+            <span class="badge">{{ project.category }}</span>
+          </div>
+          <h3 class="proj-title">{{ project.title }}</h3>
+          <p class="proj-desc">{{ project.desc }}</p>
+          <div class="proj-stack">
+            <span class="stack-badge" *ngFor="let tech of project.stack">{{ tech }}</span>
+          </div>
+          <div class="proj-actions">
+            <a href="#" class="btn btn-primary btn-sm">Live Preview</a>
+            <a routerLink="/projects" class="btn btn-ghost btn-sm">Case Study →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center" style="margin-top: 3rem;">
+      <a routerLink="/projects" class="btn btn-outline btn-lg">
+        View All Projects
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PROCESS SECTION ========== -->
+<section class="section process-section">
+  <div class="process-bg"></div>
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">How We Work</span>
+      <h2>Our Proven <span class="gradient-text">Development Process</span></h2>
+      <p>A structured, transparent workflow that delivers results on time, every time.</p>
+    </div>
+
+    <div class="process-timeline">
+      <div class="timeline-line"></div>
+      <div class="process-step reveal" *ngFor="let step of processSteps; let i = index"
+           [style.animation-delay]="(i * 0.1) + 's'"
+           [class.even]="i % 2 !== 0">
+        <div class="step-connector">
+          <div class="step-number">{{ step.number }}</div>
+        </div>
+        <div class="step-card">
+          <div class="step-icon">{{ step.icon }}</div>
+          <h3 class="step-title">{{ step.title }}</h3>
+          <p class="step-desc">{{ step.desc }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TESTIMONIALS ========== -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Client Love</span>
+      <h2>What Our Clients <span class="gradient-text">Say About Us</span></h2>
+      <p>Don't take our word for it — hear from the businesses we've helped transform.</p>
+    </div>
+
+    <div class="testimonials-wrapper">
+      <div class="testimonial-card active">
+        <div class="quote-icon">❝</div>
+        <p class="testimonial-text">{{ testimonials[activeTestimonial].text }}</p>
+        <div class="testimonial-meta">
+          <div class="testimonial-avatar">{{ testimonials[activeTestimonial].avatar }}</div>
+          <div>
+            <p class="testimonial-name">{{ testimonials[activeTestimonial].name }}</p>
+            <p class="testimonial-role">{{ testimonials[activeTestimonial].role }}</p>
+          </div>
+          <div class="star-rating">
+            <span *ngFor="let s of [1,2,3,4,5]">⭐</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-dots">
+        <button class="dot" *ngFor="let t of testimonials; let i = index"
+                [class.active]="i === activeTestimonial"
+                (click)="setTestimonial(i)"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FINAL CTA ========== -->
+<section class="cta-section">
+  <div class="cta-bg">
+    <div class="cta-orb cta-orb-1"></div>
+    <div class="cta-orb cta-orb-2"></div>
+  </div>
+  <div class="container">
+    <div class="cta-content reveal">
+      <div class="cta-badge">
+        <span>🔥</span> Limited Slots Available — Act Now
+      </div>
+      <h2 class="cta-title">
+        Ready to Transform Your Business<br>
+        <span class="gradient-text">with Technology?</span>
+      </h2>
+      <p class="cta-desc">
+        Join 80+ businesses that have accelerated their growth with Conceptra Labs. Let's build something extraordinary together.
+      </p>
+      <div class="cta-actions">
+        <a routerLink="/contact" class="btn btn-primary btn-lg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          Start Your Project
+        </a>
+        <a routerLink="/contact" class="btn btn-outline btn-lg">
+          Contact Us Today
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
