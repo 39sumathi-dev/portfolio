@@ -10,7 +10,7 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./home.scss']
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(private cdr: ChangeDetectorRef) { }
   // Typewriter
   typewriterText = '';
   private texts = ['Web Development', 'AI Automation', 'ERP Systems', 'Mobile Apps', 'UI/UX Design', 'E-Commerce'];
@@ -21,10 +21,10 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   // Counters
   counters = [
-    { label: 'Projects Completed', value: 0, target: 150, suffix: '+', icon: '🚀' },
-    { label: 'Clients Served', value: 0, target: 80, suffix: '+', icon: '🤝' },
-    { label: 'Years of Experience', value: 0, target: 6, suffix: '+', icon: '⭐' },
-    { label: 'Technologies Used', value: 0, target: 30, suffix: '+', icon: '💻' }
+    { label: 'Projects Completed', value: 0, target: 15, suffix: '+', icon: '🚀' },
+    { label: 'Clients Served', value: 0, target: 20, suffix: '+', icon: '🤝' },
+    { label: 'Years of Experience', value: 0, target: 3, suffix: '+', icon: '⭐' },
+    { label: 'Technologies Used', value: 0, target: 20, suffix: '+', icon: '💻' }
   ];
   private counterInterval: any;
   private counterStarted = false;
@@ -56,28 +56,60 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   // Featured Projects
   projects = [
     {
-      title: 'HealthCare ERP Platform',
-      category: 'ERP System',
-      desc: 'A comprehensive healthcare management system with patient records, billing, inventory, and analytics.',
-      stack: ['Angular', 'Node.js', 'MongoDB', 'AWS'],
-      color: '#06b6d4',
-      emoji: '🏥'
-    },
-    {
-      title: 'FinTech AI Dashboard',
-      category: 'AI Application',
-      desc: 'Real-time financial analytics platform with AI-powered predictions and automated reporting.',
-      stack: ['React', 'Python', 'TensorFlow', 'PostgreSQL'],
-      color: '#6366f1',
-      emoji: '📈'
-    },
-    {
-      title: 'LuxeShop E-Commerce',
+      title: 'Myha Couture',
       category: 'E-Commerce',
-      desc: 'Premium multi-vendor e-commerce platform with advanced filtering, AR try-on, and AI recommendations.',
-      stack: ['Next.js', 'Stripe', 'Firebase', 'Node.js'],
+      desc: 'A fully functional clothing e-commerce platform with multi-image product catalog, custom sizing, Razorpay payments, real-time order tracking, and a containerized FastAPI backend.',
+      stack: ['Angular', 'FastAPI', 'MongoDB', 'Docker', 'Razorpay', 'Cloudinary'],
+      color: '#f472b6',
+      emoji: '👗'
+    },
+    {
+      title: 'The Wooden Castle',
+      category: 'E-Commerce',
+      desc: 'A modern responsive furniture e-commerce site with dynamic product catalog, real-time price customization, image carousels, SEO optimization, and cloud image management.',
+      stack: ['Angular', 'FastAPI', 'MongoDB', 'R2 Storage', 'SEO'],
+      color: '#d97706',
+      emoji: '🪵'
+    },
+    {
+      title: 'James Multispeciality Dental Clinic',
+      category: 'Healthcare',
+      desc: 'A professional dental clinic website featuring online appointment booking, doctor profiles, service listings, WhatsApp integration, and a Flask-powered backend with MongoDB.',
+      stack: ['Angular', 'Flask', 'MongoDB', 'WhatsApp API'],
+      color: '#06b6d4',
+      emoji: '🦷'
+    },
+    {
+      title: 'Cafe Social Media Branding',
+      category: 'Branding & Design',
+      desc: 'A complete social media branding package for a café — cohesive visual identity, post templates, story designs, and brand guidelines crafted for Instagram and Facebook.',
+      stack: ['Figma', 'Photoshop', 'Canva', 'Brand Strategy'],
       color: '#f59e0b',
-      emoji: '🛍️'
+      emoji: '☕'
+    },
+    {
+      title: 'MechaGrip App',
+      category: 'AI & Robotics',
+      desc: 'A human-robot interaction interface for physical tic-tac-toe gameplay powered by reinforcement learning and computer vision, with real-time Q-value visualization and multi-camera feeds.',
+      stack: ['Python', 'Reinforcement Learning', 'Computer Vision', 'Robotics'],
+      color: '#8b5cf6',
+      emoji: '🤖'
+    },
+    {
+      title: 'Plant Health App',
+      category: 'AgriTech',
+      desc: 'An advanced plant health monitoring platform with NDVI vegetation mapping, real-time environmental analytics, soil analytics, and multi-zone crop health dashboards for agricultural professionals.',
+      stack: ['Python', 'Data Analytics', 'NDVI', 'Dashboard UI'],
+      color: '#10b981',
+      emoji: '🌿'
+    },
+    {
+      title: 'Conceptra AI',
+      category: 'EdTech / AI',
+      desc: 'An AI-powered learning platform for students — chapter-wise AI guidance, intelligent problem solving, exam preparation, and personalized learning assistance powered by advanced AI.',
+      stack: ['Angular', 'Python', 'OpenAI', 'FastAPI', 'MongoDB'],
+      color: '#6366f1',
+      emoji: '🧠'
     }
   ];
 
@@ -185,9 +217,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   hexToRgbStr(hex: string): string {
-    const r = parseInt(hex.slice(1,3), 16);
-    const g = parseInt(hex.slice(3,5), 16);
-    const b = parseInt(hex.slice(5,7), 16);
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
     return `${r},${g},${b}`;
   }
 

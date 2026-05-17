@@ -12,28 +12,7 @@ import { CommonModule } from '@angular/common';
         <!-- Logo -->
         <a routerLink="/" class="nav-logo" (click)="closeMenu()">
           <div class="logo-icon">
-            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="40" height="40" rx="10" fill="url(#logoGrad)"/>
-              <path d="M12 20C12 15.6 15.6 12 20 12C22.2 12 24.2 12.9 25.7 14.3" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
-              <path d="M28 20C28 24.4 24.4 28 20 28C17.8 28 15.8 27.1 14.3 25.7" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
-              <circle cx="20" cy="20" r="3" fill="white"/>
-              <circle cx="12" cy="20" r="2" fill="url(#dotGrad)"/>
-              <circle cx="28" cy="20" r="2" fill="url(#dotGrad2)"/>
-              <defs>
-                <linearGradient id="logoGrad" x1="0" y1="0" x2="40" y2="40">
-                  <stop offset="0%" stop-color="#6366f1"/>
-                  <stop offset="100%" stop-color="#06b6d4"/>
-                </linearGradient>
-                <linearGradient id="dotGrad" x1="0" y1="0" x2="4" y2="4">
-                  <stop offset="0%" stop-color="#a5b4fc"/>
-                  <stop offset="100%" stop-color="#6366f1"/>
-                </linearGradient>
-                <linearGradient id="dotGrad2" x1="0" y1="0" x2="4" y2="4">
-                  <stop offset="0%" stop-color="#67e8f9"/>
-                  <stop offset="100%" stop-color="#06b6d4"/>
-                </linearGradient>
-              </defs>
-            </svg>
+            <img src="assets/conceptra-logo.jpeg" alt="Conceptra Labs Logo" class="logo-img"/>
           </div>
           <div class="logo-text">
             <span class="logo-name">Conceptra</span>

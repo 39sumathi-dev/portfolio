@@ -97,7 +97,10 @@ import { FormsModule } from '@angular/forms';
               </div>
             </div>
             <div class="modal-actions">
-              <a href="#" class="btn btn-primary">Live Preview</a>
+              <a *ngIf="selectedProject!.liveUrl" [href]="selectedProject!.liveUrl" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Live Preview
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-left:6px"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <a *ngIf="!selectedProject!.liveUrl" class="btn btn-primary" style="opacity:0.45;cursor:not-allowed;pointer-events:none;">Coming Soon</a>
               <a routerLink="/contact" class="btn btn-outline" (click)="closeModal()">Similar Project?</a>
             </div>
           </div>
@@ -121,71 +124,59 @@ export class ProjectsComponent implements AfterViewInit {
   activeCategory = 'All';
   selectedProject: any = null;
 
-  categories = ['All', 'Websites', 'ERP Systems', 'Dashboards', 'AI Applications', 'E-Commerce', 'Mobile Apps', 'UI/UX'];
+  categories = ['All', 'E-Commerce', 'Healthcare', 'Branding & Design', 'AI & Robotics', 'AgriTech', 'EdTech / AI'];
 
   allProjects = [
     {
-      title: 'MediCare ERP Platform', category: 'ERP Systems', year: '2024',
-      emoji: '🏥', gradient: 'linear-gradient(135deg, rgba(6,182,212,0.2) 0%, rgba(6,182,212,0.05) 100%)',
-      desc: 'Comprehensive healthcare management system with patient records, billing, and analytics.',
-      fullDesc: 'A full-featured ERP for a hospital chain covering patient management, appointment scheduling, billing, pharmacy inventory, staff HR, and real-time analytics dashboard. Handles 500+ daily patients across 3 branches.',
-      stack: ['Angular', 'Node.js', 'MongoDB', 'Redis', 'AWS', 'Docker']
+      title: 'Myha Couture', category: 'E-Commerce', year: '2025',
+      emoji: '👗', gradient: 'linear-gradient(135deg, rgba(244,114,182,0.2) 0%, rgba(244,114,182,0.05) 100%)',
+      desc: 'A fully functional clothing e-commerce platform with multi-image catalog, custom sizing, and Razorpay payments.',
+      fullDesc: 'Developed a fully functional clothing e-commerce website with a modern, mobile-first UI. Built a product catalog with support for multiple images, custom sizing, and measurement inputs. Integrated Razorpay for secure payment processing and order confirmation. Enabled real-time order tracking using third-party tracking IDs. Designed responsive layouts for seamless UX across mobile, tablet, and desktop views. Set up backend APIs using FastAPI to handle product listings, cart management, and orders. Utilized Cloudinary for optimized image storage and fast delivery. Used MongoDB Atlas as a scalable NoSQL database. Implemented user session management and cart persistence using localStorage. Containerized the backend using Docker for CI/CD integration.',
+      stack: ['Angular', 'FastAPI', 'MongoDB', 'Docker', 'Razorpay', 'Cloudinary', 'GitHub Actions'],
+      liveUrl: 'https://myhacouture.com'
     },
     {
-      title: 'FinanceFlow AI Dashboard', category: 'Dashboards', year: '2024',
-      emoji: '📈', gradient: 'linear-gradient(135deg, rgba(99,102,241,0.2) 0%, rgba(99,102,241,0.05) 100%)',
-      desc: 'Real-time financial analytics with AI-powered predictions and automated reporting.',
-      fullDesc: 'A sophisticated financial analytics platform integrating with multiple banking APIs, providing real-time transaction monitoring, AI-powered anomaly detection, predictive cash flow modeling, and automated compliance reporting.',
-      stack: ['React', 'Python', 'TensorFlow', 'PostgreSQL', 'D3.js', 'FastAPI']
+      title: 'The Wooden Castle', category: 'E-Commerce', year: '2026',
+      emoji: '🪵', gradient: 'linear-gradient(135deg, rgba(217,119,6,0.2) 0%, rgba(217,119,6,0.05) 100%)',
+      desc: 'A modern responsive furniture e-commerce site with dynamic catalog, price customization, and SEO optimization.',
+      fullDesc: 'Developed a modern, responsive frontend using Angular and a scalable backend using FastAPI with MongoDB for product and order management. Features include a dynamic product catalog with categories, filters, and image carousels; real-time price calculation based on customizations; a responsive mobile-first UI inspired by premium fashion brands; a complete shopping cart and checkout workflow; cloud image management with Cloudflare R2; SEO optimization with schema markup; and production deployment with custom domain, SSL, and full backend/frontend integration.',
+      stack: ['Angular', 'FastAPI', 'MongoDB', 'R2 Storage', 'SEO', 'Schema Markup'],
+      liveUrl: 'https://thewoodencastle.com'
     },
     {
-      title: 'LuxeShop E-Commerce', category: 'E-Commerce', year: '2024',
-      emoji: '🛍️', gradient: 'linear-gradient(135deg, rgba(245,158,11,0.2) 0%, rgba(245,158,11,0.05) 100%)',
-      desc: 'Premium multi-vendor platform with AR try-on and AI product recommendations.',
-      fullDesc: 'High-end fashion e-commerce platform with multi-vendor support, AR virtual try-on using device camera, personalized AI recommendations, advanced search with visual similarity, and seamless Stripe + UPI payment integration.',
-      stack: ['Next.js', 'Stripe', 'Razorpay', 'Firebase', 'TensorFlow.js', 'Node.js']
+      title: 'James Multispeciality Dental Clinic', category: 'Healthcare', year: '2026',
+      emoji: '🦷', gradient: 'linear-gradient(135deg, rgba(6,182,212,0.2) 0%, rgba(6,182,212,0.05) 100%)',
+      desc: 'A professional dental clinic website with online appointment booking, doctor profiles, and WhatsApp integration.',
+      fullDesc: 'Built a professional web presence for James Multispeciality Dental Clinic featuring online appointment booking, detailed doctor profiles, and a comprehensive services listing. Integrated a persistent WhatsApp floating contact icon for improved patient engagement. Developed a Python Flask backend connected to MongoDB for appointment and doctor data management. Ensured responsive, clean UI across all device screens with SEO best practices for local business discovery.',
+      stack: ['Angular', 'Flask', 'MongoDB', 'WhatsApp API', 'Python']
     },
     {
-      title: 'TalentAI Recruitment', category: 'AI Applications', year: '2024',
-      emoji: '🤖', gradient: 'linear-gradient(135deg, rgba(16,185,129,0.2) 0%, rgba(16,185,129,0.05) 100%)',
-      desc: 'AI-powered recruitment platform with resume parsing, candidate matching, and interview AI.',
-      fullDesc: 'An intelligent recruitment automation platform that uses NLP to parse resumes, semantic matching to rank candidates, automated interview scheduling, and an AI interviewer that conducts initial screening conversations.',
-      stack: ['Angular', 'Python', 'OpenAI', 'LangChain', 'PostgreSQL', 'Docker']
+      title: 'Cafe Social Media Branding', category: 'Branding & Design', year: '2026',
+      emoji: '☕', gradient: 'linear-gradient(135deg, rgba(245,158,11,0.2) 0%, rgba(245,158,11,0.05) 100%)',
+      desc: 'A complete social media branding package with cohesive visual identity for Instagram and Facebook.',
+      fullDesc: 'Delivered a complete social media branding package for a premium café. Crafted a cohesive visual identity including brand color palette, typography, logo usage guidelines, and tone of voice. Designed ready-to-use post templates, story formats, highlight cover icons, and promotional banners tailored for Instagram and Facebook. Provided a brand style guide to ensure consistency across all future digital touchpoints.',
+      stack: ['Figma', 'Adobe Photoshop', 'Canva', 'Brand Strategy', 'Social Media Design']
     },
     {
-      title: 'StyleHub Mobile App', category: 'Mobile Apps', year: '2023',
-      emoji: '📱', gradient: 'linear-gradient(135deg, rgba(139,92,246,0.2) 0%, rgba(139,92,246,0.05) 100%)',
-      desc: 'Fashion discovery app with personalized style feed and one-tap purchase.',
-      fullDesc: 'A cross-platform fashion app with AI-curated style feeds, outfit builder, social sharing, wishlist management, and seamless in-app purchasing with multiple payment methods. 50k+ downloads on launch.',
-      stack: ['Flutter', 'Firebase', 'Node.js', 'Stripe', 'TensorFlow Lite']
+      title: 'MechaGrip App', category: 'AI & Robotics', year: '2025',
+      emoji: '🤖', gradient: 'linear-gradient(135deg, rgba(139,92,246,0.2) 0%, rgba(139,92,246,0.05) 100%)',
+      desc: 'A human-robot interaction interface for physical tic-tac-toe powered by reinforcement learning and computer vision.',
+      fullDesc: 'MechaGrip App is an innovative human-robot interaction system combining reinforcement learning, computer vision, and robotics to create an engaging physical gaming experience. Players compete against an AI-powered robotic arm in classic tic-tac-toe using physical game pieces. The interface bridges the digital and physical worlds, providing real-time camera feeds, game state visualization, and insights into the robot\'s decision-making process through Q-value displays. Designed for both entertainment and educational value.',
+      stack: ['Python', 'Reinforcement Learning', 'Computer Vision', 'Robotics', 'Q-Learning']
     },
     {
-      title: 'AgriSmart Portal', category: 'Websites', year: '2023',
-      emoji: '🌾', gradient: 'linear-gradient(135deg, rgba(16,185,129,0.2) 0%, rgba(16,185,129,0.05) 100%)',
-      desc: 'Agricultural marketplace connecting farmers directly to buyers with logistics integration.',
-      fullDesc: 'A B2B agricultural marketplace enabling direct farmer-to-buyer transactions, real-time commodity price tracking, logistics management, IoT sensor integration for crop monitoring, and government subsidy application portal.',
-      stack: ['React', 'Node.js', 'PostgreSQL', 'IoT APIs', 'Google Maps', 'Razorpay']
+      title: 'Plant Health App', category: 'AgriTech', year: '2025',
+      emoji: '🌿', gradient: 'linear-gradient(135deg, rgba(16,185,129,0.2) 0%, rgba(16,185,129,0.05) 100%)',
+      desc: 'An advanced plant health monitoring platform with NDVI mapping, soil analytics, and multi-zone dashboards.',
+      fullDesc: 'Plant Health App is an advanced agricultural monitoring platform designed for agricultural professionals, researchers, and greenhouse operators. Delivers real-time environmental data analysis, NDVI vegetation mapping, and comprehensive soil analytics through a clean, data-centric dashboard. Features an improved upload-to-report flow for plant health monitoring, multi-zone crop comparison, and clear visual indicators that translate complex sensor data into actionable insights for irrigation and nutrient management.',
+      stack: ['Python', 'Data Analytics', 'NDVI Processing', 'Dashboard UI', 'Image Analysis']
     },
     {
-      title: 'DesignPro UI System', category: 'UI/UX', year: '2023',
-      emoji: '🎨', gradient: 'linear-gradient(135deg, rgba(239,68,68,0.2) 0%, rgba(239,68,68,0.05) 100%)',
-      desc: 'Complete design system and component library for a fintech startup.',
-      fullDesc: 'A comprehensive design system with 200+ components, tokens, interaction patterns, and design guidelines for a fintech startup. Reduced design-to-development handoff time by 60% and established visual consistency across 8 products.',
-      stack: ['Figma', 'Storybook', 'React', 'TypeScript', 'Chromatic']
-    },
-    {
-      title: 'LogiTrack Operations', category: 'ERP Systems', year: '2023',
-      emoji: '🚚', gradient: 'linear-gradient(135deg, rgba(245,158,11,0.2) 0%, rgba(245,158,11,0.05) 100%)',
-      desc: 'End-to-end logistics management with real-time tracking and route optimization.',
-      fullDesc: 'Comprehensive logistics operations platform managing fleet of 200+ vehicles, real-time GPS tracking, AI-optimized route planning, driver performance monitoring, fuel management, and automated customer delivery notifications.',
-      stack: ['Angular', 'Node.js', 'MongoDB', 'Google Maps API', 'WebSockets', 'Redis']
-    },
-    {
-      title: 'EduLearn Platform', category: 'Websites', year: '2023',
-      emoji: '📚', gradient: 'linear-gradient(135deg, rgba(99,102,241,0.2) 0%, rgba(99,102,241,0.05) 100%)',
-      desc: 'Online learning platform with live classes, quizzes, and AI-powered tutoring.',
-      fullDesc: 'Full-featured EdTech platform with live video classes, recorded content library, adaptive quizzes with AI feedback, gamification, course completion certificates, student performance analytics, and instructor dashboard.',
-      stack: ['Next.js', 'WebRTC', 'Socket.io', 'PostgreSQL', 'OpenAI', 'Stripe']
+      title: 'Conceptra AI', category: 'EdTech / AI', year: '2026',
+      emoji: '🧠', gradient: 'linear-gradient(135deg, rgba(99,102,241,0.2) 0%, rgba(99,102,241,0.05) 100%)',
+      desc: 'An AI-powered student learning platform with chapter-wise guidance, intelligent problem solving, and exam preparation.',
+      fullDesc: 'Conceptra AI is a next-generation AI-powered learning platform built specifically for students. It leverages advanced AI to enable chapter-wise guided learning, intelligent problem-solving assistance, and AI-proctored exam preparation. Students can interact with an AI tutor that adapts to their learning pace, breaks down complex concepts, solves difficult problems step-by-step, and provides chapter-specific quizzes and revision aids. The platform supports personalized learning paths, real-time doubt resolution, and performance analytics to help students achieve academic excellence with AI guidance at every step.',
+      stack: ['Angular', 'Python', 'OpenAI', 'FastAPI', 'MongoDB']
     }
   ];
 

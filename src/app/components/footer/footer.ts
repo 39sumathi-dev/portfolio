@@ -86,23 +86,24 @@ import { CommonModule } from '@angular/common';
           <div class="footer-col">
             <h4 class="footer-col-title">Get In Touch</h4>
             <div class="footer-contact-list">
-              <a href="mailto:hello@conceptralabs.com" class="footer-contact-item">
+              <a href="mailto:snmsss2002@gmail.com" class="footer-contact-item">
                 <div class="contact-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>
                 </div>
-                hello&#64;conceptralabs.com
+                snmsss2002@gmail.com
               </a>
-              <a href="tel:+919999999999" class="footer-contact-item">
+              <a href="tel:+919719759208" class="footer-contact-item">
                 <div class="contact-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.07 9.81 19.79 19.79 0 01.33 4.18 2 2 0 012.31 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 9.91a16 16 0 006.18 6.18l.76-.76a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
                 </div>
-                +91 99999 99999
+                +919710759208
               </a>
               <div class="footer-contact-item">
                 <div class="contact-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
                 </div>
-                Mumbai, Maharashtra, India
+                Chennai, Tamil Nadu, India <br/>
+                Banglore, Karnataka, India
               </div>
             </div>
 
