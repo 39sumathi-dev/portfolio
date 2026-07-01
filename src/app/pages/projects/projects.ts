@@ -1,5 +1,5 @@
-import { Component, AfterViewInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
@@ -120,6 +120,7 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./projects.scss']
 })
 export class ProjectsComponent implements AfterViewInit {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
   searchQuery = '';
   activeCategory = 'All';
   selectedProject: any = null;
@@ -200,19 +201,25 @@ export class ProjectsComponent implements AfterViewInit {
 
   openModal(project: any) {
     this.selectedProject = project;
-    document.body.style.overflow = 'hidden';
+    if (typeof document !== 'undefined') {
+      document.body.style.overflow = 'hidden';
+    }
   }
 
   closeModal() {
     this.selectedProject = null;
-    document.body.style.overflow = '';
+    if (typeof document !== 'undefined') {
+      document.body.style.overflow = '';
+    }
   }
 
   ngAfterViewInit() {
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.1 });
-    reveals.forEach(el => observer.observe(el));
+    if (isPlatformBrowser(this.platformId)) {
+      const reveals = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+      }, { threshold: 0.1 });
+      reveals.forEach(el => observer.observe(el));
+    }
   }
 }

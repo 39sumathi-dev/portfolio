@@ -272,3 +272,116 @@
   h4 { font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem; }
   p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
 }
+
+/* ===== FOUNDER SECTION ===== */
+.founder-section {
+  background: linear-gradient(135deg, var(--bg-dark-2) 0%, var(--bg-dark-3) 100%);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.founder-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 4rem;
+  align-items: center;
+
+  @media (max-width: 992px) {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+.founder-content {
+  .founder-lead {
+    font-size: 1.15rem;
+    line-height: 1.75;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+  }
+}
+
+.founder-card {
+  position: relative;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 3rem 2rem;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+
+  .fc-glow {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+    top: -50px;
+    left: -50px;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .fc-profile {
+    position: relative;
+    z-index: 1;
+
+    .fc-avatar-text {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--gradient-primary);
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.25rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .fc-sub {
+      font-size: 0.85rem;
+      color: var(--color-primary-light);
+      font-weight: 600;
+      margin-bottom: 2rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+  }
+
+  .fc-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.5rem;
+
+    span {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-weight: 500;
+    }
+  }
+}

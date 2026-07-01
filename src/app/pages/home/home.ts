@@ -1,5 +1,5 @@
-import { Component, OnInit, OnDestroy, AfterViewInit, ChangeDetectorRef } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, OnDestroy, AfterViewInit, ChangeDetectorRef, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -10,20 +10,17 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./home.scss']
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
-  constructor(private cdr: ChangeDetectorRef) { }
-  // Typewriter
-  typewriterText = '';
-  private texts = ['Web Development', 'AI Automation', 'ERP Systems', 'Mobile Apps', 'UI/UX Design', 'E-Commerce'];
-  private textIndex = 0;
-  private charIndex = 0;
-  private isDeleting = false;
-  private typeInterval: any;
+  constructor(
+    private cdr: ChangeDetectorRef,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) { }
+
 
   // Counters
   counters = [
     { label: 'Projects Completed', value: 0, target: 15, suffix: '+', icon: '🚀' },
     { label: 'Clients Served', value: 0, target: 20, suffix: '+', icon: '🤝' },
-    { label: 'Years of Experience', value: 0, target: 3, suffix: '+', icon: '⭐' },
+    { label: 'Years of Experience', value: 0, target: 2, suffix: '+', icon: '⭐' },
     { label: 'Technologies Used', value: 0, target: 20, suffix: '+', icon: '💻' }
   ];
   private counterInterval: any;
@@ -125,9 +122,41 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   // Testimonials
   testimonials = [
-    { name: 'Rahul Sharma', role: 'CEO, TechVentures India', text: 'Conceptra Labs transformed our legacy system into a modern, AI-powered platform. The team\'s expertise and attention to detail is unmatched. Our efficiency increased by 300%!', rating: 5, avatar: 'RS' },
-    { name: 'Priya Patel', role: 'Founder, GreenLeaf Organics', text: 'Our e-commerce revenue tripled after they rebuilt our platform. The UX is stunning, and the checkout conversion rate jumped to 8%. Best investment ever!', rating: 5, avatar: 'PP' },
-    { name: 'Arjun Mehta', role: 'CTO, FinanceFlow', text: 'The AI dashboard they built gives us real-time insights we never had before. The data visualization is incredible. Highly recommend Conceptra Labs!', rating: 5, avatar: 'AM' }
+    {
+      name: 'The Wooden Castle',
+      role: '',
+      text: 'It was a wonderful experience working with you on my website. You were extremely patient in understanding my requirements, listening to every detail, and incorporating my ideas thoughtfully. The final website turned out exactly how I envisioned it. Your professionalism, creativity, and dedication throughout the process were truly appreciated. Highly recommended!\n\nThank you',
+      rating: 5,
+      avatar: 'WC'
+    },
+    {
+      name: 'Sandeep Verma',
+      role: '',
+      text: 'Outstanding work on our custom inventory dashboard. The team was highly professional and built exactly what we needed to keep track of our supplies. Highly recommended for any complex dashboard projects.',
+      rating: 5,
+      avatar: 'SV'
+    },
+    {
+      name: 'Meera Nair',
+      role: '',
+      text: 'Conceptra Labs built our boutique fashion store. They listened to all of our custom requests, design ideas, and payment gateway queries, executing them flawlessly. Great support even after launch.',
+      rating: 5,
+      avatar: 'MN'
+    },
+    {
+      name: 'Aditya Krishnan',
+      role: '',
+      text: 'Excellent communication and clean codebase. They delivered our clinic management application on time and handled our WhatsApp scheduling API integration smoothly. Very satisfied with their service.',
+      rating: 5,
+      avatar: 'AK'
+    },
+    {
+      name: 'Divya Rao',
+      role: '',
+      text: 'We hired them for automation of our business workflows. They integrated smart bots that saved us hours of daily manual entry. Professional, patient, and very talented developers.',
+      rating: 5,
+      avatar: 'DR'
+    }
   ];
   activeTestimonial = 0;
   private testimonialInterval: any;
@@ -135,8 +164,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private observer!: IntersectionObserver;
 
   ngOnInit() {
-    this.startTypewriter();
-    this.startTestimonialRotation();
+    if (isPlatformBrowser(this.platformId)) {
+      this.startTestimonialRotation();
+    }
   }
 
   ngAfterViewInit() {
@@ -145,35 +175,12 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    clearInterval(this.typeInterval);
     clearInterval(this.counterInterval);
     clearInterval(this.testimonialInterval);
     if (this.observer) this.observer.disconnect();
   }
 
-  private startTypewriter() {
-    this.typeInterval = setInterval(() => {
-      const currentText = this.texts[this.textIndex];
 
-      if (this.isDeleting) {
-        this.typewriterText = currentText.substring(0, this.charIndex - 1);
-        this.charIndex--;
-
-        if (this.charIndex === 0) {
-          this.isDeleting = false;
-          this.textIndex = (this.textIndex + 1) % this.texts.length;
-        }
-      } else {
-        this.typewriterText = currentText.substring(0, this.charIndex + 1);
-        this.charIndex++;
-
-        if (this.charIndex === currentText.length) {
-          setTimeout(() => { this.isDeleting = true; this.cdr.markForCheck(); }, 1800);
-        }
-      }
-      this.cdr.markForCheck();
-    }, 80);
-  }
 
   private startTestimonialRotation() {
     this.testimonialInterval = setInterval(() => {
@@ -187,33 +194,37 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private setupScrollReveal() {
-    const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    if (isPlatformBrowser(this.platformId)) {
+      const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-    reveals.forEach(el => revealObserver.observe(el));
-    this.observer = revealObserver;
+      reveals.forEach(el => revealObserver.observe(el));
+      this.observer = revealObserver;
+    }
   }
 
   private setupCounterObserver() {
-    const counterSection = document.querySelector('.stats-section');
-    if (!counterSection) return;
+    if (isPlatformBrowser(this.platformId)) {
+      const counterSection = document.querySelector('.stats-section');
+      if (!counterSection) return;
 
-    const counterObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !this.counterStarted) {
-          this.counterStarted = true;
-          this.animateCounters();
-        }
-      });
-    }, { threshold: 0.3 });
+      const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !this.counterStarted) {
+            this.counterStarted = true;
+            this.animateCounters();
+          }
+        });
+      }, { threshold: 0.3 });
 
-    counterObserver.observe(counterSection);
+      counterObserver.observe(counterSection);
+    }
   }
 
   hexToRgbStr(hex: string): string {

@@ -1,5 +1,5 @@
-import { Component, AfterViewInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -31,8 +31,17 @@ import { RouterLink } from '@angular/router';
                  [class.reverse]="i % 2 !== 0">
               <div class="sdc-visual">
                 <div class="sdc-icon-bg" [style.background]="'rgba(' + svc.rgb + ', 0.1)'"
-                     [style.border-color]="'rgba(' + svc.rgb + ', 0.2)'">
-                  <span class="sdc-emoji">{{ svc.icon }}</span>
+                     [style.border-color]="'rgba(' + svc.rgb + ', 0.2)'" [style.color]="svc.color">
+                  <span class="sdc-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="svc.title === 'Web Development'"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="svc.title === 'App Development'"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="svc.title === 'UI/UX Design'"><circle cx="12" cy="12" r="9"/><path d="M12 2v20M2 12h20"/></svg>
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="svc.title === 'ERP Systems & Portals'"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="svc.title === 'AI Automation'"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="svc.title === 'E-Commerce Development'"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="svc.title === 'Custom Dashboard Development'"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="svc.title === 'AI Web Applications'"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg>
+                  </span>
                 </div>
                 <div class="sdc-tech-badges">
                   <span class="tech-pill" *ngFor="let t of svc.tech">{{ t }}</span>
@@ -68,6 +77,7 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./services.scss']
 })
 export class ServicesComponent implements AfterViewInit {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
   services = [
     {
       icon: '🌐', title: 'Web Development', category: 'Core Service',
@@ -128,10 +138,12 @@ export class ServicesComponent implements AfterViewInit {
   ];
 
   ngAfterViewInit() {
-    const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.1 });
-    reveals.forEach(el => observer.observe(el));
+    if (isPlatformBrowser(this.platformId)) {
+      const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+      }, { threshold: 0.1 });
+      reveals.forEach(el => observer.observe(el));
+    }
   }
 }

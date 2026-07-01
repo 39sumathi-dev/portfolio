@@ -1,5 +1,5 @@
-import { Component, AfterViewInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-contact',
@@ -45,10 +45,10 @@ import { CommonModule } from '@angular/common';
               </a>
 
               <!-- Email Card -->
-              <a href="mailto:snmsss2002@gmail.com" class="contact-card contact-card--link">
+              <a href="mailto:conceptra.edu@gmail.com" class="contact-card contact-card--link">
                 <div class="cc-icon cc-email">📧</div>
                 <h3>Email Us</h3>
-                <p class="cc-primary">snmsss2002&#64;gmail.com</p>
+                <p class="cc-primary">conceptra.edu&#64;gmail.com</p>
                 <span class="cc-hint">We reply within 2–4 hours</span>
               </a>
 
@@ -67,10 +67,10 @@ import { CommonModule } from '@angular/common';
             <div class="contact-social reveal">
               <p class="social-label">Connect with us</p>
               <div class="social-links">
-                <a href="#" class="social-chip">💼 LinkedIn</a>
-                <a href="#" class="social-chip">📸 Instagram</a>
-                <a href="#" class="social-chip">💻 GitHub</a>
-                <a href="#" class="social-chip">🐦 Twitter / X</a>
+                <a href="https://linkedin.com/company/conceptralabs" target="_blank" rel="noopener noreferrer" class="social-chip" aria-label="Visit our LinkedIn profile">💼 LinkedIn</a>
+                <a href="https://instagram.com/conceptralabs" target="_blank" rel="noopener noreferrer" class="social-chip" aria-label="Visit our Instagram profile">📸 Instagram</a>
+                <a href="https://github.com/conceptralabs" target="_blank" rel="noopener noreferrer" class="social-chip" aria-label="Visit our GitHub profile">💻 GitHub</a>
+                <a href="https://x.com/conceptralabs" target="_blank" rel="noopener noreferrer" class="social-chip" aria-label="Visit our Twitter/X profile">🐦 Twitter / X</a>
               </div>
             </div>
 
@@ -106,11 +106,14 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./contact.scss']
 })
 export class ContactComponent implements AfterViewInit {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
   ngAfterViewInit() {
-    const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.1 });
-    reveals.forEach(el => observer.observe(el));
+    if (isPlatformBrowser(this.platformId)) {
+      const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+      }, { threshold: 0.1 });
+      reveals.forEach(el => observer.observe(el));
+    }
   }
 }

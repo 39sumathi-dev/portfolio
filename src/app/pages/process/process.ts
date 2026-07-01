@@ -1,5 +1,5 @@
-import { Component, AfterViewInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -34,7 +34,15 @@ import { RouterLink } from '@angular/router';
                  [style.animation-delay]="(i * 0.1) + 's'">
               <div class="phase-header">
                 <div class="phase-num" [style.background]="phase.gradient">{{ phase.num }}</div>
-                <div class="phase-icon">{{ phase.icon }}</div>
+                <div class="phase-icon" style="color: var(--color-primary-light)">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="phase.num === '01'"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="phase.num === '02'"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="phase.num === '03'"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 2 12 22Z"/><circle cx="12" cy="12" r="4"/></svg>
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="phase.num === '04'"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="phase.num === '05'"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="phase.num === '06'"><polygon points="12 2 19 21 12 17 5 21 12 2"/></svg>
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="phase.num === '07'"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                </div>
               </div>
               <h3 class="phase-title">{{ phase.title }}</h3>
               <p class="phase-desc">{{ phase.desc }}</p>
@@ -101,7 +109,12 @@ import { RouterLink } from '@angular/router';
           </div>
           <div class="comm-grid">
             <div class="comm-card reveal" *ngFor="let c of communication">
-              <div class="cc-icon">{{ c.icon }}</div>
+              <div class="cc-icon" style="color: #6366f1">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="c.title === 'Weekly Progress Reports'"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="c.title === 'Sprint Demos'"><path d="M23 7a2 2 0 0 0-2.45-1.45L16 7V5a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2l4.55 1.45A2 2 0 0 0 23 17V7z"/></svg>
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="c.title === 'Direct Chat Access'"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="c.title === 'Strategy Calls'"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 3.07 9.81 19.79 19.79 0 0 1 .33 4.18 2 2 0 0 1 2.31 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0.7 2.81 2 2 0 0 1-.45 2.11L6.91 9.91a16 16 0 0 0 6.18 6.18l.76-.76a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
               <h4>{{ c.title }}</h4>
               <p>{{ c.desc }}</p>
               <span class="cc-freq">{{ c.freq }}</span>
@@ -126,6 +139,7 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./process.scss']
 })
 export class ProcessComponent implements AfterViewInit {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
   phases = [
     {
       num: '01', icon: '🔍', title: 'Discovery & Requirements',
@@ -199,10 +213,12 @@ export class ProcessComponent implements AfterViewInit {
   ];
 
   ngAfterViewInit() {
-    const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.1 });
-    reveals.forEach(el => observer.observe(el));
+    if (isPlatformBrowser(this.platformId)) {
+      const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+      }, { threshold: 0.1 });
+      reveals.forEach(el => observer.observe(el));
+    }
   }
 }

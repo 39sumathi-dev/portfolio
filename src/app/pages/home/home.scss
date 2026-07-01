@@ -585,7 +585,7 @@
 /* ===== WHY US ===== */
 .why-section {
   position: relative;
-  background: linear-gradient(135deg, rgba(5, 8, 22, 0.98) 0%, rgba(10, 15, 41, 0.98) 100%);
+  background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-dark-2) 100%);
 
   &::before {
     content: '';
@@ -677,7 +677,7 @@
       padding: 2.5rem;
     }
 
-    .proj-emoji {
+    .proj-icon-wrap {
       transform: scale(1.15);
     }
   }
@@ -693,11 +693,19 @@
   transition: padding 0.35s ease;
 }
 
-.proj-emoji {
-  font-size: 5rem;
+.proj-icon-wrap {
   position: relative;
   z-index: 2;
   transition: transform 0.35s var(--transition-spring);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: 64px;
+    height: 64px;
+    filter: drop-shadow(0 0 10px currentColor);
+  }
 }
 
 .proj-glow {

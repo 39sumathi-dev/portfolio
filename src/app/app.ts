@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { NavbarComponent } from './components/navbar/navbar';
 import { FooterComponent } from './components/footer/footer';
 import { WhatsappButtonComponent } from './components/whatsapp-button/whatsapp-button';
+import { SeoService } from './services/seo.service';
+import { ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -38,23 +40,50 @@ import { WhatsappButtonComponent } from './components/whatsapp-button/whatsapp-b
   `]
 })
 export class App implements OnInit {
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private seoService: SeoService,
+    private themeService: ThemeService,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
 
   ngOnInit() {
     this.router.events
       .pipe(filter(e => e instanceof NavigationEnd))
       .subscribe(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        // Update page title based on route data
+        if (isPlatformBrowser(this.platformId)) {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // Update SEO Meta tags based on active route
         const currentRoute = this.router.routerState.snapshot.root;
-        const title = this.getTitle(currentRoute);
-        if (title) document.title = title;
+        this.updateSeoMetadata(currentRoute);
       });
   }
 
-  private getTitle(route: any): string {
+  private updateSeoMetadata(route: any) {
     let child = route;
     while (child.firstChild) child = child.firstChild;
-    return child.data?.['title'] || 'Conceptra Labs';
+    
+    const data = child.data || {};
+    const title = data['title'] || 'Conceptra Labs — Design. Develop. Automate. Grow.';
+    const description = data['description'] || 'Conceptra Labs is a premium digital product agency specializing in web development, app development, AI automation, ERP systems, and scalable digital solutions.';
+    const keywords = data['keywords'];
+    const robots = data['robots'];
+    const image = data['ogImage'];
+    const type = data['type'];
+    const url = 'https://conceptralabs.com' + this.router.url;
+    const schema = data['schema'];
+
+    this.seoService.updateMeta({
+      title,
+      description,
+      keywords,
+      robots,
+      image,
+      type,
+      url,
+      schema
+    });
   }
 }

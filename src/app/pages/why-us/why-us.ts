@@ -1,5 +1,5 @@
-import { Component, AfterViewInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -30,7 +30,14 @@ import { RouterLink } from '@angular/router';
           </div>
           <div class="fail-grid">
             <div class="fail-card reveal" *ngFor="let f of failReasons">
-              <div class="fail-icon">{{ f.icon }}</div>
+              <div class="fail-icon" style="color: #ef4444">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="f.title === 'Wrong Tech Partner'"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="f.title === 'No Clear Strategy'"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="f.title === 'Poor UX Design'"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="f.title === 'Slow & Unscalable'"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="f.title === 'Security Vulnerabilities'"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="f.title === 'No Post-Launch Support'"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="17" y1="8" x2="23" y2="14"/><line x1="23" y1="8" x2="17" y2="14"/></svg>
+              </div>
               <h4>{{ f.title }}</h4>
               <p>{{ f.desc }}</p>
             </div>
@@ -77,7 +84,14 @@ import { RouterLink } from '@angular/router';
           </div>
           <div class="benefits-grid">
             <div class="benefit-big-card reveal" *ngFor="let b of benefits">
-              <div class="bbc-icon">{{ b.icon }}</div>
+              <div class="bbc-icon" style="color: #10b981">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="b.title === 'Proven ROI'"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="b.title === 'Speed Without Compromise'"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="b.title === 'Long-term Scalability'"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="b.title === 'Dedicated Support'"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="b.title === 'AI-Powered Advantage'"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="b.title === 'Business Strategy First'"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+              </div>
               <div class="bbc-content">
                 <h3>{{ b.title }}</h3>
                 <p>{{ b.desc }}</p>
@@ -110,6 +124,7 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./why-us.scss']
 })
 export class WhyUsComponent implements AfterViewInit {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
   failReasons = [
     { icon: '❌', title: 'Wrong Tech Partner', desc: 'Choosing based on price alone leads to poor quality, missed deadlines, and costly rework.' },
     { icon: '🔄', title: 'No Clear Strategy', desc: 'Building technology without a clear digital strategy results in wasted investment and fragmented systems.' },
@@ -142,10 +157,12 @@ export class WhyUsComponent implements AfterViewInit {
   ];
 
   ngAfterViewInit() {
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.1 });
-    reveals.forEach(el => observer.observe(el));
+    if (isPlatformBrowser(this.platformId)) {
+      const reveals = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+      }, { threshold: 0.1 });
+      reveals.forEach(el => observer.observe(el));
+    }
   }
 }
