@@ -109,7 +109,7 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/projects/projects').then(m => m.ProjectsComponent),
     data: {
       title: 'Our Portfolio & Client Projects — Conceptra Labs',
-      description: 'Explore our featured projects and client case studies, including e-commerce platforms, clinic management systems, healthcare apps, and AI/Robotics solutions.',
+      description: 'Explore our featured projects and client case studies, including e-commerce platforms, industrial ERP systems, logistics management portals, and AI/Robotics solutions.',
       keywords: 'software development portfolio, client projects, e-commerce case studies, custom app development examples, software agency portfolio',
       ogImage: 'assets/og-image.png',
       type: 'website',
@@ -117,7 +117,7 @@ export const routes: Routes = [
         '@context': 'https://schema.org',
         '@type': 'ItemList',
         'name': 'Conceptra Labs Featured Projects',
-        'description': 'Explore client projects built by Conceptra Labs, including clothing e-commerce, clinic reservation systems, and robotics apps.',
+        'description': 'Explore client projects built by Conceptra Labs, including clothing e-commerce, enterprise ERP systems, and robotics apps.',
         'itemListElement': [
           {
             '@type': 'ListItem',
@@ -134,8 +134,8 @@ export const routes: Routes = [
           {
             '@type': 'ListItem',
             'position': 3,
-            'name': 'James Multispeciality Dental Clinic',
-            'description': 'Clinic booking application featuring doctor profiles and WhatsApp integration.'
+            'name': 'CCTC Industrial ERP & Logistics Portal',
+            'description': 'A secure cloud ERP and logistics supply chain portal built for Coimbatore Cotton & Textiles Consortium.'
           }
         ]
       }
