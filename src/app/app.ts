@@ -72,7 +72,7 @@ export class App implements OnInit {
     const robots = data['robots'];
     const image = data['ogImage'];
     const type = data['type'];
-    const url = 'https://conceptralabs.com' + this.router.url;
+    const url = 'https://conceptralabs.in' + this.router.url;
     const schema = data['schema'];
 
     this.seoService.updateMeta({

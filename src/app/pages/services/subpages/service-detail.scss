@@ -1,0 +1,455 @@
+/* =========================================
+   CONCEPTRA LABS - Service Detail Shared Styles
+   ========================================= */
+
+.service-detail-page {
+  /* Breadcrumbs Navigation */
+  .breadcrumbs-bar {
+    padding: 1.25rem 0;
+    background: rgba(15, 23, 42, 0.4);
+    border-bottom: 1px solid var(--border-color);
+
+    .breadcrumbs-list {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      list-style: none;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+
+      .breadcrumb-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        a {
+          color: var(--text-secondary);
+          transition: var(--transition-base);
+
+          &:hover {
+            color: var(--color-primary-light);
+          }
+        }
+
+        &.active {
+          color: var(--text-primary);
+          font-weight: 500;
+        }
+
+        .separator {
+          color: var(--text-muted);
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+
+  /* Service Hero */
+  .service-hero {
+    position: relative;
+    padding: var(--spacing-3xl) 0 var(--spacing-2xl);
+    overflow: hidden;
+
+    .sh-bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+
+      .sh-orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(100px);
+        opacity: 0.15;
+
+        &-1 {
+          width: 500px;
+          height: 500px;
+          background: var(--color-primary);
+          top: -100px;
+          left: -100px;
+        }
+
+        &-2 {
+          width: 400px;
+          height: 400px;
+          background: var(--color-secondary);
+          bottom: -100px;
+          right: -100px;
+        }
+      }
+    }
+
+    .sh-content {
+      position: relative;
+      z-index: 1;
+      max-width: 850px;
+
+      .sh-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.4rem 1rem;
+        background: rgba(99, 102, 241, 0.12);
+        border: 1px solid rgba(99, 102, 241, 0.25);
+        border-radius: var(--radius-full);
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--color-primary-light);
+        margin-bottom: 1.5rem;
+
+        .badge-dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: var(--color-success);
+          box-shadow: 0 0 10px var(--color-success);
+        }
+      }
+
+      h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        line-height: 1.15;
+        margin-bottom: 1.25rem;
+      }
+
+      p.sh-desc {
+        font-size: 1.15rem;
+        color: var(--text-secondary);
+        line-height: 1.8;
+        margin-bottom: 2rem;
+      }
+
+      .sh-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        align-items: center;
+      }
+    }
+  }
+
+  /* Pain Points Section */
+  .pain-points-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+
+    .pain-card {
+      background: var(--bg-glass);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      transition: var(--transition-base);
+
+      &:hover {
+        border-color: rgba(239, 68, 68, 0.4);
+        background: rgba(239, 68, 68, 0.03);
+      }
+
+      .pain-header {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+
+        .pain-icon {
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+          background: rgba(239, 68, 68, 0.15);
+          color: #ef4444;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: bold;
+        }
+
+        h3 {
+          font-size: 1.15rem;
+          color: var(--text-primary);
+        }
+      }
+
+      p.pain-desc {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
+      }
+
+      .solution-box {
+        padding: 0.85rem 1rem;
+        background: rgba(16, 185, 129, 0.08);
+        border: 1px solid rgba(16, 185, 129, 0.2);
+        border-radius: var(--radius-md);
+        font-size: 0.9rem;
+        color: #34d399;
+
+        strong {
+          color: #10b981;
+        }
+      }
+    }
+  }
+
+  /* Features & Capabilities Grid */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+
+    .feature-card {
+      background: var(--bg-glass);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      transition: var(--transition-base);
+      position: relative;
+      overflow: hidden;
+
+      &:hover {
+        border-color: var(--border-color-hover);
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .feat-icon-wrap {
+        width: 52px;
+        height: 52px;
+        border-radius: var(--radius-md);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.25rem;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+      }
+
+      p {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        line-height: 1.65;
+      }
+    }
+  }
+
+  /* Development Workflow Steps */
+  .process-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+
+    .step-card {
+      background: var(--bg-glass);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      position: relative;
+
+      .step-num {
+        font-family: var(--font-primary);
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--color-primary-light);
+        opacity: 0.4;
+        margin-bottom: 0.75rem;
+      }
+
+      h3 {
+        font-size: 1.15rem;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+      }
+    }
+  }
+
+  /* Tech Stack Grid */
+  .tech-stack-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+
+    .tech-chip {
+      padding: 0.6rem 1.25rem;
+      background: var(--bg-glass);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-full);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      transition: var(--transition-base);
+
+      &:hover {
+        border-color: var(--color-primary-light);
+        background: var(--bg-glass-hover);
+        color: var(--color-primary-light);
+      }
+    }
+  }
+
+  /* Why Choose Us Grid */
+  .why-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+
+    .why-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      background: var(--bg-glass);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+
+      .why-check {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: rgba(16, 185, 129, 0.15);
+        color: #10b981;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      h4 {
+        font-size: 1.05rem;
+        margin-bottom: 0.35rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+      }
+    }
+  }
+
+  /* Industries Grid */
+  .industries-wrap {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+
+    .industry-card {
+      background: var(--bg-glass);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      text-align: center;
+
+      .ind-icon {
+        font-size: 1.75rem;
+        margin-bottom: 0.5rem;
+      }
+
+      h4 {
+        font-size: 0.95rem;
+        color: var(--text-primary);
+      }
+    }
+  }
+
+  /* Accordion FAQs */
+  .faq-list {
+    max-width: 800px;
+    margin: 2rem auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .faq-item {
+      background: var(--bg-glass);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: var(--transition-base);
+
+      .faq-question {
+        width: 100%;
+        padding: 1.25rem 1.5rem;
+        background: none;
+        border: none;
+        color: var(--text-primary);
+        font-family: var(--font-primary);
+        font-size: 1.05rem;
+        font-weight: 600;
+        text-align: left;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+
+        .faq-icon {
+          transition: transform 0.3s ease;
+        }
+
+        &.active .faq-icon {
+          transform: rotate(180deg);
+        }
+      }
+
+      .faq-answer {
+        padding: 0 1.5rem 1.25rem;
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        line-height: 1.7;
+      }
+    }
+  }
+
+  /* Related Services */
+  .related-services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+
+    .rel-card {
+      background: var(--bg-glass);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition-base);
+
+      &:hover {
+        border-color: var(--color-primary-light);
+        transform: translateY(-3px);
+      }
+
+      h4 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+        margin-bottom: 1rem;
+      }
+
+      .rel-link {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--color-primary-light);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+      }
+    }
+  }
+}

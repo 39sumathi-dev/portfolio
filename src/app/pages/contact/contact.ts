@@ -45,10 +45,10 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
               </a>
 
               <!-- Email Card -->
-              <a href="mailto:conceptra.edu@gmail.com" class="contact-card contact-card--link">
+              <a href="mailto:contact@conceptralabs.in" class="contact-card contact-card--link">
                 <div class="cc-icon cc-email">📧</div>
                 <h3>Email Us</h3>
-                <p class="cc-primary">conceptra.edu&#64;gmail.com</p>
+                <p class="cc-primary">contact&#64;conceptralabs.in</p>
                 <span class="cc-hint">We reply within 2–4 hours</span>
               </a>
 
@@ -67,10 +67,9 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
             <div class="contact-social reveal">
               <p class="social-label">Connect with us</p>
               <div class="social-links">
-                <a href="https://linkedin.com/company/conceptralabs" target="_blank" rel="noopener noreferrer" class="social-chip" aria-label="Visit our LinkedIn profile">💼 LinkedIn</a>
+                <a href="https://www.linkedin.com/company/conceptra-labs/" target="_blank" rel="noopener noreferrer" class="social-chip" aria-label="Visit our LinkedIn profile">💼 LinkedIn</a>
                 <a href="https://instagram.com/conceptralabs" target="_blank" rel="noopener noreferrer" class="social-chip" aria-label="Visit our Instagram profile">📸 Instagram</a>
                 <a href="https://github.com/conceptralabs" target="_blank" rel="noopener noreferrer" class="social-chip" aria-label="Visit our GitHub profile">💻 GitHub</a>
-                <a href="https://x.com/conceptralabs" target="_blank" rel="noopener noreferrer" class="social-chip" aria-label="Visit our Twitter/X profile">🐦 Twitter / X</a>
               </div>
             </div>
 

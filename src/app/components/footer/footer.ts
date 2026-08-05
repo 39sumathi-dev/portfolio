@@ -41,11 +41,8 @@ import { CommonModule } from '@angular/common';
             </p>
             <!-- Social Links -->
             <div class="footer-social">
-              <a href="https://linkedin.com/company/conceptralabs" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/company/conceptra-labs/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-              </a>
-              <a href="https://x.com/conceptralabs" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter/X">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
               </a>
               <a href="https://instagram.com/conceptralabs" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
@@ -86,11 +83,11 @@ import { CommonModule } from '@angular/common';
           <div class="footer-col">
             <h4 class="footer-col-title">Get In Touch</h4>
             <div class="footer-contact-list">
-              <a href="mailto:conceptra.edu@gmail.com" class="footer-contact-item">
+              <a href="mailto:contact@conceptralabs.in" class="footer-contact-item">
                 <div class="contact-icon">
                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>
                 </div>
-                conceptra.edu@gmail.com
+                contact@conceptralabs.in
               </a>
               <a href="tel:+919719759208" class="footer-contact-item">
                 <div class="contact-icon">

@@ -36,20 +36,21 @@ export class SeoService {
     this.metaService.updateTag({ name: 'robots', content: config.robots || 'index, follow' });
     this.metaService.updateTag({ name: 'author', content: 'Conceptra Labs' });
 
-    // 3. Set Open Graph (Facebook / LinkedIn / Slack) tags
+    // 3. Set Open Graph tags
     this.metaService.updateTag({ property: 'og:title', content: config.title });
     this.metaService.updateTag({ property: 'og:description', content: config.description });
     this.metaService.updateTag({ property: 'og:type', content: config.type || 'website' });
+    this.metaService.updateTag({ property: 'og:site_name', content: 'Conceptra Labs' });
     
     const imageUrl = config.image || this.defaultImage;
-    const fullImageUrl = imageUrl.startsWith('http') ? imageUrl : `https://conceptralabs.com/${imageUrl}`;
+    const fullImageUrl = imageUrl.startsWith('http') ? imageUrl : `https://conceptralabs.in/${imageUrl}`;
     this.metaService.updateTag({ property: 'og:image', content: fullImageUrl });
 
     if (config.url) {
       this.metaService.updateTag({ property: 'og:url', content: config.url });
     }
 
-    // 4. Set Twitter Card tags
+    // 4. Set Twitter Card tags (Platform Preview Compatibility)
     this.metaService.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
     this.metaService.updateTag({ name: 'twitter:title', content: config.title });
     this.metaService.updateTag({ name: 'twitter:description', content: config.description });
@@ -93,16 +94,16 @@ export class SeoService {
       '@context': 'https://schema.org',
       '@graph': [
         {
-          '@type': 'ProfessionalService',
-          '@id': 'https://conceptralabs.com/#organization',
+          '@type': 'SoftwareCompany',
+          '@id': 'https://conceptralabs.in/#organization',
           'name': 'Conceptra Labs',
-          'url': 'https://conceptralabs.com',
-          'logo': 'https://conceptralabs.com/assets/conceptra-logo.jpeg',
-          'image': 'https://conceptralabs.com/assets/og-image.png',
-          'email': 'conceptra.edu@gmail.com',
+          'url': 'https://conceptralabs.in',
+          'logo': 'https://conceptralabs.in/assets/conceptra-logo.jpeg',
+          'image': 'https://conceptralabs.in/assets/og-image.png',
+          'email': 'contact@conceptralabs.in',
           'telephone': '+91-97107-59208',
-          'priceRange': '$$',
-          'description': 'Conceptra Labs is a premium software development agency in Chennai and Bengaluru specializing in web development, mobile apps, custom ERP systems, and AI automation.',
+          'priceRange': '₹₹ - ₹₹₹',
+          'description': 'Conceptra Labs is a premium software development company in Chennai and Bengaluru specializing in web development, mobile apps, custom ERP systems, and AI automation.',
           'address': [
             {
               '@type': 'PostalAddress',
@@ -118,18 +119,17 @@ export class SeoService {
             }
           ],
           'sameAs': [
-            'https://linkedin.com/company/conceptralabs',
-            'https://instagram.com/conceptralabs',
-            'https://github.com/conceptralabs'
+            'https://www.linkedin.com/company/conceptra-labs/',
+            'https://instagram.com/conceptralabs'
           ]
         },
         {
           '@type': 'WebSite',
-          '@id': 'https://conceptralabs.com/#website',
-          'url': 'https://conceptralabs.com',
+          '@id': 'https://conceptralabs.in/#website',
+          'url': 'https://conceptralabs.in',
           'name': 'Conceptra Labs',
           'publisher': {
-            '@id': 'https://conceptralabs.com/#organization'
+            '@id': 'https://conceptralabs.in/#organization'
           }
         }
       ]
