@@ -1,11 +1,13 @@
-<section class="hero-section">
+<section class="hero-section" (mousemove)="onMouseMoveHero($event)">
   <div class="hero-bg">
-    <div class="hero-grid"></div>
-    <div class="hero-orb orb-1"></div>
-    <div class="hero-orb orb-2"></div>
-    <div class="hero-orb orb-3"></div>
-    <div class="hero-lines">
-      <div class="line" *ngFor="let i of [1,2,3,4,5]"></div>
+    <div class="hero-ambient-layer" [style.transform]="'translate3d(' + heroTranslateX + 'px, ' + heroTranslateY + 'px, 0)'">
+      <div class="hero-grid"></div>
+      <div class="hero-orb orb-1"></div>
+      <div class="hero-orb orb-2"></div>
+      <div class="hero-orb orb-3"></div>
+      <div class="hero-lines">
+        <div class="line" *ngFor="let i of [1,2,3,4,5]"></div>
+      </div>
     </div>
   </div>
 
@@ -293,6 +295,229 @@
           <path d="M5 12h14M12 5l7 7-7 7" />
         </svg>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SYSTEM ARCHITECTURE FLOW SECTION ========== -->
+<section class="section architecture-section" id="architecture">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Enterprise Systems Engineering</span>
+      <h2>How We Connect Your <span class="gradient-text">Business Systems</span></h2>
+      <p>From legacy enterprise software and APIs to modern cloud platforms, ERPs, and AI-powered workflows, we engineer connected digital architectures that scale seamlessly.</p>
+    </div>
+
+    <div class="arch-container reveal">
+      <!-- Desktop Architecture Diagram (SVG + Nodes) -->
+      <div class="arch-diagram-wrap hide-mobile">
+        <svg class="arch-svg-canvas" viewBox="0 0 1000 480" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="archGradPrimary" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#6366f1" />
+              <stop offset="100%" stop-color="#06b6d4" />
+            </linearGradient>
+            <linearGradient id="archGradAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#8b5cf6" />
+              <stop offset="100%" stop-color="#f59e0b" />
+            </linearGradient>
+          </defs>
+
+          <!-- Connecting Lines Hub to Nodes -->
+          <!-- ERP Node Line (Top Left) -->
+          <path d="M 500 240 L 220 110" class="arch-line" [class.active]="activeArchNodeId === 'erp'" />
+          <path d="M 500 240 L 220 110" class="arch-line-pulse" [class.active]="activeArchNodeId === 'erp'" />
+
+          <!-- AI Engine Line (Top Right) -->
+          <path d="M 500 240 L 780 110" class="arch-line" [class.active]="activeArchNodeId === 'ai'" />
+          <path d="M 500 240 L 780 110" class="arch-line-pulse" [class.active]="activeArchNodeId === 'ai'" />
+
+          <!-- API Gateway Line (Bottom Left) -->
+          <path d="M 500 240 L 220 370" class="arch-line" [class.active]="activeArchNodeId === 'api'" />
+          <path d="M 500 240 L 220 370" class="arch-line-pulse" [class.active]="activeArchNodeId === 'api'" />
+
+          <!-- Cloud & DB Line (Bottom Right) -->
+          <path d="M 500 240 L 780 370" class="arch-line" [class.active]="activeArchNodeId === 'cloud'" />
+          <path d="M 500 240 L 780 370" class="arch-line-pulse" [class.active]="activeArchNodeId === 'cloud'" />
+
+          <!-- Portals Line (Top Center) -->
+          <path d="M 500 240 L 500 70" class="arch-line" [class.active]="activeArchNodeId === 'ecommerce'" />
+          <path d="M 500 240 L 500 70" class="arch-line-pulse" [class.active]="activeArchNodeId === 'ecommerce'" />
+        </svg>
+
+        <!-- Central Integration Engine Hub -->
+        <div class="arch-core-hub">
+          <div class="core-pulse-ring"></div>
+          <div class="core-pulse-ring delay"></div>
+          <div class="core-inner">
+            <div class="core-logo">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <path d="M12 6v12M6 12h12" />
+              </svg>
+            </div>
+            <span class="core-title">Conceptra Integration Hub</span>
+            <span class="core-sub">Core Logic & Automation</span>
+          </div>
+        </div>
+
+        <!-- Node 1: ERP Systems (Top Left) -->
+        <div class="arch-node node-top-left"
+             [class.active]="activeArchNodeId === 'erp'"
+             (mouseenter)="setActiveArchNode('erp')"
+             (click)="setActiveArchNode('erp')"
+             tabindex="0"
+             (keydown.enter)="setActiveArchNode('erp')"
+             (keydown.space)="setActiveArchNode('erp')"
+             role="button"
+             aria-label="ERP Systems Architecture Node">
+          <div class="node-icon-wrap" style="color: #f59e0b; background: rgba(245, 158, 11, 0.12); border-color: rgba(245, 158, 11, 0.3);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <div class="node-meta">
+            <span class="node-tag">Core ERP</span>
+            <h3 class="node-name">ERP & Operations</h3>
+          </div>
+        </div>
+
+        <!-- Node 2: AI & LLM Services (Top Right) -->
+        <div class="arch-node node-top-right"
+             [class.active]="activeArchNodeId === 'ai'"
+             (mouseenter)="setActiveArchNode('ai')"
+             (click)="setActiveArchNode('ai')"
+             tabindex="0"
+             (keydown.enter)="setActiveArchNode('ai')"
+             (keydown.space)="setActiveArchNode('ai')"
+             role="button"
+             aria-label="AI and LLM Services Node">
+          <div class="node-icon-wrap" style="color: #8b5cf6; background: rgba(139, 92, 246, 0.12); border-color: rgba(139, 92, 246, 0.3);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+              <line x1="9" y1="9" x2="15" y2="9"/>
+              <line x1="9" y1="13" x2="15" y2="13"/>
+              <line x1="9" y1="17" x2="15" y2="17"/>
+            </svg>
+          </div>
+          <div class="node-meta">
+            <span class="node-tag">AI Intelligence</span>
+            <h3 class="node-name">AI & LLM Engines</h3>
+          </div>
+        </div>
+
+        <!-- Node 3: API Gateway (Bottom Left) -->
+        <div class="arch-node node-bottom-left"
+             [class.active]="activeArchNodeId === 'api'"
+             (mouseenter)="setActiveArchNode('api')"
+             (click)="setActiveArchNode('api')"
+             tabindex="0"
+             (keydown.enter)="setActiveArchNode('api')"
+             (keydown.space)="setActiveArchNode('api')"
+             role="button"
+             aria-label="API and Communication Gateway Node">
+          <div class="node-icon-wrap" style="color: #06b6d4; background: rgba(6, 182, 212, 0.12); border-color: rgba(6, 182, 212, 0.3);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+            </svg>
+          </div>
+          <div class="node-meta">
+            <span class="node-tag">API & Comms</span>
+            <h3 class="node-name">API & WhatsApp Gateway</h3>
+          </div>
+        </div>
+
+        <!-- Node 4: Cloud & DB (Bottom Right) -->
+        <div class="arch-node node-bottom-right"
+             [class.active]="activeArchNodeId === 'cloud'"
+             (mouseenter)="setActiveArchNode('cloud')"
+             (click)="setActiveArchNode('cloud')"
+             tabindex="0"
+             (keydown.enter)="setActiveArchNode('cloud')"
+             (keydown.space)="setActiveArchNode('cloud')"
+             role="button"
+             aria-label="Cloud Infrastructure Node">
+          <div class="node-icon-wrap" style="color: #6366f1; background: rgba(99, 102, 241, 0.12); border-color: rgba(99, 102, 241, 0.3);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+            </svg>
+          </div>
+          <div class="node-meta">
+            <span class="node-tag">Cloud & DB</span>
+            <h3 class="node-name">Cloud Systems & DB</h3>
+          </div>
+        </div>
+
+        <!-- Node 5: Web & Portals (Top Center) -->
+        <div class="arch-node node-top-center"
+             [class.active]="activeArchNodeId === 'ecommerce'"
+             (mouseenter)="setActiveArchNode('ecommerce')"
+             (click)="setActiveArchNode('ecommerce')"
+             tabindex="0"
+             (keydown.enter)="setActiveArchNode('ecommerce')"
+             (keydown.space)="setActiveArchNode('ecommerce')"
+             role="button"
+             aria-label="Digital Portals Node">
+          <div class="node-icon-wrap" style="color: #10b981; background: rgba(16, 185, 129, 0.12); border-color: rgba(16, 185, 129, 0.3);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+              <line x1="8" y1="21" x2="16" y2="21"/>
+              <line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+          </div>
+          <div class="node-meta">
+            <span class="node-tag">Frontend & Web</span>
+            <h3 class="node-name">Portals & E-Commerce</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active Node Inspector Panel (Desktop) -->
+      <div class="arch-inspector hide-mobile" *ngIf="activeArchNode">
+        <div class="inspector-badge" [style.color]="activeArchNode.color" [style.background]="'rgba(' + hexToRgbStr(activeArchNode.color) + ', 0.12)'">
+          {{ activeArchNode.badge }}
+        </div>
+        <h3 class="inspector-title">{{ activeArchNode.title }}</h3>
+        <p class="inspector-summary">{{ activeArchNode.summary }}</p>
+        <div class="inspector-caps">
+          <div class="cap-pill" *ngFor="let cap of activeArchNode.capabilities">
+            <span class="cap-dot" [style.background]="activeArchNode.color"></span>
+            {{ cap }}
+          </div>
+        </div>
+        <a [routerLink]="activeArchNode.link" class="btn btn-outline btn-sm inspector-link">
+          {{ activeArchNode.linkText }} →
+        </a>
+      </div>
+
+      <!-- Mobile Architecture Experience (Stacked Pipeline < 768px) -->
+      <div class="arch-mobile-pipeline hide-desktop">
+        <div class="mobile-arch-card" *ngFor="let node of archNodes"
+             [class.active]="activeArchNodeId === node.id"
+             (click)="setActiveArchNode(node.id)">
+          <div class="m-card-header">
+            <div class="m-card-icon" [style.color]="node.color" [style.background]="'rgba(' + hexToRgbStr(node.color) + ', 0.15)'">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path [attr.d]="node.icon" />
+              </svg>
+            </div>
+            <div>
+              <span class="m-card-tag">{{ node.badge }}</span>
+              <h3 class="m-card-title">{{ node.title }}</h3>
+            </div>
+          </div>
+          <p class="m-card-summary">{{ node.summary }}</p>
+          <div class="m-card-caps">
+            <div class="m-cap-pill" *ngFor="let cap of node.capabilities">
+              <span>✓</span> {{ cap }}
+            </div>
+          </div>
+          <a [routerLink]="node.link" class="btn btn-outline btn-sm m-card-btn">
+            {{ node.linkText }} →
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </section>

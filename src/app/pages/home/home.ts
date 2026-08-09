@@ -26,6 +26,103 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private counterInterval: any;
   private counterStarted = false;
 
+  // Ambient Hero Parallax Displacement
+  heroTranslateX = 0;
+  heroTranslateY = 0;
+  private animFrameId: any;
+
+  // Active Architecture System Node
+  activeArchNodeId = 'erp';
+
+  // Architecture System Nodes
+  archNodes = [
+    {
+      id: 'erp',
+      title: 'ERP & Operations',
+      category: 'Enterprise Core',
+      icon: 'M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z',
+      badge: 'Core Engine',
+      color: '#f59e0b',
+      summary: 'Centralized enterprise resource planning connecting inventory, financials, HR, and operational workflows.',
+      capabilities: [
+        'Automated Fee & Billing Pipelines',
+        'Real-time Inventory Sync',
+        'Role-based Access Control & Auditing',
+        'Custom Data Exports & PDF Reporting'
+      ],
+      link: '/services/school-erp-development',
+      linkText: 'Explore ERP Systems'
+    },
+    {
+      id: 'ai',
+      title: 'AI & LLM Services',
+      category: 'Intelligent Processing',
+      icon: 'M3 3h18v18H3z M9 9h6 M9 13h6 M9 17h6',
+      badge: 'AI Engine',
+      color: '#8b5cf6',
+      summary: 'Custom AI agents, RAG document search engines, LLM assistants, and automated data extraction pipelines.',
+      capabilities: [
+        'Document Parsing & Data Extraction',
+        'Custom RAG Knowledge Assistants',
+        'Predictive Analytics & Categorization',
+        'Automated Workflow Decision Trees'
+      ],
+      link: '/services/ai-automation',
+      linkText: 'Explore AI Automation'
+    },
+    {
+      id: 'api',
+      title: 'API & Comms Gateway',
+      category: 'System Integration',
+      icon: 'M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71',
+      badge: 'Integration Layer',
+      color: '#06b6d4',
+      summary: 'Unified API gateways bridging WhatsApp notifications, Razorpay/Stripe, CRMs, and third-party SaaS.',
+      capabilities: [
+        'WhatsApp & SMS Trigger Pipelines',
+        'Multi-currency Payment Integration',
+        'Bi-directional CRM & Accounting Sync',
+        'Rate-limited Webhook Listeners'
+      ],
+      link: '/services/business-automation',
+      linkText: 'Explore Automation'
+    },
+    {
+      id: 'cloud',
+      title: 'Cloud Systems & DB',
+      category: 'High-Scale Backend',
+      icon: 'M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z',
+      badge: 'Scale Infrastructure',
+      color: '#6366f1',
+      summary: 'Containerized microservices, PostgreSQL/MongoDB database clusters, and AWS/Docker cloud architecture.',
+      capabilities: [
+        'Docker Containerization & Microservices',
+        'High-Availability Database Clusters',
+        'Automated Backup & Failover',
+        'Zero-downtime CI/CD Deployment'
+      ],
+      link: '/services/custom-software-development',
+      linkText: 'Explore Cloud Tech'
+    },
+    {
+      id: 'ecommerce',
+      title: 'Portals & E-Commerce',
+      category: 'Client Touchpoints',
+      icon: 'M2 3h20v14H2z M8 21h8 M12 17v4',
+      badge: 'Frontend Systems',
+      color: '#10b981',
+      summary: 'Ultra-fast Angular client portals, e-commerce storefronts, and cross-platform mobile app interfaces.',
+      capabilities: [
+        'Sub-second Page Loading & SSR',
+        'Progressive Web Apps (PWA)',
+        'Real-time WebSocket Live Feeds',
+        'Omnichannel Mobile Synchronization'
+      ],
+      link: '/services/website-development',
+      linkText: 'Explore Web Systems'
+    }
+  ];
+
   // Services
   services = [
     { icon: '🌐', title: 'Web Development', desc: 'Stunning, high-performance websites built with modern frameworks and clean code.', color: '#6366f1' },
@@ -220,6 +317,38 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     clearInterval(this.counterInterval);
     clearInterval(this.testimonialInterval);
     if (this.observer) this.observer.disconnect();
+    if (this.animFrameId && isPlatformBrowser(this.platformId)) {
+      cancelAnimationFrame(this.animFrameId);
+    }
+  }
+
+  onMouseMoveHero(event: MouseEvent) {
+    if (!isPlatformBrowser(this.platformId)) return;
+    if (window.innerWidth < 1024) return;
+
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
+    const mouseX = (event.clientX - windowWidth / 2) / (windowWidth / 2);
+    const mouseY = (event.clientY - windowHeight / 2) / (windowHeight / 2);
+
+    if (this.animFrameId) {
+      cancelAnimationFrame(this.animFrameId);
+    }
+
+    this.animFrameId = requestAnimationFrame(() => {
+      this.heroTranslateX = mouseX * 8;
+      this.heroTranslateY = mouseY * 8;
+      this.cdr.markForCheck();
+    });
+  }
+
+  setActiveArchNode(id: string) {
+    this.activeArchNodeId = id;
+    this.cdr.markForCheck();
+  }
+
+  get activeArchNode() {
+    return this.archNodes.find(n => n.id === this.activeArchNodeId) || this.archNodes[0];
   }
 
 

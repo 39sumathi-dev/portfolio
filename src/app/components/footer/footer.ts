@@ -83,11 +83,11 @@ import { CommonModule } from '@angular/common';
           <div class="footer-col">
             <h4 class="footer-col-title">Get In Touch</h4>
             <div class="footer-contact-list">
-              <a href="mailto:contact@conceptralabs.in" class="footer-contact-item">
+              <a href="mailto:conceptra.edu@gmail.com" class="footer-contact-item">
                 <div class="contact-icon">
                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>
                 </div>
-                contact@conceptralabs.in
+                conceptra.edu@gmail.com
               </a>
               <a href="tel:+919719759208" class="footer-contact-item">
                 <div class="contact-icon">

@@ -1,12 +1,14 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { ThemeService } from '../../services/theme.service';
 
 export interface ServiceSubLink {
   label: string;
   path: string;
   iconSvg: string;
+  safeIconSvg?: SafeHtml;
   desc: string;
 }
 
@@ -46,7 +48,7 @@ export interface ServiceSubLink {
             <div *ngIf="link.hasDropdown && dropdownOpen" class="nav-dropdown">
               <div class="dropdown-grid">
                 <a *ngFor="let sub of serviceSubLinks" [routerLink]="sub.path" class="dropdown-item" (click)="hideDropdown()">
-                  <div class="dropdown-icon" [innerHTML]="sub.iconSvg"></div>
+                  <div class="dropdown-icon" [innerHTML]="sub.safeIconSvg"></div>
                   <div class="dropdown-text">
                     <span class="dropdown-title">{{ sub.label }}</span>
                     <span class="dropdown-desc">{{ sub.desc }}</span>
@@ -142,9 +144,17 @@ export class NavbarComponent implements OnInit {
     { label: 'Business Automation', path: '/services/business-automation', desc: 'ERP accounting sync & workflow pipelines', iconSvg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>' }
   ];
 
-  constructor(private themeService: ThemeService) {}
+  constructor(
+    private themeService: ThemeService,
+    private sanitizer: DomSanitizer
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.serviceSubLinks = this.serviceSubLinks.map(sub => ({
+      ...sub,
+      safeIconSvg: this.sanitizer.bypassSecurityTrustHtml(sub.iconSvg)
+    }));
+  }
 
   get currentTheme(): 'dark' | 'light' {
     return this.themeService.getTheme();
