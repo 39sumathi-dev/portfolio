@@ -331,11 +331,29 @@ export const routes: Routes = [
     path: 'why-us',
     loadComponent: () => import('./pages/why-us/why-us').then(m => m.WhyUsComponent),
     data: {
-      title: 'Why Choose Conceptra Labs — The Smart Choice for Technology',
-      description: 'See why ambitious businesses partner with Conceptra Labs instead of hiring freelancers. We focus on business growth, scaling, and high ROI.',
-      keywords: 'why choose Conceptra Labs, agency vs freelancer, software development ROI, custom software benefits',
+      title: 'Why Choose Conceptra Labs — Scalable Software & Engineering Partner',
+      description: 'See why ambitious businesses and founders partner with Conceptra Labs instead of freelancers. We deliver sub-second performance, zero single-person risk, and 24/7 SLA care.',
+      keywords: 'why choose Conceptra Labs, agency vs freelancer, custom software ROI, software agency Chennai, software developers Bangalore, SLA maintenance retainers',
       ogImage: 'assets/og-image.png',
-      type: 'website'
+      type: 'website',
+      schema: {
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'WebPage',
+            '@id': 'https://conceptralabs.in/why-us/#webpage',
+            'url': 'https://conceptralabs.in/why-us',
+            'name': 'Why Choose Conceptra Labs — Digital Engineering & SLA Partner',
+            'description': 'Discover why leading businesses partner with Conceptra Labs for web apps, mobile products, cloud ERP systems, and AI automation.'
+          },
+          {
+            '@type': 'SoftwareCompany',
+            '@id': 'https://conceptralabs.in/#organization',
+            'name': 'Conceptra Labs',
+            'url': 'https://conceptralabs.in'
+          }
+        ]
+      }
     }
   },
   {

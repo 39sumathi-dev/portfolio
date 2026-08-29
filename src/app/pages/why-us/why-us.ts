@@ -10,33 +10,34 @@ import { RouterLink } from '@angular/router';
     <div class="why-page">
       <!-- Hero -->
       <section class="page-hero">
-        <div class="ph-bg"><div class="ph-orb ph-orb-1"></div><div class="ph-orb ph-orb-2"></div></div>
+        <div class="ph-bg">
+          <div class="ph-orb ph-orb-1"></div>
+          <div class="ph-orb ph-orb-2"></div>
+        </div>
         <div class="container">
           <div class="ph-content reveal">
             <span class="section-label">Why Choose Us</span>
-            <h1>Why Smart Businesses Choose <span class="gradient-text">Conceptra Labs</span></h1>
-            <p>The technology partner that doesn't just deliver code — we deliver business transformation, ROI, and long-term competitive advantage.</p>
+            <h1>Why Ambitious Businesses Partner With <span class="gradient-text">Conceptra Labs</span></h1>
+            <p>We are a specialized digital engineering agency with tech hubs in Chennai & Bengaluru. We don't just deliver code — we architect scalable systems, automate operations, and guarantee SLA reliability.</p>
           </div>
         </div>
       </section>
 
-      <!-- Why businesses fail -->
+      <!-- Why Digital Projects Fail -->
       <section class="section fail-section">
         <div class="container">
-          <div class="section-header">
-            <span class="section-label">The Problem</span>
-            <h2>Why Businesses <span class="gradient-text">Fail Digitally</span></h2>
-            <p>Most digital projects fail not because of lack of effort, but because of wrong choices at the beginning.</p>
+          <div class="section-header reveal">
+            <span class="section-label">The Digital Pitfall</span>
+            <h2>Why Most Software Projects <span class="gradient-text">Fail to Scale</span></h2>
+            <p>Choosing the wrong technology partner leads to unscalable spaghetti code, missed launch deadlines, and costly rebuilds.</p>
           </div>
+
           <div class="fail-grid">
             <div class="fail-card reveal" *ngFor="let f of failReasons">
               <div class="fail-icon" style="color: #ef4444">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="f.title === 'Wrong Tech Partner'"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="f.title === 'No Clear Strategy'"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="f.title === 'Poor UX Design'"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="f.title === 'Slow & Unscalable'"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="f.title === 'Security Vulnerabilities'"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="f.title === 'No Post-Launch Support'"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="17" y1="8" x2="23" y2="14"/><line x1="23" y1="8" x2="17" y2="14"/></svg>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                </svg>
               </div>
               <h4>{{ f.title }}</h4>
               <p>{{ f.desc }}</p>
@@ -45,52 +46,54 @@ import { RouterLink } from '@angular/router';
         </div>
       </section>
 
-      <!-- Comparison Section -->
+      <!-- Freelancer vs Offshore vs Conceptra Labs Matrix -->
       <section class="section comparison-section">
         <div class="container">
-          <div class="section-header">
-            <span class="section-label">The Smart Choice</span>
-            <h2>Freelancer vs <span class="gradient-text">Professional Agency</span></h2>
-            <p>See why businesses that choose wisely grow faster and build stronger digital foundations.</p>
+          <div class="section-header reveal">
+            <span class="section-label">Engineering Capability Matrix</span>
+            <h2>Freelancer vs Offshore vs <span class="gradient-text">Conceptra Labs</span></h2>
+            <p>See why scaling companies choose Conceptra Labs to eliminate single-person risk and guarantee enterprise code quality.</p>
           </div>
-          <div class="comparison-table">
+
+          <div class="comparison-table reveal">
             <div class="ct-header">
-              <div class="ct-label">Feature</div>
-              <div class="ct-freelancer">Freelancer</div>
+              <div class="ct-label">Capability & Metric</div>
+              <div class="ct-freelancer">Solo Freelancer</div>
+              <div class="ct-freelancer">Offshore Outsource</div>
               <div class="ct-agency">Conceptra Labs ✨</div>
             </div>
-            <div class="ct-row reveal" *ngFor="let row of comparisonRows; let i = index"
-                 [style.animation-delay]="(i * 0.06) + 's'">
+
+            <div class="ct-row reveal" *ngFor="let row of comparisonRows">
               <div class="ct-feature">{{ row.feature }}</div>
               <div class="ct-cell freelancer-cell">
-                <span [class]="row.freelancer.good ? 'good' : 'bad'">{{ row.freelancer.good ? '✓' : '✗' }}</span>
-                {{ row.freelancer.text }}
+                <span class="bad">✗</span> {{ row.freelancer }}
+              </div>
+              <div class="ct-cell freelancer-cell">
+                <span class="bad">✗</span> {{ row.offshore }}
               </div>
               <div class="ct-cell agency-cell">
-                <span class="good">✓</span>
-                {{ row.agency }}
+                <span class="good">✓</span> {{ row.conceptra }}
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Benefits -->
+      <!-- Core Conceptra Advantages -->
       <section class="section">
         <div class="container">
-          <div class="section-header">
-            <span class="section-label">The Conceptra Advantage</span>
-            <h2>Benefits of Working <span class="gradient-text">With Us</span></h2>
+          <div class="section-header reveal">
+            <span class="section-label">The Conceptra Engineering Advantage</span>
+            <h2>Built for Speed, Security & <span class="gradient-text">High ROI</span></h2>
           </div>
+
           <div class="benefits-grid">
             <div class="benefit-big-card reveal" *ngFor="let b of benefits">
               <div class="bbc-icon" style="color: #10b981">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="b.title === 'Proven ROI'"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="b.title === 'Speed Without Compromise'"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="b.title === 'Long-term Scalability'"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="b.title === 'Dedicated Support'"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="b.title === 'AI-Powered Advantage'"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" *ngIf="b.title === 'Business Strategy First'"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
+                </svg>
               </div>
               <div class="bbc-content">
                 <h3>{{ b.title }}</h3>
@@ -109,12 +112,12 @@ import { RouterLink } from '@angular/router';
       <section class="section text-center">
         <div class="container">
           <div class="why-cta-box reveal">
-            <div class="wcb-badge">🚀 Let's Create Something Remarkable</div>
-            <h2>Stop Settling for Average. <span class="gradient-text">Choose Excellence.</span></h2>
-            <p>Your business deserves a technology partner that's as ambitious as you are. Let's build something extraordinary together.</p>
+            <div class="wcb-badge">🚀 Ready for Production Excellence?</div>
+            <h2>Choose a Technology Partner <span class="gradient-text">Built for Scale</span></h2>
+            <p>Schedule a technical consultation to receive an architectural schematic, timeline, and proposal within 24 hours.</p>
             <div class="flex-center gap-sm" style="margin-top: 2rem; flex-wrap: wrap;">
-              <a routerLink="/contact" class="btn btn-primary btn-lg">Start Your Project Today</a>
-              <a routerLink="/projects" class="btn btn-outline btn-lg">See Our Work First</a>
+              <a routerLink="/contact" class="btn btn-primary btn-lg">Request Technical Consultation</a>
+              <a routerLink="/projects" class="btn btn-outline btn-lg">Inspect Case Studies</a>
             </div>
           </div>
         </div>
@@ -125,35 +128,32 @@ import { RouterLink } from '@angular/router';
 })
 export class WhyUsComponent implements AfterViewInit {
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
   failReasons = [
-    { icon: '❌', title: 'Wrong Tech Partner', desc: 'Choosing based on price alone leads to poor quality, missed deadlines, and costly rework.' },
-    { icon: '🔄', title: 'No Clear Strategy', desc: 'Building technology without a clear digital strategy results in wasted investment and fragmented systems.' },
-    { icon: '📉', title: 'Poor UX Design', desc: 'A bad user experience drives customers away before they ever convert, regardless of your product quality.' },
-    { icon: '🐌', title: 'Slow & Unscalable', desc: 'Poorly architected systems buckle under load, creating downtime during your most critical growth moments.' },
-    { icon: '🔒', title: 'Security Vulnerabilities', desc: 'Cheap development often skips security best practices, leaving your data and customers at serious risk.' },
-    { icon: '👻', title: 'No Post-Launch Support', desc: 'Abandoned by developers after launch, businesses struggle with bugs, updates, and scaling alone.' }
+    { title: 'Single-Person Risk', desc: 'Hiring a solo freelancer leaves your codebase vulnerable if they become unavailable or change priorities.' },
+    { title: 'Spaghetti Codebase', desc: 'Building quickly without architecture standards leads to unmaintainable code that buckles under load.' },
+    { title: 'Poor Mobile UX', desc: 'Clunky interfaces drive potential leads away before they convert, regardless of product quality.' },
+    { title: 'Security Oversights', desc: 'Budget setups skip OWASP security scans, SSL certificates, and role-based data encryption.' },
+    { title: 'Hidden Project Costs', desc: 'Unclear initial requirements lead to massive scope creep and unexpected billing surprises.' },
+    { title: 'Abandoned Post-Launch', desc: 'Lack of dedicated maintenance support leaves systems vulnerable to database downtime and bugs.' }
   ];
 
   comparisonRows = [
-    { feature: 'Team & Expertise', freelancer: { good: false, text: 'Single person, limited skills' }, agency: 'Full team — design, dev, QA, strategy' },
-    { feature: 'Project Management', freelancer: { good: false, text: 'Often unstructured' }, agency: 'Agile methodology, PM dedicated' },
-    { feature: 'Quality Assurance', freelancer: { good: false, text: 'Usually self-tested only' }, agency: 'Dedicated QA team, automated testing' },
-    { feature: 'Availability', freelancer: { good: false, text: 'May take on other clients' }, agency: 'Committed bandwidth guaranteed' },
-    { feature: 'Code Standards', freelancer: { good: false, text: 'Varies significantly' }, agency: 'Industry best practices always' },
-    { feature: 'Post-Launch Support', freelancer: { good: false, text: 'Often unreliable' }, agency: '24/7 dedicated support team' },
-    { feature: 'Scalability Planning', freelancer: { good: false, text: 'Rarely considered' }, agency: 'Built-in from day one' },
-    { feature: 'Design Capability', freelancer: { good: false, text: 'Code-first, design secondary' }, agency: 'Premium UI/UX team included' },
-    { feature: 'Long-term Partnership', freelancer: { good: true, text: 'Possible but risky' }, agency: 'Structured, contractual commitment' },
-    { feature: 'Innovation & AI', freelancer: { good: false, text: 'Limited to individual skills' }, agency: 'Cutting-edge AI & tech expertise' }
+    { feature: 'Team Capacity', freelancer: 'Single person, limited stack', offshore: 'High developer turnover', conceptra: 'Dedicated architects, leads & QA' },
+    { feature: 'Architecture Standards', freelancer: 'Varies significantly', offshore: 'Generic boilerplate code', conceptra: 'Sub-second SSR & microservices' },
+    { feature: 'Security & Encryption', freelancer: 'Basic or omitted', offshore: 'Minimal compliance checks', conceptra: 'AES-256, OWASP audits & TLS 1.3' },
+    { feature: 'SLA Support Governance', freelancer: 'No guaranteed uptime SLA', offshore: 'Slow ticket response times', conceptra: '24/7 SLA care & <2hr response' },
+    { feature: 'IP & Code Ownership', freelancer: 'Ambiguous IP rights', offshore: 'Shared repository code', conceptra: '100% IP ownership & clean code' },
+    { feature: 'Pricing Transparency', freelancer: 'Hourly rate inflation', offshore: 'Hidden maintenance fees', conceptra: 'Clear INR pricing from ₹14,999' }
   ];
 
   benefits = [
-    { icon: '💰', title: 'Proven ROI', desc: 'Our clients see average revenue increases of 40-200% within 6 months of launch through better UX, faster performance, and smarter automation.', metric: { val: '150%', label: 'Average client revenue growth' } },
-    { icon: '⚡', title: 'Speed Without Compromise', desc: 'Agile sprints deliver working software faster. Our average project launches in 6-12 weeks, not months. Speed without sacrificing quality.', metric: { val: '6-12wk', label: 'Average delivery timeline' } },
-    { icon: '🔄', title: 'Long-term Scalability', desc: 'We architect systems for 100x growth. Your technology investment today becomes the foundation for tomorrow\'s expansion.', metric: null },
-    { icon: '🛡️', title: 'Dedicated Support', desc: 'Post-launch, our team remains your partner. Monthly retainers available for ongoing maintenance, feature additions, and growth support.', metric: { val: '24/7', label: 'Post-launch support' } },
-    { icon: '🤖', title: 'AI-Powered Advantage', desc: 'We integrate AI capabilities into your business that give you an unfair competitive advantage — automating tasks that competitors still do manually.', metric: null },
-    { icon: '🎯', title: 'Business Strategy First', desc: 'We don\'t just code — we think about your business goals, target users, and market position before writing a single line of code.', metric: null }
+    { title: 'Business Strategy First', desc: 'Every line of code is structured around your quantifiable business goals, target conversion rates, and revenue performance.', metric: { val: '140%', label: 'Average traffic growth' } },
+    { title: 'Sub-Second Web Speed', desc: 'Angular SSR and edge CDN assets deliver 95+ Core Web Vitals scores across mobile and desktop browsers.', metric: { val: '< 1.0s', label: 'Page load time' } },
+    { title: 'Zero Single-Person Risk', desc: 'Multi-disciplinary engineering teams ensure continuous development sprints, account oversight, and backup leads.', metric: { val: '100%', label: 'Account continuity' } },
+    { title: '24/7 Managed SLA Care', desc: 'Dedicated monthly support retainers provide daily encrypted cloud backups, 99.9% uptime monitoring, and rapid hotfixes.', metric: { val: '99.9%', label: 'Uptime SLA' } },
+    { title: 'Predictable Rupee Pricing', desc: 'Transparent project minimums starting at ₹14,999 and sprint retainers starting at ₹24,999/mo with zero hidden costs.', metric: { val: 'INR', label: 'Transparent pricing' } },
+    { title: 'AI & Webhook Automation', desc: 'Autonomous RAG AI chatbots and WhatsApp API notification pipelines that save 100s of manual admin hours.', metric: null }
   ];
 
   ngAfterViewInit() {
