@@ -130,6 +130,7 @@ export class NavbarComponent implements OnInit {
     { label: 'About', path: '/about', hasDropdown: false },
     { label: 'Services', path: '/services', hasDropdown: true },
     { label: 'Projects', path: '/projects', hasDropdown: false },
+    { label: 'Insights', path: '/insights', hasDropdown: false },
     { label: 'Why Us', path: '/why-us', hasDropdown: false },
     { label: 'Process', path: '/process', hasDropdown: false },
     { label: 'Contact', path: '/contact', hasDropdown: false }

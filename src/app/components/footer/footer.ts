@@ -89,18 +89,18 @@ import { CommonModule } from '@angular/common';
                 </div>
                 conceptra.edu@gmail.com
               </a>
-              <a href="tel:+919719759208" class="footer-contact-item">
+              <a href="tel:+919710759208" class="footer-contact-item">
                 <div class="contact-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.07 9.81 19.79 19.79 0 01.33 4.18 2 2 0 012.31 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 9.91a16 16 0 006.18 6.18l.76-.76a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
                 </div>
-                +919710759208
+                +91 97107 59208
               </a>
               <div class="footer-contact-item">
                 <div class="contact-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
                 </div>
                 Chennai, Tamil Nadu, India <br/>
-                Banglore, Karnataka, India
+                Bengaluru, Karnataka, India
               </div>
             </div>
 
@@ -120,7 +120,7 @@ import { CommonModule } from '@angular/common';
 
         <!-- Footer Bottom -->
         <div class="footer-bottom">
-          <p class="copyright">© 2025 Conceptra Labs. All rights reserved. Crafted with ❤️ in India.</p>
+          <p class="copyright">© 2026 Conceptra Labs. All rights reserved. Crafted with ❤️ in India.</p>
           <div class="footer-bottom-links">
             <a href="#" class="bottom-link">Privacy Policy</a>
             <a href="#" class="bottom-link">Terms of Service</a>
@@ -136,8 +136,9 @@ export class FooterComponent {
   quickLinks = [
     { label: 'Home', path: '/' },
     { label: 'About Us', path: '/about' },
-    { label: 'Services', path: '/services' },
+    { label: 'Services & Pricing', path: '/services' },
     { label: 'Portfolio', path: '/projects' },
+    { label: 'Engineering Insights', path: '/insights' },
     { label: 'Why Choose Us', path: '/why-us' },
     { label: 'How We Deliver', path: '/process' },
     { label: 'Contact', path: '/contact' }

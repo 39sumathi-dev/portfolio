@@ -387,6 +387,17 @@ export const routes: Routes = [
     }
   },
   {
+    path: 'insights',
+    loadComponent: () => import('./pages/insights/insights').then(m => m.InsightsComponent),
+    data: {
+      title: 'Engineering Insights & Tech Blueprints — Conceptra Labs',
+      description: 'Technical insights, AI automation guides, RAG system blueprints, and ERP architecture articles written by our engineering lead architects.',
+      keywords: 'AI automation articles, software architecture insights, RAG chatbots guide, Angular SSR optimization, school ERP microservices',
+      ogImage: 'assets/og-image.png',
+      type: 'blog'
+    }
+  },
+  {
     path: '**',
     redirectTo: ''
   }

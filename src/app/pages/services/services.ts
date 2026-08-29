@@ -16,14 +16,14 @@ import { RouterLink } from '@angular/router';
         </div>
         <div class="container">
           <div class="ph-content reveal">
-            <span class="section-label">What We Build</span>
-            <h1>Premium <span class="gradient-text">Digital Services</span></h1>
-            <p>Comprehensive technology solutions tailored for startups, SMEs, and enterprises. Each service is delivered with precision, passion, and a commitment to excellence.</p>
+            <span class="section-label">Digital Engineering & SLAs</span>
+            <h1>Capabilities & <span class="gradient-text">Engagement Models</span></h1>
+            <p>Comprehensive engineering services and predictable retainer models tailored for ambitious startups, scaling SMEs, and enterprise platforms.</p>
           </div>
         </div>
       </section>
 
-      <!-- Services List -->
+      <!-- Detailed Services List -->
       <section class="section">
         <div class="container">
           <div class="services-detailed">
@@ -57,8 +57,73 @@ import { RouterLink } from '@angular/router';
                     {{ b }}
                   </div>
                 </div>
-                <a routerLink="/contact" class="btn btn-primary">Get This Service</a>
+                <a routerLink="/contact" class="btn btn-primary">Request Proposal for {{ svc.title }}</a>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Managed SLA & Support Retainers Section -->
+      <section class="section retainers-section" style="background: var(--bg-card); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);" id="retainers">
+        <div class="container">
+          <div class="section-header reveal text-center">
+            <span class="section-label">Account Retention & Continuous Growth</span>
+            <h2>Managed Engineering & <span class="gradient-text">SLA Support Retainers</span></h2>
+            <p>Ensure long-term system health, guaranteed uptime response times, and continuous feature development with structured monthly SLA tiers.</p>
+          </div>
+
+          <div class="retainer-grid reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2.5rem;">
+            <!-- Care Tier -->
+            <div style="background: var(--bg-dark-1); border: 1px solid var(--border-color); border-radius: var(--radius-xl); padding: 2.5rem; display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <span style="font-size: 0.75rem; font-weight: 700; color: #10b981; text-transform: uppercase;">Essential Infrastructure</span>
+                <h3 style="font-size: 1.4rem; font-weight: 800; color: var(--text-primary); margin: 0.5rem 0 0.25rem;">Essential SLA Care</h3>
+                <div style="font-size: 1.5rem; font-weight: 800; color: #10b981; margin-bottom: 1rem;">Starting at ₹4,999 / mo</div>
+                <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 1.5rem;">Proactive maintenance for production websites, web applications, and database infrastructure.</p>
+                <ul style="list-style: none; padding: 0; margin: 0 0 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                  <li style="display: flex; gap: 0.5rem; font-size: 0.875rem; color: var(--text-secondary);"><span style="color: #10b981; font-weight: bold;">✓</span> 99.9% Application Uptime Guarantee</li>
+                  <li style="display: flex; gap: 0.5rem; font-size: 0.875rem; color: var(--text-secondary);"><span style="color: #10b981; font-weight: bold;">✓</span> Daily Encrypted Cloud Database Backups</li>
+                  <li style="display: flex; gap: 0.5rem; font-size: 0.875rem; color: var(--text-secondary);"><span style="color: #10b981; font-weight: bold;">✓</span> OWASP Security Vulnerability Scanning & Hotfixes</li>
+                  <li style="display: flex; gap: 0.5rem; font-size: 0.875rem; color: var(--text-secondary);"><span style="color: #10b981; font-weight: bold;">✓</span> Monthly Core Web Vitals & Traffic Audits</li>
+                </ul>
+              </div>
+              <a routerLink="/contact" class="btn btn-outline" style="width: 100%; justify-content: center;">Choose SLA Care</a>
+            </div>
+
+            <!-- Sprint Tier -->
+            <div style="background: var(--bg-dark-1); border: 1px solid var(--color-primary-light); border-radius: var(--radius-xl); padding: 2.5rem; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2); position: relative;">
+              <span style="position: absolute; top: -12px; right: 24px; background: var(--gradient-primary); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.85rem; border-radius: 12px; text-transform: uppercase;">Recommended</span>
+              <div>
+                <span style="font-size: 0.75rem; font-weight: 700; color: var(--color-primary-light); text-transform: uppercase;">Active Growth</span>
+                <h3 style="font-size: 1.4rem; font-weight: 800; color: var(--text-primary); margin: 0.5rem 0 0.25rem;">Dedicated Sprint Retainer</h3>
+                <div style="font-size: 1.5rem; font-weight: 800; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1rem;">Starting at ₹24,999 / mo</div>
+                <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 1.5rem;">Dedicated developer capacity for fast feature iterations, architectural enhancements, and API scaling.</p>
+                <ul style="list-style: none; padding: 0; margin: 0 0 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                  <li style="display: flex; gap: 0.5rem; font-size: 0.875rem; color: var(--text-secondary);"><span style="color: var(--color-primary-light); font-weight: bold;">✓</span> Dedicated Senior Software Developers</li>
+                  <li style="display: flex; gap: 0.5rem; font-size: 0.875rem; color: var(--text-secondary);"><span style="color: var(--color-primary-light); font-weight: bold;">✓</span> Bi-Weekly Agile Sprint Planning & Live Demos</li>
+                  <li style="display: flex; gap: 0.5rem; font-size: 0.875rem; color: var(--text-secondary);"><span style="color: var(--color-primary-light); font-weight: bold;">✓</span> Priority SLA Incident Response (&lt; 2 Hours)</li>
+                  <li style="display: flex; gap: 0.5rem; font-size: 0.875rem; color: var(--text-secondary);"><span style="color: var(--color-primary-light); font-weight: bold;">✓</span> Direct Slack / Microsoft Teams Dev Channel</li>
+                </ul>
+              </div>
+              <a routerLink="/contact" class="btn btn-primary" style="width: 100%; justify-content: center;">Reserve Sprint Capacity</a>
+            </div>
+
+            <!-- Enterprise Tier -->
+            <div style="background: var(--bg-dark-1); border: 1px solid var(--border-color); border-radius: var(--radius-xl); padding: 2.5rem; display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <span style="font-size: 0.75rem; font-weight: 700; color: #8b5cf6; text-transform: uppercase;">Scale Infrastructure</span>
+                <h3 style="font-size: 1.4rem; font-weight: 800; color: var(--text-primary); margin: 0.5rem 0 0.25rem;">Enterprise Managed Retainer</h3>
+                <div style="font-size: 1.5rem; font-weight: 800; color: #8b5cf6; margin-bottom: 1rem;">Custom Quote</div>
+                <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 1.5rem;">Custom SLA governance for high-volume databases, ERP integrations, and AI microservice clusters.</p>
+                <ul style="list-style: none; padding: 0; margin: 0 0 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                  <li style="display: flex; gap: 0.5rem; font-size: 0.875rem; color: var(--text-secondary);"><span style="color: #8b5cf6; font-weight: bold;">✓</span> Dedicated Chief Architect & Delivery Manager</li>
+                  <li style="display: flex; gap: 0.5rem; font-size: 0.875rem; color: var(--text-secondary);"><span style="color: #8b5cf6; font-weight: bold;">✓</span> Custom Uptime & Financial Penalty SLAs</li>
+                  <li style="display: flex; gap: 0.5rem; font-size: 0.875rem; color: var(--text-secondary);"><span style="color: #8b5cf6; font-weight: bold;">✓</span> 24/7 Dedicated On-Call Incident Engineer</li>
+                  <li style="display: flex; gap: 0.5rem; font-size: 0.875rem; color: var(--text-secondary);"><span style="color: #8b5cf6; font-weight: bold;">✓</span> Continuous Disaster Recovery Testing</li>
+                </ul>
+              </div>
+              <a routerLink="/contact" class="btn btn-outline" style="width: 100%; justify-content: center;">Discuss Enterprise Terms</a>
             </div>
           </div>
         </div>
@@ -67,9 +132,9 @@ import { RouterLink } from '@angular/router';
       <!-- CTA -->
       <section class="section-sm text-center">
         <div class="container">
-          <h2 class="reveal">Not Sure Which Service <span class="gradient-text">You Need?</span></h2>
-          <p class="reveal" style="color: var(--text-secondary); max-width:520px; margin: 1rem auto 2rem;">Book a free 30-minute consultation. We'll analyze your needs and recommend the perfect solution.</p>
-          <a routerLink="/contact" class="btn btn-primary btn-lg reveal">Book Free Consultation</a>
+          <h2 class="reveal">Need a Tailored Technical <span class="gradient-text">Solution?</span></h2>
+          <p class="reveal" style="color: var(--text-secondary); max-width:520px; margin: 1rem auto 2rem;">Book a technical consultation with our engineering leads to outline your software roadmap and receive a detailed quote within 24 hours.</p>
+          <a routerLink="/contact" class="btn btn-primary btn-lg reveal">Request Technical Audit</a>
         </div>
       </section>
     </div>
@@ -82,58 +147,58 @@ export class ServicesComponent implements AfterViewInit {
     {
       icon: '🌐', title: 'Web Development', category: 'Core Service',
       color: '#6366f1', rgb: '99,102,241',
-      desc: 'We craft stunning, high-performance websites that load fast, rank well, and convert visitors into customers. From landing pages to complex web platforms, every pixel is intentional.',
-      benefits: ['Custom design tailored to your brand', 'SEO-optimized architecture', 'Mobile-first responsive layout', 'Lightning-fast load times', 'Scalable codebase for future growth'],
+      desc: 'We craft stunning, high-performance websites and web platforms that load sub-second, rank on search engines, and convert visitors into loyal customers.',
+      benefits: ['Custom design tailored to your brand', 'SEO-optimized Angular SSR architecture', 'Mobile-first responsive layout', 'Sub-second load times & 95+ Core Web Vitals', 'Scalable codebase built for future growth'],
       tech: ['Angular', 'React', 'Next.js', 'Node.js', 'MongoDB']
     },
     {
       icon: '📱', title: 'App Development', category: 'Mobile Solutions',
       color: '#06b6d4', rgb: '6,182,212',
-      desc: 'Cross-platform mobile applications that deliver native-like performance across iOS and Android. Beautiful UX that keeps users engaged and businesses growing.',
-      benefits: ['Cross-platform (iOS & Android)', 'Native performance', 'Offline capability', 'Push notifications', 'App Store optimization support'],
-      tech: ['Flutter', 'React Native', 'Firebase', 'Node.js', 'Stripe']
+      desc: 'Cross-platform mobile applications that deliver native 60fps performance across iOS and Android. Built with offline data sync, push alerts, and intuitive UX.',
+      benefits: ['Cross-platform Flutter & React Native', '60fps native performance', 'Offline data sync & SQLite', 'Real-time push notifications', 'App Store & Play Store publishing support'],
+      tech: ['Flutter', 'React Native', 'Firebase', 'Node.js', 'Razorpay']
     },
     {
       icon: '🎨', title: 'UI/UX Design', category: 'Design Excellence',
       color: '#8b5cf6', rgb: '139,92,246',
-      desc: 'User-centered design that transforms complex workflows into intuitive, delightful experiences. We create interfaces that users love and that drive business results.',
-      benefits: ['User research & wireframing', 'Interactive prototypes', 'Design system creation', 'Usability testing', 'Conversion rate optimization'],
+      desc: 'User-centered design systems that convert complex enterprise workflows into intuitive visual interfaces that users love.',
+      benefits: ['User research & wireframing', 'Interactive prototypes in Figma', 'Design system token creation', 'Usability testing & feedback rounds', 'Conversion rate optimization'],
       tech: ['Figma', 'Adobe XD', 'Framer', 'Principle', 'Lottie']
     },
     {
       icon: '🏭', title: 'ERP Systems & Portals', category: 'Enterprise Solutions',
       color: '#f59e0b', rgb: '245,158,11',
-      desc: 'Custom ERP systems that unify your entire operation — inventory, HR, finance, procurement, and more — into one powerful, intelligent platform.',
-      benefits: ['Role-based access control', 'Real-time data sync', 'Custom workflow automation', 'Advanced reporting & analytics', 'Third-party integrations'],
+      desc: 'Custom cloud ERP software unifying inventory, fee management, HR, procurement, and billing into one central platform.',
+      benefits: ['Role-based access control & audits', 'Real-time database sync', 'Custom automated workflow pipelines', 'PDF report generation & exports', 'Accounting & third-party API sync'],
       tech: ['Angular', 'Python', 'PostgreSQL', 'Redis', 'Docker']
     },
     {
       icon: '🤖', title: 'AI Automation', category: 'Intelligent Systems',
       color: '#10b981', rgb: '16,185,129',
-      desc: 'Automate repetitive tasks, make smarter decisions, and unlock new efficiencies with custom AI solutions built specifically for your business workflows.',
-      benefits: ['Process automation (save 100s of hours)', 'AI-powered decision making', 'Natural language processing', 'Predictive analytics', 'Chatbot & virtual assistants'],
+      desc: 'Autonomous RAG chatbots, OCR document parsing, and AI agents trained on proprietary knowledge bases to automate manual work.',
+      benefits: ['Process automation (save 100s of hours)', '24/7 autonomous RAG knowledge bots', 'PDF invoice & purchase order OCR parsing', 'Predictive data analytics', 'WhatsApp & CRM AI triggers'],
       tech: ['Python', 'OpenAI', 'LangChain', 'TensorFlow', 'FastAPI']
     },
     {
       icon: '🛒', title: 'E-Commerce Development', category: 'Online Retail',
       color: '#ef4444', rgb: '239,68,68',
-      desc: 'High-converting online stores with seamless shopping experiences, secure payments, and powerful admin management — built to scale with your growth.',
-      benefits: ['Conversion-optimized checkout', 'Multi-payment gateway', 'Inventory management', 'SEO & marketing tools', 'Analytics & customer insights'],
-      tech: ['Next.js', 'Stripe', 'Razorpay', 'Shopify API', 'Node.js']
+      desc: 'High-converting online stores with fast catalogs, dynamic pricing, secure payment gateways, and inventory management.',
+      benefits: ['Conversion-optimized checkout flow', 'Razorpay & Stripe multi-payment integration', 'Real-time inventory management', 'SEO & Product JSON-LD schema', 'Cloudinary / R2 asset CDN speed'],
+      tech: ['Angular SSR', 'FastAPI', 'Razorpay', 'MongoDB', 'Node.js']
     },
     {
       icon: '📊', title: 'Custom Dashboard Development', category: 'Analytics & BI',
       color: '#06b6d4', rgb: '6,182,212',
-      desc: 'Real-time business intelligence dashboards that turn raw data into actionable insights. Beautiful visualizations that make complex data instantly understandable.',
-      benefits: ['Real-time data streaming', 'Custom KPI tracking', 'Interactive charts & graphs', 'Data export & reporting', 'Role-based data access'],
+      desc: 'Real-time business intelligence dashboards turning complex operational data into clean interactive charts.',
+      benefits: ['Real-time WebSocket data streaming', 'Custom KPI tracking & alerts', 'Interactive D3.js & Chart.js visualizations', 'PDF/CSV data export & scheduled emails', 'Role-based view permissions'],
       tech: ['Angular', 'D3.js', 'Chart.js', 'WebSockets', 'PostgreSQL']
     },
     {
       icon: '🧠', title: 'AI Web Applications', category: 'AI-Powered Web',
       color: '#8b5cf6', rgb: '139,92,246',
-      desc: 'Web applications supercharged with AI capabilities — from intelligent search and recommendations to generative AI features and smart content creation.',
-      benefits: ['GPT-4 / Claude integration', 'Intelligent search & discovery', 'Personalization engine', 'Content generation', 'Computer vision features'],
-      tech: ['React', 'OpenAI API', 'LangChain', 'Pinecone', 'Python']
+      desc: 'Web applications supercharged with LLM capabilities — intelligent semantic search, automated content generation, and smart assistants.',
+      benefits: ['GPT-4 & Claude LLM integration', 'Vector search database clustering', 'Personalized recommendations', 'Automated document processing', 'Computer vision features'],
+      tech: ['Angular', 'OpenAI API', 'LangChain', 'Pinecone', 'Python']
     }
   ];
 

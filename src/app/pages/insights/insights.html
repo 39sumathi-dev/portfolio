@@ -1,0 +1,99 @@
+<div class="insights-page">
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="ph-bg">
+      <div class="ph-orb ph-orb-1"></div>
+      <div class="ph-orb ph-orb-2"></div>
+    </div>
+    <div class="container">
+      <div class="ph-content reveal">
+        <span class="section-label">Public Engineering Engine</span>
+        <h1>Engineering Insights & <span class="gradient-text">Tech Blueprints</span></h1>
+        <p>In-depth technical guides, software architecture blueprints, and AI automation insights written by our lead engineers and architects.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter & Search -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="portfolio-controls">
+        <div class="search-box">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input type="text" [(ngModel)]="searchQuery" (ngModelChange)="filterArticles()"
+                 placeholder="Search by topic, keyword, tech..." class="search-input" id="insights-search"/>
+        </div>
+        <div class="filter-tabs">
+          <button class="filter-tab" *ngFor="let cat of categories"
+                  [class.active]="selectedCategory === cat"
+                  (click)="setCategory(cat)">
+            {{ cat }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured & Grid -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="insights-layout">
+        <div class="article-card reveal" *ngFor="let article of filteredArticles"
+             [class.featured]="article.featured"
+             (click)="openArticle(article)">
+          <div class="ac-thumb" [style.background]="article.gradient">
+            <span class="ac-category">{{ article.category }}</span>
+            <span class="ac-read">{{ article.readTime }}</span>
+          </div>
+          <div class="ac-body">
+            <div class="ac-meta">{{ article.date }} • {{ article.author }}</div>
+            <h2 class="ac-title">{{ article.title }}</h2>
+            <p class="ac-summary">{{ article.summary }}</p>
+            <div class="ac-tags">
+              <span class="tag-badge" *ngFor="let tag of article.tags">{{ tag }}</span>
+            </div>
+            <button class="read-btn">Read Full Article →</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="no-results" *ngIf="filteredArticles.length === 0">
+        <span class="no-results-icon">📖</span>
+        <p>No articles found matching search.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Article Modal -->
+  <div class="modal-overlay" *ngIf="selectedArticle" (click)="closeArticle()">
+    <div class="modal-card article-modal" (click)="$event.stopPropagation()">
+      <button class="modal-close" (click)="closeArticle()">✕</button>
+      <div class="article-modal-header" [style.background]="selectedArticle!.gradient">
+        <span class="ac-category">{{ selectedArticle!.category }}</span>
+        <h2>{{ selectedArticle!.title }}</h2>
+        <div class="article-modal-meta">{{ selectedArticle!.date }} • {{ selectedArticle!.readTime }} • {{ selectedArticle!.author }}</div>
+      </div>
+      <div class="article-modal-body">
+        <div class="article-paragraph" *ngFor="let p of selectedArticle!.content">
+          <p>{{ p }}</p>
+        </div>
+        <div class="ac-tags" style="margin-top: 1.5rem;">
+          <span class="tag-badge" *ngFor="let tag of selectedArticle!.tags">{{ tag }}</span>
+        </div>
+        <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 0.85rem; color: var(--text-secondary);">Have questions about this architecture?</span>
+          <a routerLink="/contact" class="btn btn-primary btn-sm" (click)="closeArticle()">Discuss With Our Engineers</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <section class="section-sm text-center">
+    <div class="container">
+      <h2 class="reveal">Want a Custom Architecture Built for <span class="gradient-text">Your Platform?</span></h2>
+      <p class="reveal" style="color: var(--text-secondary); margin: 1rem auto 2rem; max-width: 500px;">Our lead architects provide technical consultations and blueprint estimates within 24 hours.</p>
+      <a routerLink="/contact" class="btn btn-primary btn-lg reveal">Request Architecture Consultation</a>
+    </div>
+  </section>
+</div>
