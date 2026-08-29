@@ -9,7 +9,7 @@
       <div class="ph-content reveal">
         <span class="section-label">Public Engineering Engine</span>
         <h1>Engineering Insights & <span class="gradient-text">Tech Blueprints</span></h1>
-        <p>In-depth technical guides, software architecture blueprints, and AI automation insights written by our lead engineers and architects.</p>
+        <p>Technical write-ups, software architecture principles, and system performance benchmarks from our engineering team.</p>
       </div>
     </div>
   </section>
@@ -34,7 +34,7 @@
     </div>
   </section>
 
-  <!-- Featured & Grid -->
+  <!-- Articles Grid -->
   <section class="section-sm">
     <div class="container">
       <div class="insights-layout">
@@ -52,14 +52,14 @@
             <div class="ac-tags">
               <span class="tag-badge" *ngFor="let tag of article.tags">{{ tag }}</span>
             </div>
-            <button class="read-btn">Read Full Article →</button>
+            <button class="read-btn">Read Technical Breakdown →</button>
           </div>
         </div>
       </div>
 
       <div class="no-results" *ngIf="filteredArticles.length === 0">
         <span class="no-results-icon">📖</span>
-        <p>No articles found matching search.</p>
+        <p>No technical notes found matching query.</p>
       </div>
     </div>
   </section>
@@ -81,8 +81,8 @@
           <span class="tag-badge" *ngFor="let tag of selectedArticle!.tags">{{ tag }}</span>
         </div>
         <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
-          <span style="font-size: 0.85rem; color: var(--text-secondary);">Have questions about this architecture?</span>
-          <a routerLink="/contact" class="btn btn-primary btn-sm" (click)="closeArticle()">Discuss With Our Engineers</a>
+          <span style="font-size: 0.85rem; color: var(--text-secondary);">Discussing a similar architecture for your platform?</span>
+          <a routerLink="/contact" class="btn btn-primary btn-sm" (click)="closeArticle()">Consult Our Engineering Team</a>
         </div>
       </div>
     </div>
@@ -93,7 +93,7 @@
     <div class="container">
       <h2 class="reveal">Want a Custom Architecture Built for <span class="gradient-text">Your Platform?</span></h2>
       <p class="reveal" style="color: var(--text-secondary); margin: 1rem auto 2rem; max-width: 500px;">Our lead architects provide technical consultations and blueprint estimates within 24 hours.</p>
-      <a routerLink="/contact" class="btn btn-primary btn-lg reveal">Request Architecture Consultation</a>
+      <a routerLink="/contact" class="btn btn-primary btn-lg reveal">Request Technical Consultation</a>
     </div>
   </section>
 </div>
