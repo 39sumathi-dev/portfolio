@@ -52,15 +52,14 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles.scss"],
-            "polyfills": ["zone.js"],
-            "server": "src/main.server.ts",
-            "outputMode": "server",
+            "styles": [
+              "src/styles.scss"
+            ],
+            "polyfills": [
+              "zone.js"
+            ],
             "security": {
               "allowedHosts": []
-            },
-            "ssr": {
-              "entry": "src/server.ts"
             }
           },
           "configurations": {
