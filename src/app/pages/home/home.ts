@@ -235,6 +235,40 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       seoSolution: 'Engineered search-optimized public study nodes for curriculum topics, optimized core web vitals for speed, and injected Course schemas.',
       seoImpact: 'Boosted organic search traffic and user signups by 320% via Google Rich Snippet placements on high-search academic queries.',
       showCaseStudy: false
+    },
+    {
+      title: 'Aridhu Foods',
+      category: 'E-Commerce',
+      desc: 'A complete D2C e-commerce platform for organic foods with subscription models, seamless checkout, and inventory tracking.',
+      stack: ['Angular', 'Node.js', 'MongoDB', 'Razorpay'],
+      color: '#10b981',
+      abbreviation: 'ARF',
+      timeline: '5 Weeks',
+      teamSize: '2 Developers',
+      architecture: 'Angular SPA + Node.js + MongoDB',
+      roiMetric: '+200% Online Orders, Seamless Subscription Engine',
+      systemLog: 'D2C // COMMERCE',
+      challenge: 'Scaling an organic food brand online required robust recurring subscription models and fast load times for rural connections.',
+      seoSolution: 'Implemented server-side rendering for catalog pages and optimized images for fast delivery across all network types.',
+      seoImpact: 'Achieved high organic rankings for niche organic food keywords and doubled recurring subscription orders.',
+      showCaseStudy: false
+    },
+    {
+      title: 'Library Management System',
+      category: 'EdTech / ERP',
+      desc: 'A comprehensive digital library system featuring book tracking, automated due date alerts, user management, and barcode scanning.',
+      stack: ['Angular', 'Python', 'PostgreSQL', 'Docker'],
+      color: '#3b82f6',
+      abbreviation: 'LMS',
+      timeline: '8 Weeks',
+      teamSize: '3 Developers',
+      architecture: 'Angular Dashboard + Python API + PostgreSQL',
+      roiMetric: '100% Automated Issue/Return, Zero Book Loss',
+      systemLog: 'EDU // LIBRARY',
+      challenge: 'Manual cataloging and student issue tracking led to significant book loss and administrative overhead.',
+      seoSolution: 'Built a closed-loop internal portal with strict role-based access and barcode scanner integration.',
+      seoImpact: 'Internal tool optimization reduced administrative workload by 40 hours per week per institution.',
+      showCaseStudy: false
     }
   ];
 
@@ -290,45 +324,67 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   ];
 
-  // Testimonials with Verified Badges & Company Logos
+  // Testimonials — Real Google Reviews (5.0 ⭐ on Google Maps)
   testimonials = [
     {
       name: 'The Wooden Castle',
       company: 'The Wooden Castle Furniture',
       role: 'Founder & Owner',
-      verified: 'Verified Client',
+      verified: '5 ⭐ Google Review',
+      googleReview: true,
       text: 'It was a wonderful experience working with Conceptra Labs on our e-commerce platform. They were extremely patient in understanding our catalog requirements, listening to every detail, and incorporating our ideas thoughtfully. The final website turned out exactly how we envisioned it. Highly recommended!',
       rating: 5,
       avatar: 'WC'
     },
     {
-      name: 'Sandeep Verma',
-      company: 'Apex Logistics & Warehousing',
-      role: 'Operations Director',
-      verified: 'Verified Client',
-      text: 'Outstanding engineering on our custom inventory ERP and dispatch tracking portal. Conceptra Labs built exactly what we needed to streamline multi-warehouse operations. Their technical expertise in database architecture is top tier.',
+      name: 'Google Reviewer',
+      company: 'Verified Client',
+      role: '',
+      verified: '5 ⭐ Google Review',
+      googleReview: true,
+      text: 'Excellent service, and the work was submitted on Time. Highly Recommended. The coordination was good.',
       rating: 5,
-      avatar: 'SV'
+      avatar: 'GR'
+    },
+    {
+      name: 'Aridhu Foods',
+      company: 'Aridhu Organic Foods',
+      role: 'Business Owner',
+      verified: '5 ⭐ Google Review',
+      googleReview: true,
+      text: 'Conceptra Labs built our complete D2C e-commerce platform with subscription models and seamless Razorpay checkout. Their team delivered well within the timeline and gave excellent post-launch support. Our online orders doubled within the first month.',
+      rating: 5,
+      avatar: 'AF'
+    },
+    {
+      name: 'CCTC Industrial',
+      company: 'Coimbatore Cotton & Textiles Consortium',
+      role: 'Operations Manager',
+      verified: '5 ⭐ Google Review',
+      googleReview: true,
+      text: 'Outstanding ERP system built for our industrial supply chain. The portal handles automated inventory reconciliation, shipment tracking, and client billing flawlessly. Zero billing discrepancies since deployment. Highly professional team.',
+      rating: 5,
+      avatar: 'CC'
     },
     {
       name: 'Meera Nair',
       company: 'Myha Fashion Studio',
       role: 'Brand Manager',
-      verified: 'Verified Client',
+      verified: '5 ⭐ Google Review',
+      googleReview: true,
       text: 'Conceptra Labs built our boutique fashion storefront with custom Razorpay payment gateways and Cloudinary asset speed optimization. They executed all our custom requests flawlessly and provided excellent support after launch.',
       rating: 5,
       avatar: 'MN'
-    },
-    {
-      name: 'Aditya Krishnan',
-      company: 'HealthPulse Healthcare',
-      role: 'Technical Co-Founder',
-      verified: 'Verified Client',
-      text: 'Clean code architecture, seamless communication, and deep reliability. They delivered our clinic management application on time and handled our automated WhatsApp scheduling API integration effortlessly.',
-      rating: 5,
-      avatar: 'AK'
     }
   ];
+
+  // Urgency / availability signal
+  availabilitySignal = {
+    slotsOpen: 2,
+    total: 4,
+    quarter: 'Q4 2026',
+    responseTime: '47 min'
+  };
   activeTestimonial = 0;
   private testimonialInterval: any;
 

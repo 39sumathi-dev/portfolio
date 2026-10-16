@@ -375,5 +375,38 @@
 .modal-actions {
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
+/* Contextual CTA inside project modal */
+.modal-contextual-cta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(139,92,246,0.08));
+  border: 1px solid rgba(99,102,241,0.25);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+.mcc-icon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+.mcc-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.mcc-content strong {
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+.mcc-content span {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}

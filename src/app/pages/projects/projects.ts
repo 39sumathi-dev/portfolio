@@ -158,6 +158,17 @@ import { FormsModule } from '@angular/forms';
               <a *ngIf="!selectedProject!.liveUrl" class="btn btn-primary" style="opacity:0.45;cursor:not-allowed;pointer-events:none;">Internal Enterprise System</a>
               <a routerLink="/contact" class="btn btn-outline" (click)="closeModal()">Request Architecture Proposal</a>
             </div>
+
+            <!-- Contextual CTA -->
+            <div class="modal-contextual-cta">
+              <div class="mcc-icon">💡</div>
+              <div class="mcc-content">
+                <strong>Building something similar to {{ selectedProject!.title }}?</strong>
+                <span>Get a free technical consultation and architectural proposal within 4 hours.</span>
+              </div>
+              <a routerLink="/contact" class="btn btn-primary btn-sm" (click)="closeModal()">Get a Quote →</a>
+            </div>
+
           </div>
         </div>
       </div>
@@ -289,6 +300,36 @@ export class ProjectsComponent implements AfterViewInit {
       challenge: 'Competing against highly-funded EdTech organizations with massive authority in search engines makes visibility for new platforms extremely hard.',
       seoSolution: 'Engineered search-optimized public study nodes for curriculum topics, optimized core web vitals for speed, and injected Course schemas.',
       seoImpact: 'Boosted organic search traffic and user signups by 320% via Google Rich Snippet placements on high-search academic queries.'
+    },
+    {
+      title: 'Aridhu Foods', category: 'E-Commerce', year: '2026',
+      abbreviation: 'ARF', gradient: 'linear-gradient(135deg, rgba(16,185,129,0.2) 0%, rgba(16,185,129,0.05) 100%)',
+      systemLog: 'D2C // COMMERCE', seoMetric: 'SSR SPEED',
+      desc: 'A complete D2C e-commerce platform for organic foods with subscription models, seamless checkout, and inventory tracking.',
+      fullDesc: 'Aridhu Foods is a complete Direct-to-Consumer e-commerce platform specializing in organic food products. We engineered a seamless recurring subscription engine that handles customized deliveries and automates inventory tracking, built to perform optimally even in low-bandwidth rural connections.',
+      stack: ['Angular', 'Node.js', 'MongoDB', 'Razorpay', 'SSR'],
+      architecture: 'Angular SSR SPA + Node.js Backend + MongoDB Cluster',
+      teamSize: '2 Full-Stack Engineers',
+      timeline: '5 Weeks',
+      roi: '+200% Online Orders, Seamless Subscription Engine',
+      challenge: 'Scaling an organic food brand online required robust recurring subscription models and fast load times for rural connections.',
+      seoSolution: 'Implemented server-side rendering for catalog pages and optimized images for fast delivery across all network types.',
+      seoImpact: 'Achieved high organic rankings for niche organic food keywords and doubled recurring subscription orders.'
+    },
+    {
+      title: 'Library Management System', category: 'ERP Systems', year: '2025',
+      abbreviation: 'LMS', gradient: 'linear-gradient(135deg, rgba(59,130,246,0.2) 0%, rgba(59,130,246,0.05) 100%)',
+      systemLog: 'EDU // LIBRARY', seoMetric: 'INTERNAL',
+      desc: 'A comprehensive digital library system featuring book tracking, automated due date alerts, user management, and barcode scanning.',
+      fullDesc: 'A comprehensive digital library system engineered to automate tedious cataloging and student issue tracking. The portal features instant barcode scanning for issue/return processes, automated due date email alerts, and an extensive role-based dashboard for administrators.',
+      stack: ['Angular', 'Python', 'PostgreSQL', 'Docker', 'Barcoding'],
+      architecture: 'Angular Internal Dashboard + Python API + PostgreSQL',
+      teamSize: '3 Systems Developers',
+      timeline: '8 Weeks',
+      roi: '100% Automated Issue/Return, Zero Book Loss',
+      challenge: 'Manual cataloging and student issue tracking led to significant book loss and administrative overhead.',
+      seoSolution: 'Built a closed-loop internal portal with strict role-based access and barcode scanner integration.',
+      seoImpact: 'Internal tool optimization reduced administrative workload by 40 hours per week per institution.'
     }
   ];
 

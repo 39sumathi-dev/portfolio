@@ -5,6 +5,7 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { NavbarComponent } from './components/navbar/navbar';
 import { FooterComponent } from './components/footer/footer';
 import { WhatsappButtonComponent } from './components/whatsapp-button/whatsapp-button';
+import { StickyCTAComponent } from './components/sticky-cta/sticky-cta';
 import { SeoService } from './services/seo.service';
 import { ThemeService } from './services/theme.service';
 
@@ -16,7 +17,8 @@ import { ThemeService } from './services/theme.service';
     CommonModule,
     NavbarComponent,
     FooterComponent,
-    WhatsappButtonComponent
+    WhatsappButtonComponent,
+    StickyCTAComponent
   ],
   template: `
     <div class="app-wrapper">
@@ -26,6 +28,7 @@ import { ThemeService } from './services/theme.service';
       </main>
       <app-footer></app-footer>
       <app-whatsapp-button></app-whatsapp-button>
+      <app-sticky-cta></app-sticky-cta>
     </div>
   `,
   styles: [`

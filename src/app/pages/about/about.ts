@@ -126,38 +126,6 @@ import { RouterLink } from '@angular/router';
               </div>
             </div>
 
-            <!-- Member 2: Co-Founder & CTO -->
-            <div class="team-card" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-xl); padding: 2rem; text-align: center;">
-              <div class="tc-avatar" style="width: 70px; height: 70px; border-radius: 50%; background: linear-gradient(135deg, #8b5cf6, #06b6d4); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; margin: 0 auto 1rem;">K</div>
-              <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.25rem;">Karthik Raja</h3>
-              <p style="color: #8b5cf6; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.75rem;">Co-Founder & Head of AI Systems</p>
-              <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 1rem;">Directs RAG pipelines, LLM agent architectures, vector database clustering, and high-throughput Python backend services.</p>
-              <div style="font-size: 0.75rem; color: var(--text-muted); border-top: 1px solid var(--border-color); padding-top: 0.75rem;">
-                AI & Machine Learning Infrastructure
-              </div>
-            </div>
-
-            <!-- Member 3: UI/UX Lead -->
-            <div class="team-card" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-xl); padding: 2rem; text-align: center;">
-              <div class="tc-avatar" style="width: 70px; height: 70px; border-radius: 50%; background: linear-gradient(135deg, #f59e0b, #ef4444); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; margin: 0 auto 1rem;">A</div>
-              <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.25rem;">Ananya Sen</h3>
-              <p style="color: #f59e0b; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.75rem;">Lead UI/UX Product Engineer</p>
-              <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 1rem;">Crafts modern design systems, micro-interactive client portals, wireframes, and conversion-focused user interfaces.</p>
-              <div style="font-size: 0.75rem; color: var(--text-muted); border-top: 1px solid var(--border-color); padding-top: 0.75rem;">
-                Design Systems & Prototype Engineering
-              </div>
-            </div>
-
-            <!-- Member 4: Delivery & Client Success -->
-            <div class="team-card" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-xl); padding: 2rem; text-align: center;">
-              <div class="tc-avatar" style="width: 70px; height: 70px; border-radius: 50%; background: linear-gradient(135deg, #10b981, #3b82f6); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; margin: 0 auto 1rem;">R</div>
-              <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.25rem;">Rohan Mehta</h3>
-              <p style="color: #10b981; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.75rem;">Delivery & Client Success Lead</p>
-              <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 1rem;">Manages agile sprint reviews, client communication SLA compliance, requirement mapping, and release schedules.</p>
-              <div style="font-size: 0.75rem; color: var(--text-muted); border-top: 1px solid var(--border-color); padding-top: 0.75rem;">
-                Agile Sprint & SLA Governance
-              </div>
-            </div>
           </div>
         </div>
       </section>
