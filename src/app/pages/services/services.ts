@@ -113,7 +113,7 @@ import { ProjectCalculatorComponent } from '../../components/project-calculator/
               <div>
                 <span style="font-size: 0.75rem; font-weight: 700; color: var(--color-primary-light); text-transform: uppercase;">Active Growth</span>
                 <h3 style="font-size: 1.4rem; font-weight: 800; color: var(--text-primary); margin: 0.5rem 0 0.25rem;">Dedicated Sprint Retainer</h3>
-                <div style="font-size: 1.5rem; font-weight: 800; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1rem;">Starting at ₹24,999 / mo</div>
+                <div style="font-size: 1.5rem; font-weight: 800; color: var(--text-heading-accent, #1d4ed8); margin-bottom: 1rem;">Starting at ₹24,999 / mo</div>
                 <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 1.5rem;">Dedicated developer capacity for fast feature iterations, architectural enhancements, and API scaling.</p>
                 <ul style="list-style: none; padding: 0; margin: 0 0 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
                   <li style="display: flex; gap: 0.5rem; font-size: 0.875rem; color: var(--text-secondary);"><span style="color: var(--color-primary-light); font-weight: bold;">✓</span> Dedicated Senior Software Developers</li>

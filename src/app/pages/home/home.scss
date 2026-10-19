@@ -1654,9 +1654,7 @@
     .pricing-price {
       font-size: 1.5rem;
       font-weight: 800;
-      background: var(--gradient-primary);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: var(--text-heading-accent, #1d4ed8);
       margin-bottom: 0.5rem;
     }
 
