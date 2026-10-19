@@ -1,11 +1,2 @@
-# ===================================================
-# Conceptra Labs - Netlify Canonical Redirects & Fallback
-# ===================================================
 
-# 1. Enforce HTTPS Canonical Apex Domain
-http://conceptralabs.in/*   https://conceptralabs.in/:splat   301!
-https://www.conceptralabs.in/*   https://conceptralabs.in/:splat   301!
-http://www.conceptralabs.in/*   https://conceptralabs.in/:splat   301!
-
-# 2. Angular SPA Routing Fallback
-/*   /index.html   200
+/* /index.html 200
