@@ -1,6 +1,6 @@
-import { Component, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { RouterLink, ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 export interface Article {
@@ -25,12 +25,17 @@ export interface Article {
   templateUrl: './insights.html',
   styleUrls: ['./insights.scss']
 })
-export class InsightsComponent implements AfterViewInit {
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+export class InsightsComponent implements OnInit, AfterViewInit {
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   searchQuery = '';
   selectedCategory = 'All';
   selectedArticle: Article | null = null;
+  filteredArticles: Article[] = [];
 
   categories = ['All', 'Web Engineering', 'Enterprise ERP', 'Business Automation', 'Cloud & Performance'];
 
@@ -112,11 +117,17 @@ export class InsightsComponent implements AfterViewInit {
     }
   ];
 
-  filteredArticles: Article[] = [...this.articles];
-
-  setCategory(cat: string) {
-    this.selectedCategory = cat;
-    this.filterArticles();
+  ngOnInit() {
+    this.filteredArticles = [...this.articles];
+    this.route.queryParamMap.subscribe(params => {
+      const slug = params.get('article');
+      if (slug) {
+        const found = this.articles.find(a => a.slug === slug || a.id === slug);
+        if (found) {
+          this.openArticle(found, false);
+        }
+      }
+    });
   }
 
   filterArticles() {
@@ -130,8 +141,16 @@ export class InsightsComponent implements AfterViewInit {
     });
   }
 
-  openArticle(article: Article) {
+  setCategory(cat: string) {
+    this.selectedCategory = cat;
+    this.filterArticles();
+  }
+
+  openArticle(article: Article, updateUrl = true) {
     this.selectedArticle = article;
+    if (updateUrl) {
+      this.router.navigate([], { queryParams: { article: article.slug }, queryParamsHandling: 'merge' });
+    }
     if (typeof document !== 'undefined') {
       document.body.style.overflow = 'hidden';
     }
@@ -139,6 +158,7 @@ export class InsightsComponent implements AfterViewInit {
 
   closeArticle() {
     this.selectedArticle = null;
+    this.router.navigate([], { queryParams: { article: null }, queryParamsHandling: 'merge' });
     if (typeof document !== 'undefined') {
       document.body.style.overflow = '';
     }

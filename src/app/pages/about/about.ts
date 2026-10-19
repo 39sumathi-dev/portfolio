@@ -17,7 +17,7 @@ import { RouterLink } from '@angular/router';
         <div class="container">
           <div class="ph-content reveal">
             <span class="section-label">Who We Are</span>
-            <h1>We Are <span class="gradient-text">Conceptra Labs</span></h1>
+            <h1>About Conceptra Labs — <span class="gradient-text">Software &amp; ERP Engineering Agency</span></h1>
             <p>A forward-thinking digital engineering agency with core technology hubs in Chennai & Bengaluru, India. We transform complex operational requirements into scalable software systems, AI automation pipelines, and modern web applications.</p>
           </div>
         </div>

@@ -63,8 +63,10 @@ export class SeoService {
       this.updateCanonicalUrl(cleanUrl);
     }
 
-    // 6. Update JSON-LD Schema
-    this.updateSchema(config.schema || this.getDefaultSchema());
+    // 6. Update Route-Specific JSON-LD Schema
+    if (config.schema) {
+      this.updateSchema(config.schema);
+    }
   }
 
   private updateCanonicalUrl(url: string) {
@@ -78,14 +80,18 @@ export class SeoService {
   }
 
   private updateSchema(schema: any) {
-    const existingScripts = this.doc.querySelectorAll('script[type="application/ld+json"]');
-    existingScripts.forEach(script => script.remove());
+    let script = this.doc.querySelector('script#route-schema') as HTMLScriptElement;
+    if (!script) {
+      script = this.doc.createElement('script');
+      script.setAttribute('type', 'application/ld+json');
+      script.setAttribute('id', 'route-schema');
+      this.doc.head.appendChild(script);
+    }
 
     if (schema) {
-      const script = this.doc.createElement('script');
-      script.setAttribute('type', 'application/ld+json');
-      script.text = JSON.stringify(schema);
-      this.doc.head.appendChild(script);
+      script.textContent = JSON.stringify(schema);
+    } else {
+      script.textContent = '';
     }
   }
 
@@ -94,7 +100,7 @@ export class SeoService {
       '@context': 'https://schema.org',
       '@graph': [
         {
-          '@type': 'SoftwareCompany',
+          '@type': 'ProfessionalService',
           '@id': 'https://conceptralabs.in/#organization',
           'name': 'Conceptra Labs',
           'url': 'https://conceptralabs.in',
@@ -103,7 +109,17 @@ export class SeoService {
           'email': 'contact@conceptralabs.in',
           'telephone': '+91-97107-59208',
           'priceRange': '₹₹ - ₹₹₹',
-          'description': 'Conceptra Labs is a premium software development company in Chennai and Bengaluru specializing in web development, mobile apps, custom ERP systems, and AI automation.',
+          'currenciesAccepted': 'INR, USD, AED, GBP',
+          'paymentAccepted': 'Cash, Credit Card, Bank Transfer, Razorpay, UPI',
+          'openingHours': 'Mo-Sa 09:00-20:00',
+          'description': 'Conceptra Labs is a premier custom software and web development company in Chennai and Bengaluru, specializing in high-speed web apps, School ERP software, mobile applications, and AI automation.',
+          'areaServed': [
+            { '@type': 'City', 'name': 'Chennai' },
+            { '@type': 'City', 'name': 'Bengaluru' },
+            { '@type': 'State', 'name': 'Tamil Nadu' },
+            { '@type': 'State', 'name': 'Karnataka' },
+            { '@type': 'Country', 'name': 'India' }
+          ],
           'address': [
             {
               '@type': 'PostalAddress',
@@ -117,6 +133,23 @@ export class SeoService {
               'addressRegion': 'Karnataka',
               'addressCountry': 'IN'
             }
+          ],
+          'aggregateRating': {
+            '@type': 'AggregateRating',
+            'ratingValue': '5.0',
+            'reviewCount': '9',
+            'bestRating': '5',
+            'worstRating': '1'
+          },
+          'knowsAbout': [
+            'Web Development',
+            'Mobile App Development',
+            'School ERP Software',
+            'Custom Software Engineering',
+            'AI Automation',
+            'Angular SSR',
+            'PostgreSQL',
+            'Flutter'
           ],
           'sameAs': [
             'https://www.linkedin.com/company/conceptra-labs/',

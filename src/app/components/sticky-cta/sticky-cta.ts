@@ -14,6 +14,15 @@ import { RouterLink } from '@angular/router';
           <span class="sticky-label">2 project slots open this quarter</span>
         </div>
         <div class="sticky-actions">
+          <a href="tel:+919710759208"
+             class="sticky-btn sticky-btn--phone"
+             id="sticky-call-btn"
+             aria-label="Call Conceptra Labs">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.33 4.18 2 2 0 012.31 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 9.91a16 16 0 006.18 6.18l.76-.76a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+            <span class="hide-mobile-xs">Call</span>
+          </a>
           <a href="https://wa.me/919710759208?text=Hi%20Conceptra%20Labs%2C%20I%27d%20like%20to%20discuss%20a%20project!"
              target="_blank" rel="noopener noreferrer"
              class="sticky-btn sticky-btn--whatsapp"
@@ -109,6 +118,16 @@ import { RouterLink } from '@angular/router';
       text-decoration: none;
       transition: all 0.2s ease;
       white-space: nowrap;
+    }
+    .sticky-btn--phone {
+      background: rgba(14, 165, 233, 0.15);
+      color: #38bdf8;
+      border: 1px solid rgba(14, 165, 233, 0.3);
+    }
+    .sticky-btn--phone:hover {
+      background: rgba(14, 165, 233, 0.25);
+      border-color: rgba(14, 165, 233, 0.5);
+      transform: translateY(-1px);
     }
     .sticky-btn--whatsapp {
       background: rgba(37, 211, 102, 0.15);

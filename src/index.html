@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Conceptra Labs — Design. Develop. Automate. Grow.</title>
+  <title>Conceptra Labs — Custom Software & Web Development Company in Chennai</title>
   <meta name="description" content="Conceptra Labs is a premium software development agency in Chennai and Bengaluru, specializing in web development, mobile apps, custom ERP systems, and AI automation for modern businesses.">
   <meta name="keywords" content="web development, app development, AI automation, ERP systems, digital agency, UI UX design, full stack development, e-commerce, dashboard development, Conceptra Labs, software developers Chennai, software developers Bangalore">
   <meta name="author" content="Conceptra Labs">
@@ -44,12 +44,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <!-- Production JSON-LD Structured Data -->
-  <script type="application/ld+json">
+  <script type="application/ld+json" id="app-base-schema">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "SoftwareCompany",
+        "@type": "ProfessionalService",
         "@id": "https://conceptralabs.in/#organization",
         "name": "Conceptra Labs",
         "url": "https://conceptralabs.in",
@@ -58,7 +58,17 @@
         "email": "contact@conceptralabs.in",
         "telephone": "+91-97107-59208",
         "priceRange": "₹₹ - ₹₹₹",
-        "description": "Conceptra Labs is a software development company in Chennai specializing in custom web development, mobile apps, School ERP systems, and AI business automation.",
+        "currenciesAccepted": "INR, USD, AED, GBP",
+        "paymentAccepted": "Cash, Credit Card, Bank Transfer, Razorpay, UPI",
+        "openingHours": "Mo-Sa 09:00-20:00",
+        "description": "Conceptra Labs is a premier custom software and web development company in Chennai and Bengaluru, specializing in high-speed web apps, School ERP software, mobile applications, and AI automation.",
+        "areaServed": [
+          { "@type": "City", "name": "Chennai" },
+          { "@type": "City", "name": "Bengaluru" },
+          { "@type": "State", "name": "Tamil Nadu" },
+          { "@type": "State", "name": "Karnataka" },
+          { "@type": "Country", "name": "India" }
+        ],
         "address": [
           {
             "@type": "PostalAddress",
@@ -72,6 +82,23 @@
             "addressRegion": "Karnataka",
             "addressCountry": "IN"
           }
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "reviewCount": "9",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "knowsAbout": [
+          "Web Development",
+          "Mobile App Development",
+          "School ERP Software",
+          "Custom Software Engineering",
+          "AI Automation",
+          "Angular SSR",
+          "PostgreSQL",
+          "Flutter"
         ],
         "sameAs": [
           "https://www.linkedin.com/company/conceptra-labs/",
@@ -90,26 +117,33 @@
     ]
   }
   </script>
-  <!-- Microsoft Clarity Heatmaps (Free) -->
+
+  <!-- Route-Specific JSON-LD Schema (populated dynamically per route) -->
+  <script type="application/ld+json" id="route-schema"></script>
+  <!-- Microsoft Clarity Heatmaps (Free - activate by replacing YOUR_CLARITY_ID) -->
   <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "YOUR_CLARITY_ID");
+    if (typeof window !== 'undefined' && 'YOUR_CLARITY_ID' !== 'YOUR_CLARITY_ID') {
+      (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "YOUR_CLARITY_ID");
+    }
   </script>
 
-  <!-- Tawk.to Live Chat -->
+  <!-- Tawk.to Live Chat (Free - activate by replacing YOUR_TAWK_ID) -->
   <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-      s1.async=true;
-      s1.src='https://embed.tawk.to/YOUR_TAWK_ID/default';
-      s1.charset='UTF-8';
-      s1.setAttribute('crossorigin','*');
-      s0.parentNode.insertBefore(s1,s0);
-    })();
+    if (typeof window !== 'undefined' && 'YOUR_TAWK_ID' !== 'YOUR_TAWK_ID') {
+      var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+      (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/YOUR_TAWK_ID/default';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+      })();
+    }
   </script>
 </head>
 <body>
@@ -126,6 +160,13 @@
     <input name="email" />
     <input name="whatsapp" />
     <textarea name="message"></textarea>
+  </form>
+  <form name="exit-intent-lead" netlify netlify-honeypot="bot-field" hidden>
+    <input type="hidden" name="form-name" value="exit-intent-lead" />
+    <input name="bot-field" />
+    <input name="whatsapp" />
+    <input name="email" />
+    <input name="project" />
   </form>
 </body>
 </html>

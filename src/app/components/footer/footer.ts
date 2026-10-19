@@ -71,9 +71,9 @@ import { CommonModule } from '@angular/common';
             <h4 class="footer-col-title">Our Services</h4>
             <ul class="footer-links">
               <li *ngFor="let svc of services">
-                <a routerLink="/services" class="footer-link">
+                <a [routerLink]="svc.path" class="footer-link">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                  {{ svc }}
+                  {{ svc.label }}
                 </a>
               </li>
             </ul>
@@ -145,13 +145,12 @@ export class FooterComponent {
   ];
 
   services = [
-    'Web Development',
-    'App Development',
-    'UI/UX Design',
-    'ERP Systems',
-    'AI Automation',
-    'E-Commerce Development',
-    'Dashboard Development',
-    'AI Web Applications'
+    { label: 'Website Development', path: '/services/website-development' },
+    { label: 'Custom Software Development', path: '/services/custom-software-development' },
+    { label: 'School ERP Development', path: '/services/school-erp-development' },
+    { label: 'Mobile App Development', path: '/services/mobile-app-development' },
+    { label: 'AI Automation & Agents', path: '/services/ai-automation' },
+    { label: 'Business Process Automation', path: '/services/business-automation' },
+    { label: 'Managed SLA & Retainers', path: '/services' }
   ];
 }

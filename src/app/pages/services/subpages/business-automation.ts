@@ -32,7 +32,7 @@ import { RouterLink } from '@angular/router';
               Eliminate operational friction and manual tasks. We engineer automated workflow pipelines that connect your CRM, accounting software, inventory databases, payment gateways, and WhatsApp notifications into one streamlined machine.
             </p>
             <div class="sh-actions">
-              <a routerLink="/contact" class="btn btn-primary btn-lg">Request Process Audit</a>
+              <a [routerLink]="['/contact']" [queryParams]="{ service: 'business-automation' }" class="btn btn-primary btn-lg">Request Process Audit</a>
               <a href="https://wa.me/919710759208?text=Hi%20Conceptra%20Labs%2C%20I%20want%20to%20automate%20my%20Business%20Workflows" target="_blank" rel="noopener" class="btn btn-outline btn-lg">Chat on WhatsApp</a>
             </div>
           </div>
@@ -198,7 +198,7 @@ import { RouterLink } from '@angular/router';
         <div class="container">
           <h2 class="reveal">Eliminate Manual Bottlenecks <span class="gradient-text">Today</span></h2>
           <p class="reveal" style="color: var(--text-secondary); max-width:560px; margin: 1rem auto 2rem;">Let our automation engineers review your business workflows and build a custom automation prototype.</p>
-          <a routerLink="/contact" class="btn btn-primary btn-lg reveal">Request Workflow Automation Audit</a>
+          <a [routerLink]="['/contact']" [queryParams]="{ service: 'business-automation' }" class="btn btn-primary btn-lg reveal">Request Workflow Automation Audit</a>
         </div>
       </section>
     </div>

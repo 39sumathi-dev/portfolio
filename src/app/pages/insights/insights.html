@@ -48,11 +48,14 @@
           <div class="ac-body">
             <div class="ac-meta">{{ article.date }} • {{ article.author }}</div>
             <h2 class="ac-title">{{ article.title }}</h2>
-            <p class="ac-summary">{{ article.summary }}</p>
+            <div class="ac-key-takeaways" style="margin: 0.75rem 0; padding: 0.75rem; border-radius: var(--radius-sm); background: rgba(255,255,255,0.03); border-left: 2px solid var(--color-primary-light); font-size: 0.8rem; color: var(--text-secondary);">
+              <strong style="color: var(--text-primary); display: block; margin-bottom: 0.35rem;">Technical Implementation Highlights:</strong>
+              <p *ngFor="let p of article.content.slice(0, 2)" style="margin-bottom: 0.35rem; line-height: 1.5;">{{ p }}</p>
+            </div>
             <div class="ac-tags">
               <span class="tag-badge" *ngFor="let tag of article.tags">{{ tag }}</span>
             </div>
-            <button class="read-btn">Read Technical Breakdown →</button>
+            <a [routerLink]="[]" [queryParams]="{ article: article.slug }" class="read-btn" (click)="$event.preventDefault(); openArticle(article)">Read Technical Breakdown →</a>
           </div>
         </div>
       </div>

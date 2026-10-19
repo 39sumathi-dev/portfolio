@@ -1,12 +1,12 @@
-import { Component, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ProjectBriefFormComponent } from '../../components/project-brief-form/project-brief-form';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, RouterLink, ProjectBriefFormComponent],
+  imports: [CommonModule, ProjectBriefFormComponent],
   template: `
     <div class="contact-page">
       <!-- Hero -->
@@ -14,9 +14,11 @@ import { ProjectBriefFormComponent } from '../../components/project-brief-form/p
         <div class="ph-bg"><div class="ph-orb ph-orb-1"></div><div class="ph-orb ph-orb-2"></div></div>
         <div class="container">
           <div class="ph-content reveal">
-            <span class="section-label">Start Your Project</span>
-            <h1>Let's Build Something <span class="gradient-text">Great Together</span></h1>
-            <p>Fill out the brief below — our engineering lead will send a tailored architectural proposal within 4 hours. Or reach us directly via the channels listed.</p>
+            <span class="section-label">{{ selectedServiceTitle ? 'Dedicated Consultation' : 'Start Your Project' }}</span>
+            <h1 *ngIf="selectedServiceTitle">Let's Engineer Your <span class="gradient-text">{{ selectedServiceTitle }}</span></h1>
+            <h1 *ngIf="!selectedServiceTitle">Let's Engineer Your Software — <span class="gradient-text">Free Technical Consultation</span></h1>
+            <p *ngIf="selectedServiceTitle">We've pre-configured your focus area below. Complete the quick 3-step brief to receive an architectural scope and fixed-price proposal within 4 hours.</p>
+            <p *ngIf="!selectedServiceTitle">Fill out the brief below — our engineering lead will send a tailored architectural proposal within 4 hours. Or reach us directly via the channels listed.</p>
           </div>
         </div>
       </section>
@@ -171,8 +173,42 @@ import { ProjectBriefFormComponent } from '../../components/project-brief-form/p
   `,
   styleUrls: ['./contact.scss']
 })
-export class ContactComponent implements AfterViewInit {
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+export class ContactComponent implements OnInit, AfterViewInit {
+  selectedServiceTitle = '';
+
+  constructor(
+    private route: ActivatedRoute,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
+
+  ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      const svc = params['service'];
+      if (!svc) {
+        this.selectedServiceTitle = '';
+        return;
+      }
+      const titleMap: { [k: string]: string } = {
+        'website': 'Custom Website / Web App',
+        'web': 'Custom Website / Web App',
+        'website-development': 'Custom Website / Web App',
+        'mobile': 'Cross-Platform Mobile App',
+        'mobile-app': 'Cross-Platform Mobile App',
+        'mobile-app-development': 'Cross-Platform Mobile App',
+        'erp': 'School ERP / Enterprise Portal',
+        'school-erp': 'School ERP Management System',
+        'school-erp-development': 'School ERP Management System',
+        'custom-software': 'Custom Enterprise Software',
+        'custom-software-development': 'Custom Enterprise Software',
+        'ai': 'Enterprise AI Automation & RAG Bot',
+        'ai-automation': 'Enterprise AI Automation & RAG Bot',
+        'business': 'Business Process Automation',
+        'business-automation': 'Business Process Automation',
+        'ecommerce': 'E-Commerce Platform'
+      };
+      this.selectedServiceTitle = titleMap[svc.toLowerCase()] || svc;
+    });
+  }
 
   nextSteps = [
     { title: 'We review your brief', desc: 'Our tech lead personally reviews your project brief within 4 working hours.' },

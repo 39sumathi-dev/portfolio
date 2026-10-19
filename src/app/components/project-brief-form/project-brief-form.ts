@@ -1,12 +1,12 @@
 import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-project-brief-form',
   standalone: true,
-  imports: [CommonModule, RouterLink, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule],
   template: `
     <div class="brief-form-wrapper">
       <!-- Progress Bar -->
@@ -99,6 +99,15 @@ import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } 
             </div>
           </button>
         </div>
+        <div class="direct-wa-box" style="margin-top: 1.25rem; padding: 0.85rem 1rem; border-radius: var(--radius-md); background: rgba(37, 211, 102, 0.08); border: 1px solid rgba(37, 211, 102, 0.25); display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap;">
+          <div style="font-size: 0.8rem; color: #10b981; display: flex; align-items: center; gap: 0.4rem;">
+            <span>⚡ Need an instant estimate?</span>
+            <span style="color: var(--text-secondary);">Skip the form and chat with our architect now</span>
+          </div>
+          <a [href]="whatsappBriefUrl" target="_blank" rel="noopener noreferrer" class="btn btn-sm" style="background: #25d366; color: #fff; padding: 0.45rem 1rem; font-size: 0.8rem; text-decoration: none; border-radius: var(--radius-full); font-weight: 700; white-space: nowrap;">
+            📲 WhatsApp Direct →
+          </a>
+        </div>
         <div class="step-nav">
           <button class="btn-back" (click)="prevStep()" type="button">← Back</button>
           <button class="btn btn-primary" [disabled]="!briefForm.value.budget" (click)="nextStep()">
@@ -155,6 +164,11 @@ import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } 
               <div *ngIf="isSubmitting" class="spinner"></div>
               {{ isSubmitting ? 'Sending...' : 'Send Project Brief' }}
             </button>
+          </div>
+          <div class="form-trust-signals" style="display: flex; gap: 1rem; justify-content: center; margin-top: 1.25rem; font-size: 0.78rem; color: var(--text-muted); flex-wrap: wrap;">
+            <span>🔒 Strict NDA Guaranteed</span>
+            <span>⚡ Architecture Proposal in &lt; 4 Hours</span>
+            <span>💳 Milestone-Based Approvals</span>
           </div>
         </form>
       </div>
@@ -226,6 +240,7 @@ export class ProjectBriefFormComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private route: ActivatedRoute,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.briefForm = this.fb.group({
@@ -236,11 +251,65 @@ export class ProjectBriefFormComponent implements OnInit {
       company: [''],
       email: ['', [Validators.required, Validators.email]],
       whatsapp: ['', [Validators.required, Validators.minLength(8)]],
-      message: ['', [Validators.required, Validators.minLength(20)]],
+      message: ['', [Validators.required, Validators.minLength(3)]],
     });
   }
 
-  ngOnInit() {}
+  get whatsappBriefUrl(): string {
+    const val = this.briefForm ? this.briefForm.value : {};
+    const type = val.projectType || 'Software/Web Project';
+    const timeline = val.timeline || 'Flexible';
+    const budget = val.budget || 'Custom';
+    const name = val.name ? ` My name is ${val.name}.` : '';
+    const note = val.message ? ` Project notes: ${val.message}` : '';
+    const text = encodeURIComponent(`Hi Conceptra Labs! I'd like to discuss a project.${name} Type: ${type}. Timeline: ${timeline}. Approximate Budget: ${budget}.${note}`);
+    return `https://wa.me/919710759208?text=${text}`;
+  }
+
+  ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      const serviceParam = params['service'];
+      const budgetParam = params['budget'];
+      const noteParam = params['note'];
+
+      if (serviceParam) {
+        const serviceMap: { [k: string]: string } = {
+          'website': 'website',
+          'web': 'website',
+          'website-development': 'website',
+          'mobile': 'mobile',
+          'mobile-app': 'mobile',
+          'mobile-app-development': 'mobile',
+          'erp': 'erp',
+          'school-erp': 'erp',
+          'school-erp-development': 'erp',
+          'custom-software': 'erp',
+          'custom-software-development': 'erp',
+          'ai': 'ai',
+          'ai-automation': 'ai',
+          'business': 'erp',
+          'business-automation': 'erp',
+          'ecommerce': 'ecommerce',
+          'design': 'design',
+          'dashboard': 'dashboard'
+        };
+        const mapped = serviceMap[serviceParam.toLowerCase()];
+        if (mapped) {
+          this.briefForm.patchValue({ projectType: mapped });
+          // Auto advance to timeline step if prefilled
+          this.currentStep = 2;
+        }
+      }
+
+      if (budgetParam) {
+        this.briefForm.patchValue({ budget: budgetParam });
+      }
+
+      if (noteParam) {
+        this.briefForm.patchValue({ message: noteParam });
+      }
+    });
+  }
 
   get progressWidth(): string {
     return ((this.currentStep - 1) / 3 * 100) + '%';

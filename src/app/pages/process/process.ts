@@ -14,7 +14,7 @@ import { RouterLink } from '@angular/router';
         <div class="container">
           <div class="ph-content reveal">
             <span class="section-label">How We Deliver</span>
-            <h1>Our Proven <span class="gradient-text">Delivery Framework</span></h1>
+            <h1>Agile Software Development Process &amp; <span class="gradient-text">Engineering Timeline</span></h1>
             <p>A battle-tested, transparent process that consistently delivers world-class digital products on time and on budget. Here's exactly how we work.</p>
           </div>
         </div>

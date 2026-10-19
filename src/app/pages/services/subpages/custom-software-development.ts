@@ -32,7 +32,7 @@ import { RouterLink } from '@angular/router';
               We design and build bespoke enterprise software, cloud application platforms, SaaS products, and custom API systems tailored precisely to your unique business workflows. Built for high security, scale, and long-term reliability.
             </p>
             <div class="sh-actions">
-              <a routerLink="/contact" class="btn btn-primary btn-lg">Request Custom Software Proposal</a>
+              <a [routerLink]="['/contact']" [queryParams]="{ service: 'custom-software' }" class="btn btn-primary btn-lg">Request Custom Software Proposal</a>
               <a href="https://wa.me/919710759208?text=Hi%20Conceptra%20Labs%2C%20I%20want%20to%20discuss%20Custom%20Software%20Development" target="_blank" rel="noopener" class="btn btn-outline btn-lg">Chat on WhatsApp</a>
             </div>
           </div>
@@ -198,7 +198,7 @@ import { RouterLink } from '@angular/router';
         <div class="container">
           <h2 class="reveal">Transform Your Operations With <span class="gradient-text">Custom Software</span></h2>
           <p class="reveal" style="color: var(--text-secondary); max-width:560px; margin: 1rem auto 2rem;">Schedule a technical discovery call with our senior software architects in Chennai today.</p>
-          <a routerLink="/contact" class="btn btn-primary btn-lg reveal">Book Technical Discovery Call</a>
+          <a [routerLink]="['/contact']" [queryParams]="{ service: 'custom-software' }" class="btn btn-primary btn-lg reveal">Book Technical Discovery Call</a>
         </div>
       </section>
     </div>

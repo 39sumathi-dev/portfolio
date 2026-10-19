@@ -32,7 +32,7 @@ import { RouterLink } from '@angular/router';
               We design and build high-performance mobile applications for iOS and Android using Flutter and React Native. Delivering smooth 60fps native performance, offline capabilities, and intuitive user experiences that users love.
             </p>
             <div class="sh-actions">
-              <a routerLink="/contact" class="btn btn-primary btn-lg">Get Mobile App Quote</a>
+              <a [routerLink]="['/contact']" [queryParams]="{ service: 'mobile-app' }" class="btn btn-primary btn-lg">Get Mobile App Quote</a>
               <a href="https://wa.me/919710759208?text=Hi%20Conceptra%20Labs%2C%20I%20want%20to%20build%20a%20Mobile%20App" target="_blank" rel="noopener" class="btn btn-outline btn-lg">Chat on WhatsApp</a>
             </div>
           </div>
@@ -198,7 +198,7 @@ import { RouterLink } from '@angular/router';
         <div class="container">
           <h2 class="reveal">Turn Your Mobile App Idea Into <span class="gradient-text">Reality</span></h2>
           <p class="reveal" style="color: var(--text-secondary); max-width:560px; margin: 1rem auto 2rem;">Get an instant technical consultation and project estimation for your mobile app within 24 hours.</p>
-          <a routerLink="/contact" class="btn btn-primary btn-lg reveal">Request Mobile App Estimate</a>
+          <a [routerLink]="['/contact']" [queryParams]="{ service: 'mobile-app' }" class="btn btn-primary btn-lg reveal">Request Mobile App Estimate</a>
         </div>
       </section>
     </div>

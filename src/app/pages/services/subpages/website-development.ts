@@ -32,7 +32,7 @@ import { RouterLink } from '@angular/router';
               We engineer blazing-fast, SEO-optimized, custom web applications that load in under 1.2 seconds and turn anonymous visitors into high-value commercial leads. Engineered with Angular, React, Next.js, and Node.js.
             </p>
             <div class="sh-actions">
-              <a routerLink="/contact" class="btn btn-primary btn-lg">Get Free Web Audit & Quote</a>
+              <a [routerLink]="['/contact']" [queryParams]="{ service: 'website' }" class="btn btn-primary btn-lg">Get Free Web Audit & Quote</a>
               <a href="https://wa.me/919710759208?text=Hi%20Conceptra%20Labs%2C%20I%20am%20interested%20in%20Website%20Development" target="_blank" rel="noopener" class="btn btn-outline btn-lg">Chat on WhatsApp</a>
             </div>
           </div>
@@ -199,7 +199,7 @@ import { RouterLink } from '@angular/router';
         <div class="container">
           <h2 class="reveal">Ready to Build a High-Converting <span class="gradient-text">Website?</span></h2>
           <p class="reveal" style="color: var(--text-secondary); max-width:560px; margin: 1rem auto 2rem;">Partner with Conceptra Labs today. Get a free proposal and architectural plan for your project within 24 hours.</p>
-          <a routerLink="/contact" class="btn btn-primary btn-lg reveal">Request Web Development Proposal</a>
+          <a [routerLink]="['/contact']" [queryParams]="{ service: 'website' }" class="btn btn-primary btn-lg reveal">Request Web Development Proposal</a>
         </div>
       </section>
     </div>

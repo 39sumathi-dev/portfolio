@@ -1,6 +1,6 @@
-import { Component, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { RouterLink, ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -72,6 +72,11 @@ import { FormsModule } from '@angular/forms';
                 <!-- Project Card Enterprise Pill -->
                 <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.25); color: #10b981; font-size: 0.75rem; font-weight: 700; padding: 0.35rem 0.65rem; border-radius: var(--radius-sm); margin: 0.75rem 0;">
                   ROI: {{ p.roi }}
+                </div>
+
+                <div class="pc-specs" style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.75rem; line-height: 1.4;">
+                  <div><strong>Architecture:</strong> {{ p.architecture }}</div>
+                  <div><strong>Impact:</strong> {{ p.seoImpact }}</div>
                 </div>
 
                 <div class="pc-stack">
@@ -185,11 +190,16 @@ import { FormsModule } from '@angular/forms';
   `,
   styleUrls: ['./projects.scss']
 })
-export class ProjectsComponent implements AfterViewInit {
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+export class ProjectsComponent implements OnInit, AfterViewInit {
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
   searchQuery = '';
   activeCategory = 'All';
   selectedProject: any = null;
+  filteredProjects: any[] = [];
 
   categories = ['All', 'E-Commerce', 'ERP Systems', 'Branding & Design', 'AI & Robotics', 'AgriTech', 'EdTech / AI'];
 
@@ -333,7 +343,21 @@ export class ProjectsComponent implements AfterViewInit {
     }
   ];
 
-  filteredProjects = [...this.allProjects];
+  ngOnInit() {
+    this.filteredProjects = [...this.allProjects];
+    this.route.queryParamMap.subscribe(params => {
+      const projParam = params.get('project');
+      if (projParam) {
+        const found = this.allProjects.find(p =>
+          p.title.toLowerCase().replace(/[^a-z0-9]+/g, '-') === projParam ||
+          p.abbreviation.toLowerCase() === projParam.toLowerCase()
+        );
+        if (found) {
+          this.openModal(found, false);
+        }
+      }
+    });
+  }
 
   setCategory(cat: string) {
     this.activeCategory = cat;
@@ -352,8 +376,12 @@ export class ProjectsComponent implements AfterViewInit {
     });
   }
 
-  openModal(project: any) {
+  openModal(project: any, updateUrl = true) {
     this.selectedProject = project;
+    if (updateUrl) {
+      const slug = project.title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+      this.router.navigate([], { queryParams: { project: slug }, queryParamsHandling: 'merge' });
+    }
     if (typeof document !== 'undefined') {
       document.body.style.overflow = 'hidden';
     }
@@ -361,6 +389,7 @@ export class ProjectsComponent implements AfterViewInit {
 
   closeModal() {
     this.selectedProject = null;
+    this.router.navigate([], { queryParams: { project: null }, queryParamsHandling: 'merge' });
     if (typeof document !== 'undefined') {
       document.body.style.overflow = '';
     }

@@ -1,11 +1,12 @@
 import { Component, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { ProjectCalculatorComponent } from '../../components/project-calculator/project-calculator';
 
 @Component({
   selector: 'app-services',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, ProjectCalculatorComponent],
   template: `
     <div class="services-page">
       <!-- Hero -->
@@ -17,8 +18,8 @@ import { RouterLink } from '@angular/router';
         <div class="container">
           <div class="ph-content reveal">
             <span class="section-label">Digital Engineering & SLAs</span>
-            <h1>Capabilities & <span class="gradient-text">Engagement Models</span></h1>
-            <p>Comprehensive engineering services and predictable retainer models tailored for ambitious startups, scaling SMEs, and enterprise platforms.</p>
+            <h1>Custom Software Engineering & <span class="gradient-text">Digital Services</span></h1>
+            <p>Comprehensive custom software engineering, School ERP systems, web & mobile applications, and AI automation tailored for scaling businesses in Chennai, Bengaluru, and globally.</p>
           </div>
         </div>
       </section>
@@ -57,10 +58,25 @@ import { RouterLink } from '@angular/router';
                     {{ b }}
                   </div>
                 </div>
-                <a routerLink="/contact" class="btn btn-primary">Request Proposal for {{ svc.title }}</a>
+                <div class="sdc-actions" style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem;">
+                  <a *ngIf="svc.subpage" [routerLink]="svc.subpage" class="btn btn-outline btn-sm">Explore Technical Specs →</a>
+                  <a [routerLink]="['/contact']" [queryParams]="{ service: svc.subpage ? svc.subpage.replace('/services/', '') : svc.category }" class="btn btn-primary btn-sm">Request Proposal</a>
+                </div>
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <!-- Interactive Project Cost & Timeline Estimator -->
+      <section class="section calculator-section">
+        <div class="container">
+          <div class="section-header reveal text-center" style="margin-bottom: 2.5rem;">
+            <span class="section-label">Transparent Pricing</span>
+            <h2>Interactive Project Cost & <span class="gradient-text">Timeline Estimator</span></h2>
+            <p>Customize your requirements and see realistic budget tiers and development schedules instantly.</p>
+          </div>
+          <app-project-calculator class="reveal"></app-project-calculator>
         </div>
       </section>
 
@@ -147,6 +163,7 @@ export class ServicesComponent implements AfterViewInit {
     {
       icon: '🌐', title: 'Web Development', category: 'Core Service',
       color: '#6366f1', rgb: '99,102,241',
+      subpage: '/services/website-development',
       desc: 'We craft stunning, high-performance websites and web platforms that load sub-second, rank on search engines, and convert visitors into loyal customers.',
       benefits: ['Custom design tailored to your brand', 'SEO-optimized Angular SSR architecture', 'Mobile-first responsive layout', 'Sub-second load times & 95+ Core Web Vitals', 'Scalable codebase built for future growth'],
       tech: ['Angular', 'React', 'Next.js', 'Node.js', 'MongoDB']
@@ -154,6 +171,7 @@ export class ServicesComponent implements AfterViewInit {
     {
       icon: '📱', title: 'App Development', category: 'Mobile Solutions',
       color: '#06b6d4', rgb: '6,182,212',
+      subpage: '/services/mobile-app-development',
       desc: 'Cross-platform mobile applications that deliver native 60fps performance across iOS and Android. Built with offline data sync, push alerts, and intuitive UX.',
       benefits: ['Cross-platform Flutter & React Native', '60fps native performance', 'Offline data sync & SQLite', 'Real-time push notifications', 'App Store & Play Store publishing support'],
       tech: ['Flutter', 'React Native', 'Firebase', 'Node.js', 'Razorpay']
@@ -161,6 +179,7 @@ export class ServicesComponent implements AfterViewInit {
     {
       icon: '🎨', title: 'UI/UX Design', category: 'Design Excellence',
       color: '#8b5cf6', rgb: '139,92,246',
+      subpage: '/services/custom-software-development',
       desc: 'User-centered design systems that convert complex enterprise workflows into intuitive visual interfaces that users love.',
       benefits: ['User research & wireframing', 'Interactive prototypes in Figma', 'Design system token creation', 'Usability testing & feedback rounds', 'Conversion rate optimization'],
       tech: ['Figma', 'Adobe XD', 'Framer', 'Principle', 'Lottie']
@@ -168,6 +187,7 @@ export class ServicesComponent implements AfterViewInit {
     {
       icon: '🏭', title: 'ERP Systems & Portals', category: 'Enterprise Solutions',
       color: '#f59e0b', rgb: '245,158,11',
+      subpage: '/services/school-erp-development',
       desc: 'Custom cloud ERP software unifying inventory, fee management, HR, procurement, and billing into one central platform.',
       benefits: ['Role-based access control & audits', 'Real-time database sync', 'Custom automated workflow pipelines', 'PDF report generation & exports', 'Accounting & third-party API sync'],
       tech: ['Angular', 'Python', 'PostgreSQL', 'Redis', 'Docker']
@@ -175,6 +195,7 @@ export class ServicesComponent implements AfterViewInit {
     {
       icon: '🤖', title: 'AI Automation', category: 'Intelligent Systems',
       color: '#10b981', rgb: '16,185,129',
+      subpage: '/services/ai-automation',
       desc: 'Autonomous RAG chatbots, OCR document parsing, and AI agents trained on proprietary knowledge bases to automate manual work.',
       benefits: ['Process automation (save 100s of hours)', '24/7 autonomous RAG knowledge bots', 'PDF invoice & purchase order OCR parsing', 'Predictive data analytics', 'WhatsApp & CRM AI triggers'],
       tech: ['Python', 'OpenAI', 'LangChain', 'TensorFlow', 'FastAPI']
@@ -182,6 +203,7 @@ export class ServicesComponent implements AfterViewInit {
     {
       icon: '🛒', title: 'E-Commerce Development', category: 'Online Retail',
       color: '#ef4444', rgb: '239,68,68',
+      subpage: '/services/website-development',
       desc: 'High-converting online stores with fast catalogs, dynamic pricing, secure payment gateways, and inventory management.',
       benefits: ['Conversion-optimized checkout flow', 'Razorpay & Stripe multi-payment integration', 'Real-time inventory management', 'SEO & Product JSON-LD schema', 'Cloudinary / R2 asset CDN speed'],
       tech: ['Angular SSR', 'FastAPI', 'Razorpay', 'MongoDB', 'Node.js']
@@ -189,6 +211,7 @@ export class ServicesComponent implements AfterViewInit {
     {
       icon: '📊', title: 'Custom Dashboard Development', category: 'Analytics & BI',
       color: '#06b6d4', rgb: '6,182,212',
+      subpage: '/services/business-automation',
       desc: 'Real-time business intelligence dashboards turning complex operational data into clean interactive charts.',
       benefits: ['Real-time WebSocket data streaming', 'Custom KPI tracking & alerts', 'Interactive D3.js & Chart.js visualizations', 'PDF/CSV data export & scheduled emails', 'Role-based view permissions'],
       tech: ['Angular', 'D3.js', 'Chart.js', 'WebSockets', 'PostgreSQL']
@@ -196,6 +219,7 @@ export class ServicesComponent implements AfterViewInit {
     {
       icon: '🧠', title: 'AI Web Applications', category: 'AI-Powered Web',
       color: '#8b5cf6', rgb: '139,92,246',
+      subpage: '/services/ai-automation',
       desc: 'Web applications supercharged with LLM capabilities — intelligent semantic search, automated content generation, and smart assistants.',
       benefits: ['GPT-4 & Claude LLM integration', 'Vector search database clustering', 'Personalized recommendations', 'Automated document processing', 'Computer vision features'],
       tech: ['Angular', 'OpenAI API', 'LangChain', 'Pinecone', 'Python']

@@ -32,7 +32,7 @@ import { RouterLink } from '@angular/router';
               Transform your school management with an all-in-one cloud ERP system. Automate fee collection, student attendance, online exam grading, report card generation, parent communication, and bus tracking in one secure portal.
             </p>
             <div class="sh-actions">
-              <a routerLink="/contact" class="btn btn-primary btn-lg">Book Live School ERP Demo</a>
+              <a [routerLink]="['/contact']" [queryParams]="{ service: 'school-erp' }" class="btn btn-primary btn-lg">Book Live School ERP Demo</a>
               <a href="https://wa.me/919710759208?text=Hi%20Conceptra%20Labs%2C%20I%20want%20to%20see%20a%20School%20ERP%20Demo" target="_blank" rel="noopener" class="btn btn-outline btn-lg">Chat on WhatsApp</a>
             </div>
           </div>
@@ -198,7 +198,7 @@ import { RouterLink } from '@angular/router';
         <div class="container">
           <h2 class="reveal">Modernize Your School Operations <span class="gradient-text">Today</span></h2>
           <p class="reveal" style="color: var(--text-secondary); max-width:560px; margin: 1rem auto 2rem;">Join 20+ schools that have automated fee collection, attendance, and parent communication with Conceptra School ERP.</p>
-          <a routerLink="/contact" class="btn btn-primary btn-lg reveal">Schedule Personalized ERP Demo</a>
+          <a [routerLink]="['/contact']" [queryParams]="{ service: 'school-erp' }" class="btn btn-primary btn-lg reveal">Schedule Personalized ERP Demo</a>
         </div>
       </section>
     </div>

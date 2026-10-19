@@ -1,11 +1,12 @@
 import { Component, OnInit, OnDestroy, AfterViewInit, ChangeDetectorRef, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { ProjectCalculatorComponent } from '../../components/project-calculator/project-calculator';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, ProjectCalculatorComponent],
   templateUrl: './home.html',
   styleUrls: ['./home.scss']
 })

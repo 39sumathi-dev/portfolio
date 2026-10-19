@@ -6,6 +6,7 @@ import { NavbarComponent } from './components/navbar/navbar';
 import { FooterComponent } from './components/footer/footer';
 import { WhatsappButtonComponent } from './components/whatsapp-button/whatsapp-button';
 import { StickyCTAComponent } from './components/sticky-cta/sticky-cta';
+import { QuickLeadModalComponent } from './components/quick-lead-modal/quick-lead-modal';
 import { SeoService } from './services/seo.service';
 import { ThemeService } from './services/theme.service';
 
@@ -18,7 +19,8 @@ import { ThemeService } from './services/theme.service';
     NavbarComponent,
     FooterComponent,
     WhatsappButtonComponent,
-    StickyCTAComponent
+    StickyCTAComponent,
+    QuickLeadModalComponent
   ],
   template: `
     <div class="app-wrapper">
@@ -29,6 +31,7 @@ import { ThemeService } from './services/theme.service';
       <app-footer></app-footer>
       <app-whatsapp-button></app-whatsapp-button>
       <app-sticky-cta></app-sticky-cta>
+      <app-quick-lead-modal></app-quick-lead-modal>
     </div>
   `,
   styles: [`
