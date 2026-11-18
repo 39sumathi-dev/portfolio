@@ -6,8 +6,8 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/home/home').then(m => m.HomeComponent),
     data: {
       title: 'Conceptra Labs — Custom Software & Web Development Company in Chennai',
-      description: 'Conceptra Labs is a premier custom software development and web development company in Chennai, India. We build high-speed web apps, mobile apps, School ERP software, and AI automation.',
-      keywords: 'software company Chennai, web development company Chennai, custom software developers, school ERP Chennai, mobile app developers, AI automation agency, software agency India',
+      description: 'Conceptra Labs is a Govt. of India MSME Certified custom software and web development company in Chennai, India. We build high-speed web apps (from ₹12k), offline POS billing software, mobile apps, School ERP platforms, and AI automation.',
+      keywords: 'software company Chennai, web development company Chennai, offline POS billing software, custom software developers, school ERP Chennai, mobile app developers, AI automation agency, MSME certified software company India',
       ogImage: 'assets/og-image.png',
       type: 'website',
       schema: {
@@ -26,7 +26,7 @@ export const routes: Routes = [
             'currenciesAccepted': 'INR, USD, AED, GBP',
             'paymentAccepted': 'Cash, Credit Card, Bank Transfer, Razorpay, UPI',
             'openingHours': 'Mo-Sa 09:00-20:00',
-            'description': 'Premier custom software and web development company in Chennai specializing in web apps, School ERP software, mobile applications, and AI automation.',
+            'description': 'Govt. of India MSME Certified custom software and web development company in Chennai specializing in web apps (from ₹12k), offline POS billing systems, School ERP software, mobile applications, and AI automation.',
             'areaServed': [
               { '@type': 'City', 'name': 'Chennai' },
               { '@type': 'City', 'name': 'Bengaluru' },
@@ -60,6 +60,7 @@ export const routes: Routes = [
               'name': 'Software Engineering Services',
               'itemListElement': [
                 { '@type': 'Offer', 'itemOffered': { '@type': 'Service', 'name': 'Custom Website & Web App Development' } },
+                { '@type': 'Offer', 'itemOffered': { '@type': 'Service', 'name': 'Offline POS Billing & Retail ERP' } },
                 { '@type': 'Offer', 'itemOffered': { '@type': 'Service', 'name': 'School ERP Software Development' } },
                 { '@type': 'Offer', 'itemOffered': { '@type': 'Service', 'name': 'Cross-Platform Mobile App Development' } },
                 { '@type': 'Offer', 'itemOffered': { '@type': 'Service', 'name': 'Enterprise AI Automation & RAG Chatbots' } }

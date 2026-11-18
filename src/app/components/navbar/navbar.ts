@@ -26,7 +26,7 @@ export interface ServiceSubLink {
           </div>
           <div class="logo-text">
             <span class="logo-name">Conceptra</span>
-            <span class="logo-tag">Labs</span>
+            <span class="logo-tag">Labs &bull; MSME Certified</span>
           </div>
         </a>
 
@@ -77,10 +77,7 @@ export interface ServiceSubLink {
             <svg *ngIf="currentTheme === 'light'" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
           </button>
 
-          <a routerLink="/contact" class="btn btn-primary btn-sm nav-cta">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.33 4.18 2 2 0 012.31 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 9.91a16 16 0 006.18 6.18l.76-.76a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
-            </svg>
+          <a routerLink="/contact" class="nav-cta">
             Get Free Consultation
           </a>
         </div>
@@ -120,12 +117,12 @@ export interface ServiceSubLink {
             </div>
           </li>
         </ul>
-        <div class="mobile-cta-group" style="width: 100%; max-width: 340px; display: flex; flex-direction: column; gap: 0.75rem;">
-          <a routerLink="/contact" class="btn btn-primary mobile-cta" (click)="closeMenu()">
+        <div class="mobile-cta-group">
+          <a routerLink="/contact" class="mobile-cta" (click)="closeMenu()">
             Get Free Consultation
           </a>
-          <a href="tel:+919710759208" class="btn btn-outline" style="justify-content: center; font-size: 0.85rem;" (click)="closeMenu()">
-            📞 Call Us: +91 97107 59208
+          <a href="tel:+919710759208" class="btn-outline" (click)="closeMenu()">
+            Call Us: +91 97107 59208
           </a>
         </div>
       </div>

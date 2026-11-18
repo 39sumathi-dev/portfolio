@@ -144,15 +144,16 @@ export class WhyUsComponent implements AfterViewInit {
     { feature: 'Security & Encryption', freelancer: 'Basic or omitted', offshore: 'Minimal compliance checks', conceptra: 'AES-256, OWASP audits & TLS 1.3' },
     { feature: 'SLA Support Governance', freelancer: 'No guaranteed uptime SLA', offshore: 'Slow ticket response times', conceptra: '24/7 SLA care & <2hr response' },
     { feature: 'IP & Code Ownership', freelancer: 'Ambiguous IP rights', offshore: 'Shared repository code', conceptra: '100% IP ownership & clean code' },
-    { feature: 'Pricing Transparency', freelancer: 'Hourly rate inflation', offshore: 'Hidden maintenance fees', conceptra: 'Clear INR pricing from ₹14,999' }
+    { feature: 'Enterprise Certification', freelancer: 'Unverified individual', offshore: 'Unregistered third-parties', conceptra: 'Govt. of India MSME Certified' },
+    { feature: 'Pricing Transparency', freelancer: 'Hourly rate inflation', offshore: 'Hidden maintenance fees', conceptra: 'Clear INR pricing from ₹11,999' }
   ];
 
   benefits = [
     { title: 'Business Strategy First', desc: 'Every line of code is structured around your quantifiable business goals, target conversion rates, and revenue performance.', metric: { val: '140%', label: 'Average traffic growth' } },
     { title: 'Sub-Second Web Speed', desc: 'Angular SSR and edge CDN assets deliver 95+ Core Web Vitals scores across mobile and desktop browsers.', metric: { val: '< 1.0s', label: 'Page load time' } },
-    { title: 'Zero Single-Person Risk', desc: 'Multi-disciplinary engineering teams ensure continuous development sprints, account oversight, and backup leads.', metric: { val: '100%', label: 'Account continuity' } },
+    { title: 'Govt. of India MSME Certified', desc: 'Officially recognized enterprise ensuring legal accountability, compliance, and dependable software engineering governance.', metric: { val: 'MSME', label: 'Certified Studio' } },
     { title: '24/7 Managed SLA Care', desc: 'Dedicated monthly support retainers provide daily encrypted cloud backups, 99.9% uptime monitoring, and rapid hotfixes.', metric: { val: '99.9%', label: 'Uptime SLA' } },
-    { title: 'Predictable Rupee Pricing', desc: 'Transparent project minimums starting at ₹14,999 and sprint retainers starting at ₹24,999/mo with zero hidden costs.', metric: { val: 'INR', label: 'Transparent pricing' } },
+    { title: 'Predictable Rupee Pricing', desc: 'Transparent project minimums starting at ₹11,999 (basic websites from ₹12k) and sprint retainers starting at ₹17,999/mo with zero hidden costs.', metric: { val: 'INR', label: 'Transparent pricing' } },
     { title: 'AI & Webhook Automation', desc: 'Autonomous RAG AI chatbots and WhatsApp API notification pipelines that save 100s of manual admin hours.', metric: null }
   ];
 

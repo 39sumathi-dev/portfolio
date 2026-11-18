@@ -141,6 +141,7 @@ interface FeatureAddon {
         </div>
 
         <div class="calc-trust-footer">
+          <span>🏛️ Govt. of India MSME Certified Enterprise</span>
           <span>🛡️ 100% Full Source Code & IP Ownership</span>
           <span>⚡ Free 30-Day Post-Launch SLA Warranty</span>
           <span>📄 Formal NDA & Fixed-Price Scope Guarantee</span>
@@ -152,30 +153,31 @@ interface FeatureAddon {
 })
 export class ProjectCalculatorComponent {
   projectTypes: ProjectTypeOption[] = [
-    { id: 'website', label: 'Website / Web App', icon: '🌐', baseMin: 30000, baseMax: 65000, weeksMin: 2, weeksMax: 4, desc: 'Responsive Angular/React site or web app' },
-    { id: 'school-erp', label: 'School ERP System', icon: '🏫', baseMin: 50000, baseMax: 110000, weeksMin: 3, weeksMax: 6, desc: 'Fees, attendance, parent app, exams' },
-    { id: 'mobile', label: 'Cross-Platform Mobile App', icon: '📱', baseMin: 65000, baseMax: 140000, weeksMin: 4, weeksMax: 8, desc: 'Flutter/React Native for iOS & Android' },
-    { id: 'ai', label: 'AI Automation & RAG Bot', icon: '🤖', baseMin: 40000, baseMax: 90000, weeksMin: 2, weeksMax: 4, desc: 'RAG knowledge bot, OCR, triggers' },
-    { id: 'custom-software', label: 'Enterprise Software / SaaS', icon: '🏭', baseMin: 85000, baseMax: 220000, weeksMin: 6, weeksMax: 12, desc: 'Multi-tenant cloud architecture & APIs' }
+    { id: 'website', label: 'Business Website / Web App', icon: '🌐', baseMin: 12000, baseMax: 26000, weeksMin: 1, weeksMax: 3, desc: 'Fast responsive website or Angular web app from ₹12,000' },
+    { id: 'pos-billing', label: 'Offline POS Billing System', icon: '🧾', baseMin: 18000, baseMax: 42000, weeksMin: 2, weeksMax: 4, desc: 'Offline-first desktop/web POS, barcode, thermal & GST billing' },
+    { id: 'school-erp', label: 'School ERP System', icon: '🏫', baseMin: 28000, baseMax: 65000, weeksMin: 2, weeksMax: 5, desc: 'Fees, attendance, parent portal, exams' },
+    { id: 'mobile', label: 'Cross-Platform Mobile App', icon: '📱', baseMin: 35000, baseMax: 75000, weeksMin: 3, weeksMax: 6, desc: 'Flutter for iOS & Android with cloud backend' },
+    { id: 'ai', label: 'AI Automation & RAG Bot', icon: '🤖', baseMin: 22000, baseMax: 48000, weeksMin: 2, weeksMax: 4, desc: 'RAG knowledge assistant, document OCR, triggers' },
+    { id: 'custom-software', label: 'Enterprise Software / SaaS', icon: '🏭', baseMin: 45000, baseMax: 110000, weeksMin: 4, weeksMax: 8, desc: 'Multi-tenant cloud architecture & custom workflows' }
   ];
 
   selectedType: ProjectTypeOption = this.projectTypes[0];
 
   scaleOptions = [
-    { id: 'mvp', label: 'MVP Prototype', desc: 'Core workflows & launch essential' },
-    { id: 'pro', label: 'Growth / Standard', desc: 'Robust full-featured implementation' },
-    { id: 'enterprise', label: 'Enterprise Scale', desc: 'High concurrency & custom integrations' }
+    { id: 'mvp', label: 'Basic / MVP Launch', desc: 'Core essential features & fast turnaround' },
+    { id: 'pro', label: 'Standard / Growth', desc: 'Full-featured implementation with analytics' },
+    { id: 'enterprise', label: 'Enterprise Scale', desc: 'High concurrency, multi-counter & custom sync' }
   ];
 
-  selectedScale = 'pro';
+  selectedScale = 'mvp';
 
   featureAddons: FeatureAddon[] = [
-    { id: 'payment', name: 'Razorpay / UPI Payment Gateway', cost: 8000, weeks: 0.5, icon: '💳', checked: true },
-    { id: 'whatsapp', name: 'Automated WhatsApp Messaging Alerts', cost: 10000, weeks: 0.5, icon: '📲', checked: true },
-    { id: 'roles', name: 'Multi-Role User Auth & Permissions', cost: 12000, weeks: 1, icon: '🔐', checked: true },
-    { id: 'ai-chat', name: 'Smart AI Knowledge Chatbot / OCR', cost: 20000, weeks: 1.5, icon: '🧠', checked: false },
-    { id: 'tally', name: 'Accounting / Legacy ERP Sync API', cost: 15000, weeks: 1, icon: '🔄', checked: false },
-    { id: 'bi', name: 'Interactive Analytics & PDF Export', cost: 10000, weeks: 0.5, icon: '📊', checked: false }
+    { id: 'payment', name: 'Razorpay / UPI Payment Gateway', cost: 3500, weeks: 0.5, icon: '💳', checked: false },
+    { id: 'whatsapp', name: 'Automated WhatsApp Messaging Alerts', cost: 4500, weeks: 0.5, icon: '📲', checked: false },
+    { id: 'roles', name: 'Multi-Role User Auth & Permissions', cost: 5000, weeks: 0.5, icon: '🔐', checked: false },
+    { id: 'ai-chat', name: 'Smart AI Knowledge Chatbot / OCR', cost: 8000, weeks: 1, icon: '🧠', checked: false },
+    { id: 'tally', name: 'Accounting / Legacy ERP / Tally Sync', cost: 6000, weeks: 0.5, icon: '🔄', checked: false },
+    { id: 'bi', name: 'Interactive Analytics & PDF Export', cost: 4000, weeks: 0.5, icon: '📊', checked: false }
   ];
 
   selectType(type: ProjectTypeOption) {
@@ -188,9 +190,9 @@ export class ProjectCalculatorComponent {
 
   get scaleMultiplier(): number {
     switch (this.selectedScale) {
-      case 'mvp': return 0.85;
-      case 'enterprise': return 1.6;
-      default: return 1.15;
+      case 'mvp': return 1.0;
+      case 'enterprise': return 1.5;
+      default: return 1.25;
     }
   }
 

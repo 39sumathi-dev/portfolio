@@ -267,7 +267,8 @@
   border-radius: var(--radius-xl);
   width: 100%;
   max-width: 640px;
-  overflow: hidden;
+  max-height: 90vh;
+  overflow-y: auto;
   position: relative;
   animation: fadeInUp 0.4s ease;
 }

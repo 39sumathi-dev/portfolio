@@ -45,8 +45,8 @@ import { ProjectBriefFormComponent } from '../../components/project-brief-form/p
               <div class="availability-card reveal">
                 <div class="av-dot"></div>
                 <div>
-                  <strong>Currently Accepting Projects</strong>
-                  <span>2 sprint slots open — Q4 2026</span>
+                  <strong>Govt. of India MSME Certified</strong>
+                  <span>Accredited Studio &bull; Accepting Projects for 2026</span>
                 </div>
               </div>
 
@@ -220,7 +220,7 @@ export class ContactComponent implements OnInit, AfterViewInit {
   faqs = [
     { q: 'How long does a typical project take?', a: 'Project timelines vary based on scope. A standard website takes 3–5 weeks, mobile apps 6–10 weeks, and ERP systems 10–16 weeks. We\'ll provide a detailed sprint roadmap in your proposal.', open: false },
     { q: 'Do you work with international clients?', a: 'Yes — we work with clients across India, UAE, UK, and Singapore. All communication is in English and we adapt to your time zone for meetings.', open: false },
-    { q: 'What\'s included in the SLA support retainer?', a: 'Our SLA retainers include 99.9% uptime monitoring, daily encrypted database backups, security vulnerability scans, bug fixes, and monthly performance audits. Starting at ₹4,999/month.', open: false },
+    { q: 'What\'s included in the SLA support retainer?', a: 'Our SLA retainers include 99.9% uptime monitoring, daily encrypted database backups, security vulnerability scans, bug fixes, and monthly performance audits. Starting at ₹2,999/month.', open: false },
     { q: 'Who owns the source code?', a: '100% IP and code ownership transfers to you upon project completion and final payment. We provide full GitHub repository access and deployment credentials.', open: false },
     { q: 'Can you work with my existing codebase?', a: 'Absolutely. We regularly audit, refactor, and extend existing codebases. Our technical assessment will identify upgrade paths and risk areas in the first scoping call.', open: false },
     { q: 'Do you sign NDAs?', a: 'Yes, we sign NDAs before sharing any project details. Confidentiality of your business idea and technical implementation is treated as a priority.', open: false },

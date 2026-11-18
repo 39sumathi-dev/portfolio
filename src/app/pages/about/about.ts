@@ -45,12 +45,12 @@ import { RouterLink } from '@angular/router';
                 </div>
 
                 <div class="ih-item">
-                  <div class="ih-icon" style="color: #06b6d4">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  <div class="ih-icon" style="color: var(--color-primary-light)">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                   </div>
                   <div>
-                    <strong>Dedicated Account Management</strong>
-                    <p>Direct technical lead and client success manager assigned</p>
+                    <strong>Govt. of India MSME Certified</strong>
+                    <p>Recognized enterprise delivering accredited software solutions</p>
                   </div>
                 </div>
 
@@ -220,7 +220,7 @@ import { RouterLink } from '@angular/router';
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
               </div>
               <h4>Predictable Fixed & Retainer Pricing</h4>
-              <p>Clear project minimums (starting at ₹14,999) and structured sprint options with zero unexpected billing surprises.</p>
+              <p>Clear project minimums (basic websites starting at ₹11,999 / ₹12k) and structured sprint options with zero unexpected billing surprises.</p>
             </div>
 
             <div class="trust-card reveal">

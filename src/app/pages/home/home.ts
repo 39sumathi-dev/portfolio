@@ -170,6 +170,23 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   // Enhanced Featured Projects with Enterprise Metadata
   projects = [
     {
+      title: 'Offline POS Billing & Retail ERP',
+      category: 'POS & Billing',
+      desc: 'High-speed offline-first POS software with instant barcode checkout, thermal receipt printing, automated GST filing reports, and background cloud sync.',
+      stack: ['Electron', 'Angular', 'SQLite', 'Thermal Print', 'GST'],
+      color: '#2d5a3d',
+      abbreviation: 'POS',
+      timeline: '6 Weeks',
+      teamSize: '3 Systems Engineers',
+      architecture: 'Offline-First Local SQLite + Cloud Replication + Thermal Printing SDK',
+      roiMetric: '100% Billing Uptime Without Internet, Sub-Second Scan',
+      systemLog: 'RETAIL // OFFLINE_POS',
+      challenge: 'Network drops during peak shopping hours caused checkout lines to freeze and interrupted counter billing.',
+      seoSolution: 'Engineered a standalone offline-first POS architecture with transactional local SQLite storage that never interrupts billing and synchronizes automatically.',
+      seoImpact: '100% uptime during counter operations, zero lost orders, and automated GST reconciliation.',
+      showCaseStudy: false
+    },
+    {
       title: 'Myha Couture',
       category: 'E-Commerce',
       desc: 'A fully functional clothing e-commerce platform with multi-image product catalog, custom sizing, Razorpay payments, real-time order tracking, and a containerized FastAPI backend.',
@@ -277,15 +294,15 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   pricingTiers = [
     {
       name: 'Fixed Scope Project',
-      price: 'Starting at ₹14,999',
-      badge: 'Project Delivery',
-      subtitle: 'Best for specific product builds with well-defined requirements.',
+      price: 'Starting at ₹11,999',
+      badge: 'Websites & Projects',
+      subtitle: 'Starting at ₹12,000 for responsive websites and defined product builds.',
       features: [
-        'Dedicated UI/UX Design & Interactive Prototype',
-        'Full-Stack Web or Mobile App Engineering',
-        'Production Deployment on AWS / Vercel / Netlify',
+        'Dedicated UI/UX Design & Responsive Layouts',
+        'Full-Stack Web or POS App Engineering',
+        'Production Deployment on AWS / Cloudflare / Netlify',
         '30-Day Post-Launch SLA Warranty & Bug Fixes',
-        'Complete Source Code & IP Transfer'
+        'Complete Source Code & 100% IP Transfer'
       ],
       popular: false,
       ctaText: 'Request Project Quote',
@@ -293,7 +310,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     },
     {
       name: 'Continuous Sprint Retainer',
-      price: 'Starting at ₹24,999 / mo',
+      price: 'Starting at ₹17,999 / mo',
       badge: 'Most Popular',
       subtitle: 'Dedicated developer capacity for fast-growing platforms.',
       features: [
@@ -309,7 +326,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     },
     {
       name: 'Managed SLA & Support Retainer',
-      price: 'Starting at ₹4,999 / mo',
+      price: 'Starting at ₹2,999 / mo',
       badge: 'Peace of Mind',
       subtitle: '24/7 uptime monitoring, security updates & database care.',
       features: [

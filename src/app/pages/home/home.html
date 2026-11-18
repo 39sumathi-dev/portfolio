@@ -1,39 +1,33 @@
-<section class="hero-section" (mousemove)="onMouseMoveHero($event)">
-  <div class="hero-bg">
-    <div class="hero-ambient-layer" [style.transform]="'translate3d(' + heroTranslateX + 'px, ' + heroTranslateY + 'px, 0)'">
-      <div class="hero-grid"></div>
-      <div class="hero-orb orb-1"></div>
-      <div class="hero-orb orb-2"></div>
-      <div class="hero-orb orb-3"></div>
-      <div class="hero-lines">
-        <div class="line" *ngFor="let i of [1,2,3,4,5]"></div>
-      </div>
-    </div>
-  </div>
+<!-- =================================================================
+     HERO SECTION
+     Preserves exact SEO target:
+     H1: Custom Software & Web Development Company in Chennai
+     Description: Conceptra Labs is a premier digital engineering agency in Chennai & Bengaluru...
+     ================================================================= -->
+<section class="hero-section">
+  <div class="hero-pattern-bg"></div>
 
   <div class="container hero-container">
-    <!-- Hero Content -->
+    <!-- Left Column: Hero Content & CTAs -->
     <div class="hero-content">
-      <div class="hero-badge reveal">
-        <span class="badge-dot"></span>
-        Now Accepting Strategic Projects & Enterprise Retainers for 2026
+      <div class="hero-eyebrow">
+        <span class="eyebrow-indicator"></span>
+        <span>Govt. of India MSME Certified &bull; Chennai &amp; Bengaluru</span>
       </div>
 
-      <h1 class="hero-title reveal">
+      <h1 class="hero-title">
         Custom Software &amp; Web Development<br>
-        <span class="gradient-text">Company in Chennai</span>
+        <span class="hero-title-accent">Company in Chennai</span>
       </h1>
 
-      <p class="hero-desc reveal">
-        Conceptra Labs is a premier digital engineering agency in Chennai & Bengaluru. We architect high-performance web
-        applications, native mobile products, custom ERP platforms, and autonomous AI automation pipelines.
+      <p class="hero-desc">
+        Conceptra Labs is a premier digital engineering agency in Chennai &amp; Bengaluru. We architect high-performance web applications, native mobile products, custom ERP platforms, and autonomous AI automation pipelines.
       </p>
 
-      <div class="hero-actions reveal">
+      <div class="hero-actions">
         <a routerLink="/contact" class="btn btn-primary btn-lg">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path
-              d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.07 9.81 19.79 19.79 0 01.33 4.18 2 2 0 012.31 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 9.91a16 16 0 006.18 6.18l.76-.76a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.33 4.18 2 2 0 012.31 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 9.91a16 16 0 006.18 6.18l.76-.76a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
           </svg>
           Get Free Technical Consultation
         </a>
@@ -42,504 +36,462 @@
             <rect x="2" y="3" width="20" height="14" rx="2" />
             <path d="M8 21h8M12 17v4" />
           </svg>
-          Explore Enterprise Work
+          Explore Our Work
         </a>
       </div>
 
-      <!-- Social Proof -->
-      <div class="hero-social-proof reveal">
-        <div class="avatar-stack">
-          <div class="avatar" *ngFor="let a of ['WC','SV','MN','AK','DR']">{{ a }}</div>
+      <div class="hero-meta-bar">
+        <div class="meta-item">
+          <span class="meta-label">Accreditation</span>
+          <span class="meta-val">MSME Certified (Govt. of India)</span>
         </div>
-        <div class="proof-text">
-          <strong>15+ Verified Enterprise Clients</strong> & 98% satisfaction score
+        <div class="meta-sep">&bull;</div>
+        <div class="meta-item">
+          <span class="meta-label">Starting Scope</span>
+          <span class="meta-val">Basic Websites From ₹12k</span>
         </div>
-      </div>
-    </div>
-
-    <!-- Hero Visual -->
-    <div class="hero-visual reveal-right">
-      <div class="hero-card-stack">
-        <!-- Main Dashboard Card -->
-        <div class="dashboard-card animate-float">
-          <div class="dc-header">
-            <div class="dc-dots">
-              <span></span><span></span><span></span>
-            </div>
-            <span class="dc-title">Enterprise Ops Dashboard</span>
-          </div>
-          <div class="dc-chart">
-            <div class="chart-bars">
-              <div class="bar" *ngFor="let h of [60,80,45,90,70,85,95]" [style.height]="h + '%'"></div>
-            </div>
-            <div class="chart-stats">
-              <div class="cs-item">
-                <span class="cs-val gradient-text">↑ 140%</span>
-                <span class="cs-label">SEO Growth</span>
-              </div>
-              <div class="cs-item">
-                <span class="cs-val" style="color:#10b981">99.9%</span>
-                <span class="cs-label">Uptime SLA</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Floating Cards -->
-        <div class="float-card fc-1 animate-float-delay">
-          <div class="fc-icon" style="color:#6366f1">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-              <line x1="9" y1="9" x2="15" y2="9" />
-              <line x1="9" y1="13" x2="15" y2="13" />
-              <line x1="9" y1="17" x2="15" y2="17" />
-            </svg>
-          </div>
-          <div>
-            <p class="fc-title">RAG AI Agents</p>
-            <p class="fc-sub">24/7 Autonomous</p>
-          </div>
-          <div class="fc-badge">Live</div>
-        </div>
-
-        <div class="float-card fc-2 animate-float">
-          <div class="fc-icon" style="color:#10b981">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-              <polyline points="22 4 12 14.01 9 11.01" />
-            </svg>
-          </div>
-          <div>
-            <p class="fc-title">ERP Automated</p>
-            <p class="fc-sub">Zero Billing Errors</p>
-          </div>
-        </div>
-
-        <div class="float-card fc-3 animate-float-delay">
-          <div class="fc-icon" style="color:#f59e0b">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-            </svg>
-          </div>
-          <div>
-            <p class="fc-title">98/100</p>
-            <p class="fc-sub">Core Web Vitals</p>
-          </div>
+        <div class="meta-sep">&bull;</div>
+        <div class="meta-item">
+          <span class="meta-label">Locations</span>
+          <span class="meta-val">Chennai &bull; Bengaluru</span>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Scroll Indicator -->
-  <div class="scroll-indicator">
-    <div class="scroll-mouse">
-      <div class="scroll-wheel"></div>
-    </div>
-    <span>Scroll to explore</span>
-  </div>
-</section>
+    <!-- Right Column: Authentic Engineering Directory Matrix -->
+    <div class="hero-visual">
+      <div class="engineering-matrix-card">
+        <div class="emc-header">
+          <div class="emc-badge">
+            <span class="badge-status-dot"></span>
+            Practice Directory
+          </div>
+          <span class="emc-id">SYS-SPEC // 2026</span>
+        </div>
 
-<!-- ========== STATS SECTION ========== -->
-<section class="stats-section section-sm">
-  <div class="container">
-    <div class="stats-grid">
-      <!-- Card 1: Projects Delivered -->
-      <div class="stat-card reveal" style="animation-delay: 0s;">
-        <div class="stat-icon" style="color: #6366f1">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-            <polyline points="22 4 12 14.01 9 11.01" />
-          </svg>
+        <div class="emc-title-row">
+          <span class="emc-studio-name">Conceptra Labs Atelier</span>
+          <span class="emc-region">South India Engineering Unit</span>
         </div>
-        <div class="stat-value gradient-text">{{ counters[0].value }}{{ counters[0].suffix }}</div>
-        <div class="stat-label">{{ counters[0].label }}</div>
-      </div>
-      <!-- Card 2: Happy Clients -->
-      <div class="stat-card reveal" style="animation-delay: 0.1s;">
-        <div class="stat-icon" style="color: #06b6d4">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-            <circle cx="9" cy="7" r="4" />
-            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-          </svg>
+
+        <div class="emc-divider"></div>
+
+        <div class="emc-practice-list">
+          <div class="emc-practice-item">
+            <span class="ep-num">01</span>
+            <div class="ep-info">
+              <span class="ep-name">Custom Enterprise Software</span>
+              <span class="ep-tech">Node.js &bull; Python &bull; PostgreSQL &bull; Docker</span>
+            </div>
+            <span class="ep-tag">Core</span>
+          </div>
+
+          <div class="emc-practice-item">
+            <span class="ep-num">02</span>
+            <div class="ep-info">
+              <span class="ep-name">High-Speed Web Platforms</span>
+              <span class="ep-tech">Angular SSR &bull; PWA &bull; REST API &bull; Microservices</span>
+            </div>
+            <span class="ep-tag">Web</span>
+          </div>
+
+          <div class="emc-practice-item">
+            <span class="ep-num">03</span>
+            <div class="ep-info">
+              <span class="ep-name">Offline POS &amp; Retail ERP Systems</span>
+              <span class="ep-tech">Barcode Checkout &bull; Thermal Print &bull; GST Reports &bull; Sync</span>
+            </div>
+            <span class="ep-tag">POS</span>
+          </div>
+
+          <div class="emc-practice-item">
+            <span class="ep-num">04</span>
+            <div class="ep-info">
+              <span class="ep-name">School &amp; Hospital ERP Portals</span>
+              <span class="ep-tech">Automated Billing &bull; Attendance &bull; Role Auth</span>
+            </div>
+            <span class="ep-tag">ERP</span>
+          </div>
+
+          <div class="emc-practice-item">
+            <span class="ep-num">05</span>
+            <div class="ep-info">
+              <span class="ep-name">Mobile Products (iOS &amp; Android)</span>
+              <span class="ep-tech">Flutter &bull; 60fps Native UI &bull; Offline Sync</span>
+            </div>
+            <span class="ep-tag">Mobile</span>
+          </div>
+
+          <div class="emc-practice-item">
+            <span class="ep-num">06</span>
+            <div class="ep-info">
+              <span class="ep-name">Autonomous AI &amp; Automation</span>
+              <span class="ep-tech">RAG Pipelines &bull; LLM Assistants &bull; OCR Invoicing</span>
+            </div>
+            <span class="ep-tag">AI</span>
+          </div>
         </div>
-        <div class="stat-value gradient-text">{{ counters[1].value }}{{ counters[1].suffix }}</div>
-        <div class="stat-label">{{ counters[1].label }}</div>
-      </div>
-      <!-- Card 3: Satisfaction Score -->
-      <div class="stat-card reveal" style="animation-delay: 0.2s;">
-        <div class="stat-icon" style="color: #8b5cf6">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-          </svg>
+
+        <div class="emc-divider"></div>
+
+        <div class="emc-footer">
+          <div class="emc-footer-stat">
+            <span class="stat-number">5.0 &#9733;</span>
+            <span class="stat-desc">Google Rating</span>
+          </div>
+          <div class="emc-footer-stat">
+            <span class="stat-number">15+</span>
+            <span class="stat-desc">Deployed Systems</span>
+          </div>
+          <div class="emc-footer-stat">
+            <span class="stat-number">100%</span>
+            <span class="stat-desc">Code Ownership</span>
+          </div>
         </div>
-        <div class="stat-value gradient-text">{{ counters[2].value }}{{ counters[2].suffix }}</div>
-        <div class="stat-label">{{ counters[2].label }}</div>
-      </div>
-      <!-- Card 4: SLA Support Availability -->
-      <div class="stat-card reveal" style="animation-delay: 0.3s;">
-        <div class="stat-icon" style="color: #f59e0b">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-            <line x1="8" y1="21" x2="16" y2="21" />
-            <line x1="12" y1="17" x2="12" y2="21" />
-          </svg>
-        </div>
-        <div class="stat-value gradient-text">{{ counters[3].value }}{{ counters[3].suffix }}</div>
-        <div class="stat-label">{{ counters[3].label }}</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========== SPECIALIZED SERVICE PILLARS SECTION ========== -->
-<section class="section" id="services">
+<!-- =================================================================
+     OPERATIONAL METRICS & SIGNALS
+     Clean horizontal editorial summary
+     ================================================================= -->
+<section class="signals-section">
   <div class="container">
-    <div class="section-header reveal">
-      <span class="section-label">Core Capabilities & Specialization</span>
-      <h2>Engineering Focused <span class="gradient-text">Digital Solutions</span></h2>
-      <p>We avoid generic dilutive positioning. We specialize deeply in three core technology pillars designed to empower scaling businesses.</p>
+    <div class="signals-grid">
+      <div class="signal-item">
+        <span class="signal-number">MSME</span>
+        <span class="signal-title">Govt. Certified Studio</span>
+        <span class="signal-caption">Registered enterprise with the Govt. of India Ministry of MSME</span>
+      </div>
+      <div class="signal-item">
+        <span class="signal-number">From ₹12k</span>
+        <span class="signal-title">Predictable Pricing</span>
+        <span class="signal-caption">Basic business websites from ₹12,000 with zero hidden costs</span>
+      </div>
+      <div class="signal-item">
+        <span class="signal-number">15+</span>
+        <span class="signal-title">Delivered Platforms</span>
+        <span class="signal-caption">POS billing, school ERPs, web apps &amp; D2C stores across India</span>
+      </div>
+      <div class="signal-item">
+        <span class="signal-number">5.0 &#9733;</span>
+        <span class="signal-title">Verified Google Reviews</span>
+        <span class="signal-caption">100% 5-star ratings with direct founder &amp; director reviews</span>
+      </div>
     </div>
+  </div>
+</section>
 
-    <div class="pillars-container">
-      <div class="pillar-block reveal" *ngFor="let p of servicePillars; let pIdx = index">
-        <div class="pillar-header">
-          <div class="pillar-badge" [style.color]="p.color" [style.background]="'rgba(' + hexToRgbStr(p.color) + ', 0.12)'">
-            Pillar 0{{ pIdx + 1 }}
+<!-- =================================================================
+     ABOUT THE STUDIO SECTION
+     Clear, credible engineering philosophy
+     ================================================================= -->
+<section class="section studio-section" id="about">
+  <div class="container">
+    <div class="studio-layout">
+      <div class="studio-header">
+        <span class="section-label">Engineering Philosophy</span>
+        <h2>Software Built for Real Business Operations</h2>
+      </div>
+      <div class="studio-content">
+        <p class="studio-lead">
+          We are a digital engineering studio in Chennai and Bengaluru. We build robust software solutions designed around the actual workflows, constraints, and operational goals of Indian businesses.
+        </p>
+        <div class="philosophy-grid">
+          <div class="phil-card">
+            <span class="phil-num">01</span>
+            <h3>Direct Engineering Accountability</h3>
+            <p>You communicate directly with the engineers designing and building your product. No account managers, no translation loss, and no inflated communication overhead.</p>
           </div>
-          <h3 class="pillar-title">{{ p.pillarName }}</h3>
-          <p class="pillar-tagline">{{ p.pillarTagline }}</p>
-        </div>
-
-        <div class="pillar-items-grid">
-          <div class="pillar-card" *ngFor="let item of p.items">
-            <h4 class="pc-title">{{ item.title }}</h4>
-            <p class="pc-desc">{{ item.desc }}</p>
-            <a [routerLink]="item.link" class="pc-link" [style.color]="p.color">
-              Explore Capability →
-            </a>
+          <div class="phil-card">
+            <span class="phil-num">02</span>
+            <h3>Architecture Before Code</h3>
+            <p>We evaluate your data flows, integration requirements, and scaling needs before writing code, choosing sensible technologies like Angular, Node.js, and PostgreSQL that stand the test of time.</p>
+          </div>
+          <div class="phil-card">
+            <span class="phil-num">03</span>
+            <h3>Maintainability &amp; Full IP Transfer</h3>
+            <p>Every system is built cleanly with modular code, automated deployment pipelines, and thorough documentation. You retain 100% intellectual property ownership from day one.</p>
           </div>
         </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="text-center" style="margin-top: 3.5rem;">
+<!-- =================================================================
+     SERVICES SECTION
+     Editorial structured index layout with deep internal linking
+     ================================================================= -->
+<section class="section services-section" id="services">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Core Capabilities &amp; Services</span>
+      <h2>Specialized Digital Engineering <span class="gradient-text">Solutions</span></h2>
+      <p>We focus on high-impact technology capabilities that eliminate manual overhead and give your business a measurable operational edge.</p>
+    </div>
+
+    <div class="services-index">
+      <!-- 01: Custom Software Development -->
+      <a routerLink="/services/custom-software-development" class="service-row">
+        <div class="sr-num">01</div>
+        <div class="sr-main">
+          <h3 class="sr-title">Custom Software Development</h3>
+          <p class="sr-desc">Bespoke software platforms, SaaS architectures, and cloud microservices engineered around your exact company operational workflows and data models.</p>
+          <div class="sr-tags">
+            <span class="sr-tag">Enterprise SaaS</span>
+            <span class="sr-tag">PostgreSQL</span>
+            <span class="sr-tag">Node.js</span>
+            <span class="sr-tag">Docker Microservices</span>
+          </div>
+        </div>
+        <div class="sr-action">
+          <span class="sr-explore">Explore Capability</span>
+          <span class="sr-arrow">&rarr;</span>
+        </div>
+      </a>
+
+      <!-- 02: School & Enterprise ERP -->
+      <a routerLink="/services/school-erp-development" class="service-row">
+        <div class="sr-num">02</div>
+        <div class="sr-main">
+          <h3 class="sr-title">School &amp; Enterprise ERP Development</h3>
+          <p class="sr-desc">Centralized management systems for schools, institutions, and industrial enterprises. Automated fee collection, student records, attendance, and role-based permissions.</p>
+          <div class="sr-tags">
+            <span class="sr-tag">School Management</span>
+            <span class="sr-tag">Automated Billing</span>
+            <span class="sr-tag">Fee Reconciliation</span>
+            <span class="sr-tag">Role Auditing</span>
+          </div>
+        </div>
+        <div class="sr-action">
+          <span class="sr-explore">Explore Capability</span>
+          <span class="sr-arrow">&rarr;</span>
+        </div>
+      </a>
+
+      <!-- 03: Offline POS & Retail Billing Systems -->
+      <a routerLink="/services/custom-software-development" class="service-row">
+        <div class="sr-num">03</div>
+        <div class="sr-main">
+          <h3 class="sr-title">Offline POS Billing &amp; Retail Systems</h3>
+          <p class="sr-desc">Standalone, offline-first desktop &amp; web billing applications for retail stores, supermarkets, and distributors. Instant barcode scanning, thermal printing, GST reports, and background cloud sync.</p>
+          <div class="sr-tags">
+            <span class="sr-tag">Offline-First SQLite</span>
+            <span class="sr-tag">Barcode POS</span>
+            <span class="sr-tag">Thermal Receipt SDK</span>
+            <span class="sr-tag">GST Compliance</span>
+          </div>
+        </div>
+        <div class="sr-action">
+          <span class="sr-explore">Explore Capability</span>
+          <span class="sr-arrow">&rarr;</span>
+        </div>
+      </a>
+
+      <!-- 04: Web Application Development -->
+      <a routerLink="/services/website-development" class="service-row">
+        <div class="sr-num">04</div>
+        <div class="sr-main">
+          <h3 class="sr-title">Web Application &amp; Portal Development</h3>
+          <p class="sr-desc">High-performance corporate websites and client portals engineered with Angular Server-Side Rendering (SSR), Progressive Web App (PWA) standards, and sub-second loading speeds.</p>
+          <div class="sr-tags">
+            <span class="sr-tag">Angular SSR</span>
+            <span class="sr-tag">Progressive Web Apps</span>
+            <span class="sr-tag">SEO Architecture</span>
+            <span class="sr-tag">Client Portals</span>
+          </div>
+        </div>
+        <div class="sr-action">
+          <span class="sr-explore">Explore Capability</span>
+          <span class="sr-arrow">&rarr;</span>
+        </div>
+      </a>
+
+      <!-- 05: Mobile App Development -->
+      <a routerLink="/services/mobile-app-development" class="service-row">
+        <div class="sr-num">05</div>
+        <div class="sr-main">
+          <h3 class="sr-title">Mobile App Development (iOS &amp; Android)</h3>
+          <p class="sr-desc">Native-feel cross-platform mobile products built using Flutter. Fluid 60fps animations, offline-first data synchronization, secure biometric authentication, and push alerts.</p>
+          <div class="sr-tags">
+            <span class="sr-tag">Flutter</span>
+            <span class="sr-tag">iOS &amp; Android</span>
+            <span class="sr-tag">Offline Sync</span>
+            <span class="sr-tag">Biometrics</span>
+          </div>
+        </div>
+        <div class="sr-action">
+          <span class="sr-explore">Explore Capability</span>
+          <span class="sr-arrow">&rarr;</span>
+        </div>
+      </a>
+
+      <!-- 06: AI & Automation -->
+      <a routerLink="/services/ai-automation" class="service-row">
+        <div class="sr-num">06</div>
+        <div class="sr-main">
+          <h3 class="sr-title">AI Integration &amp; Autonomous Automation</h3>
+          <p class="sr-desc">Practical AI assistants, automated invoice OCR data extraction, Retrieval-Augmented Generation (RAG) knowledge bots, and automated business decision pipelines.</p>
+          <div class="sr-tags">
+            <span class="sr-tag">RAG Knowledge Bases</span>
+            <span class="sr-tag">Invoice OCR</span>
+            <span class="sr-tag">LLM Integration</span>
+            <span class="sr-tag">Workflow Automation</span>
+          </div>
+        </div>
+        <div class="sr-action">
+          <span class="sr-explore">Explore Capability</span>
+          <span class="sr-arrow">&rarr;</span>
+        </div>
+      </a>
+
+      <!-- 07: E-Commerce & Business Automation -->
+      <a routerLink="/services/business-automation" class="service-row">
+        <div class="sr-num">07</div>
+        <div class="sr-main">
+          <h3 class="sr-title">E-Commerce &amp; Business Process Automation</h3>
+          <p class="sr-desc">Scalable online commerce platforms integrated with Razorpay/Stripe, WhatsApp notification gateways, automated inventory tracking, and direct accounting synchronization.</p>
+          <div class="sr-tags">
+            <span class="sr-tag">D2C Storefronts</span>
+            <span class="sr-tag">Razorpay Gateway</span>
+            <span class="sr-tag">WhatsApp Trigger Webhooks</span>
+            <span class="sr-tag">Inventory Sync</span>
+          </div>
+        </div>
+        <div class="sr-action">
+          <span class="sr-explore">Explore Capability</span>
+          <span class="sr-arrow">&rarr;</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="services-footer-cta">
       <a routerLink="/services" class="btn btn-outline btn-lg">
-        View All Detailed Services & Specs
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-          <path d="M5 12h14M12 5l7 7-7 7" />
-        </svg>
+        View All Services &amp; Technical Specifications &rarr;
       </a>
     </div>
   </div>
 </section>
 
-<!-- ========== SYSTEM ARCHITECTURE FLOW SECTION ========== -->
-<section class="section architecture-section" id="architecture">
+<!-- =================================================================
+     SELECTED PROJECTS / WORK
+     Real delivered projects with verified specifications
+     ================================================================= -->
+<section class="section work-section" id="projects">
   <div class="container">
-    <div class="section-header reveal">
-      <span class="section-label">Enterprise Systems Architecture</span>
-      <h2>How We Connect Your <span class="gradient-text">Business Systems</span></h2>
-      <p>From legacy software databases and API gateways to modern web applications, ERPs, and AI agents, we build connected digital infrastructures.</p>
+    <div class="work-section-header">
+      <div>
+        <span class="section-label">Selected Projects</span>
+        <h2>Engineering Case Studies &amp; <span class="gradient-text">Delivered Work</span></h2>
+        <p>A look at recent custom software, e-commerce platforms, and ERP solutions built by Conceptra Labs.</p>
+      </div>
+      <a routerLink="/projects" class="btn btn-outline hide-mobile">View All Projects &rarr;</a>
     </div>
 
-    <div class="arch-container reveal">
-      <!-- Desktop Architecture Diagram (SVG + Nodes) -->
-      <div class="arch-diagram-wrap hide-mobile">
-        <svg class="arch-svg-canvas" viewBox="0 0 1000 480" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <defs>
-            <linearGradient id="archGradPrimary" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#6366f1" />
-              <stop offset="100%" stop-color="#06b6d4" />
-            </linearGradient>
-            <linearGradient id="archGradAccent" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#8b5cf6" />
-              <stop offset="100%" stop-color="#f59e0b" />
-            </linearGradient>
-          </defs>
+    <div class="work-grid">
+      <div class="work-card" *ngFor="let p of projects">
+        <div class="wc-header">
+          <span class="wc-category">{{ p.category }}</span>
+          <span class="wc-timeline">{{ p.timeline }}</span>
+        </div>
 
-          <!-- Connecting Lines Hub to Nodes -->
-          <path d="M 500 240 L 220 110" class="arch-line" [class.active]="activeArchNodeId === 'erp'" />
-          <path d="M 500 240 L 220 110" class="arch-line-pulse" [class.active]="activeArchNodeId === 'erp'" />
+        <h3 class="wc-title">{{ p.title }}</h3>
+        <p class="wc-desc">{{ p.desc }}</p>
 
-          <path d="M 500 240 L 780 110" class="arch-line" [class.active]="activeArchNodeId === 'ai'" />
-          <path d="M 500 240 L 780 110" class="arch-line-pulse" [class.active]="activeArchNodeId === 'ai'" />
-
-          <path d="M 500 240 L 220 370" class="arch-line" [class.active]="activeArchNodeId === 'api'" />
-          <path d="M 500 240 L 220 370" class="arch-line-pulse" [class.active]="activeArchNodeId === 'api'" />
-
-          <path d="M 500 240 L 780 370" class="arch-line" [class.active]="activeArchNodeId === 'cloud'" />
-          <path d="M 500 240 L 780 370" class="arch-line-pulse" [class.active]="activeArchNodeId === 'cloud'" />
-
-          <path d="M 500 240 L 500 70" class="arch-line" [class.active]="activeArchNodeId === 'ecommerce'" />
-          <path d="M 500 240 L 500 70" class="arch-line-pulse" [class.active]="activeArchNodeId === 'ecommerce'" />
-        </svg>
-
-        <!-- Central Integration Engine Hub -->
-        <div class="arch-core-hub">
-          <div class="core-pulse-ring"></div>
-          <div class="core-pulse-ring delay"></div>
-          <div class="core-inner">
-            <div class="core-logo">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="2" y="2" width="20" height="20" rx="5" />
-                <path d="M12 6v12M6 12h12" />
-              </svg>
-            </div>
-            <span class="core-title">Conceptra Integration Hub</span>
-            <span class="core-sub">Core Logic & Automation</span>
+        <div class="wc-specs">
+          <div class="wc-spec-item">
+            <span class="spec-k">Architecture</span>
+            <span class="spec-v">{{ p.architecture }}</span>
+          </div>
+          <div class="wc-spec-item">
+            <span class="spec-k">Team Composition</span>
+            <span class="spec-v">{{ p.teamSize }}</span>
           </div>
         </div>
 
-        <!-- Node 1: ERP Systems -->
-        <div class="arch-node node-top-left"
-             [class.active]="activeArchNodeId === 'erp'"
-             (mouseenter)="setActiveArchNode('erp')"
-             (click)="setActiveArchNode('erp')"
-             tabindex="0"
-             role="button"
-             aria-label="ERP Systems Architecture Node">
-          <div class="node-icon-wrap" style="color: #f59e0b; background: rgba(245, 158, 11, 0.12); border-color: rgba(245, 158, 11, 0.3);">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
-            </svg>
-          </div>
-          <div class="node-meta">
-            <span class="node-tag">Core ERP</span>
-            <h3 class="node-name">ERP & Operations</h3>
-          </div>
+        <div class="wc-stack">
+          <span class="tech-pill" *ngFor="let s of p.stack">{{ s }}</span>
         </div>
 
-        <!-- Node 2: AI & LLM Services -->
-        <div class="arch-node node-top-right"
-             [class.active]="activeArchNodeId === 'ai'"
-             (mouseenter)="setActiveArchNode('ai')"
-             (click)="setActiveArchNode('ai')"
-             tabindex="0"
-             role="button"
-             aria-label="AI and LLM Services Node">
-          <div class="node-icon-wrap" style="color: #8b5cf6; background: rgba(139, 92, 246, 0.12); border-color: rgba(139, 92, 246, 0.3);">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-              <line x1="9" y1="9" x2="15" y2="9"/>
-              <line x1="9" y1="13" x2="15" y2="13"/>
-              <line x1="9" y1="17" x2="15" y2="17"/>
-            </svg>
-          </div>
-          <div class="node-meta">
-            <span class="node-tag">AI Intelligence</span>
-            <h3 class="node-name">AI & LLM Engines</h3>
-          </div>
-        </div>
-
-        <!-- Node 3: API Gateway -->
-        <div class="arch-node node-bottom-left"
-             [class.active]="activeArchNodeId === 'api'"
-             (mouseenter)="setActiveArchNode('api')"
-             (click)="setActiveArchNode('api')"
-             tabindex="0"
-             role="button"
-             aria-label="API and Communication Gateway Node">
-          <div class="node-icon-wrap" style="color: #06b6d4; background: rgba(6, 182, 212, 0.12); border-color: rgba(6, 182, 212, 0.3);">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
-              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
-            </svg>
-          </div>
-          <div class="node-meta">
-            <span class="node-tag">API & Comms</span>
-            <h3 class="node-name">API & WhatsApp Gateway</h3>
-          </div>
-        </div>
-
-        <!-- Node 4: Cloud & DB -->
-        <div class="arch-node node-bottom-right"
-             [class.active]="activeArchNodeId === 'cloud'"
-             (mouseenter)="setActiveArchNode('cloud')"
-             (click)="setActiveArchNode('cloud')"
-             tabindex="0"
-             role="button"
-             aria-label="Cloud Infrastructure Node">
-          <div class="node-icon-wrap" style="color: #6366f1; background: rgba(99, 102, 241, 0.12); border-color: rgba(99, 102, 241, 0.3);">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
-            </svg>
-          </div>
-          <div class="node-meta">
-            <span class="node-tag">Cloud & DB</span>
-            <h3 class="node-name">Cloud Systems & DB</h3>
-          </div>
-        </div>
-
-        <!-- Node 5: Web & Portals -->
-        <div class="arch-node node-top-center"
-             [class.active]="activeArchNodeId === 'ecommerce'"
-             (mouseenter)="setActiveArchNode('ecommerce')"
-             (click)="setActiveArchNode('ecommerce')"
-             tabindex="0"
-             role="button"
-             aria-label="Digital Portals Node">
-          <div class="node-icon-wrap" style="color: #10b981; background: rgba(16, 185, 129, 0.12); border-color: rgba(16, 185, 129, 0.3);">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-              <line x1="8" y1="21" x2="16" y2="21"/>
-              <line x1="12" y1="17" x2="12" y2="21"/>
-            </svg>
-          </div>
-          <div class="node-meta">
-            <span class="node-tag">Frontend & Web</span>
-            <h3 class="node-name">Portals & E-Commerce</h3>
-          </div>
+        <div class="wc-action">
+          <a routerLink="/projects" class="wc-link">Read Technical Breakdown &rarr;</a>
         </div>
       </div>
+    </div>
 
-      <!-- Active Node Inspector Panel -->
-      <div class="arch-inspector hide-mobile" *ngIf="activeArchNode">
-        <div class="inspector-badge" [style.color]="activeArchNode.color" [style.background]="'rgba(' + hexToRgbStr(activeArchNode.color) + ', 0.12)'">
-          {{ activeArchNode.badge }}
-        </div>
-        <h3 class="inspector-title">{{ activeArchNode.title }}</h3>
-        <p class="inspector-summary">{{ activeArchNode.summary }}</p>
-        <div class="inspector-caps">
-          <div class="cap-pill" *ngFor="let cap of activeArchNode.capabilities">
-            <span class="cap-dot" [style.background]="activeArchNode.color"></span>
-            {{ cap }}
-          </div>
-        </div>
-        <a [routerLink]="activeArchNode.link" class="btn btn-outline btn-sm inspector-link">
-          {{ activeArchNode.linkText }} →
+    <div class="work-mobile-cta hide-desktop">
+      <a routerLink="/projects" class="btn btn-outline btn-lg" style="width: 100%; justify-content: center;">
+        View All Projects &rarr;
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- =================================================================
+     DEVELOPMENT PROCESS
+     Structured 6-stage engineering delivery lifecycle
+     ================================================================= -->
+<section class="section process-section" id="process">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Development Lifecycle</span>
+      <h2>How We Engineer &amp; <span class="gradient-text">Deliver Solutions</span></h2>
+      <p>A transparent, milestone-driven approach from initial requirements discovery through production deployment.</p>
+    </div>
+
+    <div class="process-grid">
+      <div class="process-card" *ngFor="let step of processSteps">
+        <div class="pc-num">{{ step.number }}</div>
+        <h3 class="pc-title">{{ step.title }}</h3>
+        <p class="pc-desc">{{ step.desc }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================================================================
+     WHY CHOOSE US
+     Actual business advantages of partnering with Conceptra Labs
+     ================================================================= -->
+<section class="section why-us-section" id="why-us">
+  <div class="container">
+    <div class="why-us-layout">
+      <div class="why-us-intro">
+        <span class="section-label">Why Partner With Us</span>
+        <h2>Built for Reliability, Speed &amp; Direct Accountability</h2>
+        <p>We work directly with founders, directors, and operational heads to solve tangible business bottlenecks with clean software engineering.</p>
+        <a routerLink="/why-us" class="btn btn-outline" style="margin-top: 1.5rem;">
+          Read More About Our Principles &rarr;
         </a>
       </div>
 
-      <!-- Mobile Architecture Experience -->
-      <div class="arch-mobile-pipeline hide-desktop">
-        <div class="mobile-arch-card" *ngFor="let node of archNodes"
-             [class.active]="activeArchNodeId === node.id"
-             (click)="setActiveArchNode(node.id)">
-          <div class="m-card-header">
-            <div class="m-card-icon" [style.color]="node.color" [style.background]="'rgba(' + hexToRgbStr(node.color) + ', 0.15)'">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path [attr.d]="node.icon" />
-              </svg>
-            </div>
-            <div>
-              <span class="m-card-tag">{{ node.category }}</span>
-              <h4 class="m-card-title">{{ node.title }}</h4>
-            </div>
-          </div>
-          <p class="m-card-summary">{{ node.summary }}</p>
-          <a [routerLink]="node.link" class="btn btn-outline btn-sm m-card-btn">
-            {{ node.linkText }} →
-          </a>
+      <div class="why-us-grid">
+        <div class="why-card" *ngFor="let item of whyUs">
+          <h3 class="why-title">{{ item.title }}</h3>
+          <p class="why-desc">{{ item.desc }}</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========== PRICING SIGNALS & ENGAGEMENT MODELS SECTION ========== -->
-<section class="section pricing-section" id="pricing">
+<!-- =================================================================
+     VERIFIED CLIENT REVIEWS
+     Authentic Google Reviews with verified link
+     ================================================================= -->
+<section class="section reviews-section">
   <div class="container">
-    <div class="section-header reveal">
-      <span class="section-label">Transparent Engagement Tiers</span>
-      <h2>Clear Pricing Signals & <span class="gradient-text">Budget Guidance</span></h2>
-      <p>No unexpected hidden costs. We provide predictable project pricing models, developer capacity sprints, and managed SLA support retainers.</p>
-    </div>
-
-    <div class="pricing-grid reveal">
-      <div class="pricing-card" *ngFor="let tier of pricingTiers" [class.popular]="tier.popular">
-        <div class="pricing-popular-tag" *ngIf="tier.popular">Most Popular</div>
-        <div class="pricing-header">
-          <span class="pricing-badge">{{ tier.badge }}</span>
-          <h3 class="pricing-name">{{ tier.name }}</h3>
-          <div class="pricing-price">{{ tier.price }}</div>
-          <p class="pricing-sub">{{ tier.subtitle }}</p>
-        </div>
-
-        <div class="pricing-features">
-          <ul>
-            <li *ngFor="let f of tier.features">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>{{ f }}</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="pricing-action">
-          <a [routerLink]="tier.ctaLink" class="btn" [class.btn-primary]="tier.popular" [class.btn-outline]="!tier.popular">
-            {{ tier.ctaText }}
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== ENTERPRISE FEATURED PROJECTS SECTION ========== -->
-<section class="section" id="projects">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-label">Enterprise Track Record</span>
-      <h2>Featured Engineering <span class="gradient-text">Case Studies</span></h2>
-      <p>Deep dive into real system architectures, project timelines, dedicated team compositions, and verified ROI metrics.</p>
-    </div>
-
-    <div class="projects-grid">
-      <div class="project-card reveal" *ngFor="let p of projects; let i = index">
-        <div class="proj-header">
-          <div class="proj-badge" [style.color]="p.color" [style.background]="'rgba(' + hexToRgbStr(p.color) + ', 0.12)'">
-            {{ p.category }}
-          </div>
-          <span class="proj-system-log">{{ p.systemLog }}</span>
-        </div>
-
-        <h3 class="proj-title">{{ p.title }}</h3>
-        <p class="proj-desc">{{ p.desc }}</p>
-
-        <!-- Enterprise Metadata Specs -->
-        <div class="proj-enterprise-specs">
-          <div class="spec-row">
-            <span class="spec-label">Architecture: </span>
-            <span class="spec-val">{{ p.architecture }}</span>
-          </div>
-          <div class="spec-row-flex">
-            <div><span class="spec-label">Team: </span><span class="spec-val">{{ p.teamSize }}</span></div>
-            <div><span class="spec-label">Timeline: </span><span class="spec-val">{{ p.timeline }}</span></div>
-          </div>
-          <div class="spec-roi-pill">
-            <span class="roi-label">Measured ROI: </span>{{ p.roiMetric }}
-          </div>
-        </div>
-
-        <div class="proj-stack">
-          <span class="stack-tag" *ngFor="let s of p.stack">{{ s }}</span>
-        </div>
-
-        <div class="proj-action">
-          <a routerLink="/projects" class="btn btn-outline btn-sm">
-            View Case Study Technical Breakdown →
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== TESTIMONIALS & VERIFIED SOCIAL PROOF ========== -->
-<section class="section testimonials-section">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-label">Verified Client Reviews</span>
+    <div class="section-header">
+      <span class="section-label">Verified Client Feedback</span>
       <h2>What Our <span class="gradient-text">Clients Say</span></h2>
-      <p>Real Google reviews from founders and operational directors who rely on our software systems.</p>
+      <p>Real reviews from business owners and operational leaders who rely on our software solutions.</p>
     </div>
 
-    <!-- Google Rating Bar -->
-    <div class="google-rating-bar reveal">
+    <!-- Google Rating Summary Bar -->
+    <div class="google-rating-bar">
       <div class="grb-left">
         <svg width="22" height="22" viewBox="0 0 24 24">
           <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
@@ -547,122 +499,103 @@
           <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
           <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
         </svg>
-        <div class="grb-score">5.0</div>
-        <div class="grb-stars">★★★★★</div>
-        <span class="grb-count">9 Google Reviews</span>
+        <span class="grb-score">5.0</span>
+        <span class="grb-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <span class="grb-count">9 Verified Google Reviews</span>
       </div>
       <a href="https://g.co/kgs/conceptralabs" target="_blank" rel="noopener noreferrer" class="grb-link">
-        See all reviews on Google →
+        Read All Reviews on Google &rarr;
       </a>
     </div>
 
-    <div class="testimonial-container reveal">
-      <div class="testimonial-card">
-        <div class="t-badge-verified">
-          <svg width="14" height="14" viewBox="0 0 24 24">
-            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-          </svg>
-          {{ testimonials[activeTestimonial].verified }}
-        </div>
-        <div class="stars">
-          <span *ngFor="let s of [1,2,3,4,5]">★</span>
-        </div>
-        <p class="t-text">"{{ testimonials[activeTestimonial].text }}"</p>
-        <div class="t-author">
-          <div class="t-avatar">{{ testimonials[activeTestimonial].avatar }}</div>
-          <div>
-            <h4 class="t-name">{{ testimonials[activeTestimonial].name }}</h4>
-            <p class="t-role">{{ testimonials[activeTestimonial].role ? testimonials[activeTestimonial].role + ' — ' : '' }}{{ testimonials[activeTestimonial].company }}</p>
+    <!-- Testimonials Grid -->
+    <div class="reviews-grid">
+      <div class="review-card" *ngFor="let t of testimonials; let i = index" [class.highlighted]="i === 0">
+        <div class="rc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="rc-text">"{{ t.text }}"</p>
+        <div class="rc-author-row">
+          <div class="rc-avatar">{{ t.avatar }}</div>
+          <div class="rc-meta">
+            <h4 class="rc-name">{{ t.name }}</h4>
+            <span class="rc-company">{{ t.company }}</span>
           </div>
+          <span class="rc-verified-badge">&#10003; Google Review</span>
         </div>
       </div>
-
-      <div class="t-dots">
-        <button *ngFor="let t of testimonials; let idx = index"
-                class="t-dot"
-                [class.active]="activeTestimonial === idx"
-                (click)="setTestimonial(idx)"
-                [aria-label]="'Testimonial ' + (idx + 1)"></button>
-      </div>
     </div>
   </div>
 </section>
 
-<!-- ========== ENGINEERING INSIGHTS & THOUGHT LEADERSHIP preview SECTION ========== -->
-<section class="section insights-preview-section">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-label">Public Engineering Engine</span>
-      <h2>Technical Insights & <span class="gradient-text">Thought Leadership</span></h2>
-      <p>Explore our latest technical write-ups, AI automation guides, and enterprise software architecture blueprints.</p>
-    </div>
-
-    <div class="insights-grid reveal">
-      <div class="insight-card" *ngFor="let article of insightsPreview">
-        <div class="ic-meta">
-          <span class="ic-cat">{{ article.category }}</span>
-          <span class="ic-date">{{ article.date }} • {{ article.readTime }}</span>
-        </div>
-        <h3 class="ic-title">{{ article.title }}</h3>
-        <p class="ic-summary">{{ article.summary }}</p>
-        <a [routerLink]="article.link" class="ic-link">Read Full Guide →</a>
-      </div>
-    </div>
-
-    <div class="text-center" style="margin-top: 3rem;">
-      <a routerLink="/insights" class="btn btn-outline btn-lg">
-        Explore All Engineering Articles
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ========== WHY CHOOSE US SECTION ========== -->
-<section class="section why-us-section" id="why-us">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-label">Why Partner With Us</span>
-      <h2>Built for Quality, Speed & <span class="gradient-text">Enterprise Scale</span></h2>
-      <p>We eliminate key-person risk with structured multi-developer teams and transparent SLA governance.</p>
-    </div>
-
-    <div class="why-grid">
-      <div class="why-card reveal" *ngFor="let item of whyUs; let i = index" [style.animation-delay]="(i * 0.08) + 's'">
-        <div class="why-icon">{{ item.icon }}</div>
-        <h3 class="why-title">{{ item.title }}</h3>
-        <p class="why-desc">{{ item.desc }}</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== PROJECT ESTIMATOR CALCULATOR ========== -->
+<!-- =================================================================
+     PROJECT COST CALCULATOR SECTION
+     Preserves existing calculator tool
+     ================================================================= -->
 <section class="section calculator-section" id="estimator">
   <div class="container">
-    <div class="section-header reveal text-center" style="margin-bottom: 2.5rem;">
+    <div class="section-header text-center">
       <span class="section-label">Transparent Pricing</span>
-      <h2>Calculate Your Project Cost & <span class="gradient-text">Engineering Timeline</span></h2>
-      <p>Select your scope and required integrations to see instant investment benchmarks.</p>
+      <h2>Calculate Your Project Cost &amp; <span class="gradient-text">Timeline</span></h2>
+      <p>Basic websites from ₹12,000, offline POS from ₹18,000, and scalable ERP systems. Select your requirements below for an instant estimate.</p>
     </div>
-    <app-project-calculator class="reveal"></app-project-calculator>
+    <app-project-calculator></app-project-calculator>
   </div>
 </section>
 
-<!-- ========== CTA SECTION ========== -->
+<!-- =================================================================
+     TECHNICAL INSIGHTS PREVIEW
+     ================================================================= -->
+<section class="section insights-section">
+  <div class="container">
+    <div class="insights-section-header">
+      <div>
+        <span class="section-label">Engineering Notes</span>
+        <h2>Technical Insights &amp; <span class="gradient-text">Architecture Guides</span></h2>
+        <p>Practical write-ups on modern web engineering, ERP design, and production AI workflows.</p>
+      </div>
+      <a routerLink="/insights" class="btn btn-outline hide-mobile">Explore All Articles &rarr;</a>
+    </div>
+
+    <div class="insights-grid">
+      <div class="insight-row" *ngFor="let article of insightsPreview">
+        <span class="ir-cat">{{ article.category }}</span>
+        <h3 class="ir-title">{{ article.title }}</h3>
+        <p class="ir-summary">{{ article.summary }}</p>
+        <div class="ir-footer">
+          <span class="ir-meta">{{ article.date }} &bull; {{ article.readTime }}</span>
+          <a [routerLink]="article.link" class="ir-link">Read Full Guide &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================================================================
+     FINAL CONSULTATION CTA
+     Clear, direct conversion block without gimmicks
+     ================================================================= -->
 <section class="section cta-section">
-  <div class="container text-center">
-    <div class="cta-box reveal">
-      <span class="section-label">Ready To Build?</span>
-      <h2>Let's Engineer Your Next <span class="gradient-text">Digital Product</span></h2>
-      <p>Schedule a technical consultation to receive a tailored architectural proposal and project estimate within 24 hours.</p>
+  <div class="container">
+    <div class="cta-block">
+      <div class="cta-content">
+        <span class="section-label" style="margin-bottom: 0.75rem;">Start A Conversation</span>
+        <h2>Ready to Engineer Your <span class="gradient-text">Digital Product</span>?</h2>
+        <p>
+          Discuss your system requirements with our senior engineering team in Chennai &amp; Bengaluru. We provide a tailored technical proposal and architectural estimate within 24 hours.
+        </p>
+        <div class="cta-phone-call">
+          <span>Prefer a phone call? Reach us directly at:</span>
+          <a href="tel:+919710759208" class="cta-phone-link">+91 97107 59208</a>
+        </div>
+      </div>
+
       <div class="cta-actions">
         <a routerLink="/contact" class="btn btn-primary btn-lg">
-          Request Technical Consultation
+          Request Technical Consultation &rarr;
         </a>
         <a href="https://wa.me/919710759208?text=Hi%20Conceptra%20Labs%2C%20I%27d%20like%20to%20discuss%20a%20project!" target="_blank" rel="noopener" class="btn btn-outline btn-lg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
           Chat Direct on WhatsApp
         </a>
       </div>

@@ -162,9 +162,9 @@
     height: 3px;
   }
 
-  &.mission::before { background: linear-gradient(90deg, #6366f1, #8b5cf6); }
-  &.vision::before { background: linear-gradient(90deg, #06b6d4, #0ea5e9); }
-  &.values::before { background: linear-gradient(90deg, #f59e0b, #ef4444); }
+  &.mission::before { background: var(--color-primary); }
+  &.vision::before { background: var(--color-primary-light); }
+  &.values::before { background: var(--color-accent); }
 
   &:hover {
     transform: translateY(-6px);

@@ -201,9 +201,24 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
   selectedProject: any = null;
   filteredProjects: any[] = [];
 
-  categories = ['All', 'E-Commerce', 'ERP Systems', 'Branding & Design', 'AI & Robotics', 'AgriTech', 'EdTech / AI'];
+  categories = ['All', 'E-Commerce', 'ERP Systems', 'POS & Billing', 'Branding & Design', 'AI & Robotics', 'AgriTech', 'EdTech / AI'];
 
   allProjects = [
+    {
+      title: 'Offline POS Billing & Retail ERP', category: 'POS & Billing', year: '2026',
+      abbreviation: 'POS', gradient: 'linear-gradient(135deg, rgba(45,90,61,0.2) 0%, rgba(45,90,61,0.05) 100%)',
+      systemLog: 'RETAIL // OFFLINE_POS', seoMetric: 'GST READY',
+      desc: 'An offline-first desktop & web POS billing software with sub-second barcode checkout, thermal receipt printing, GST calculation, and background cloud sync.',
+      fullDesc: 'Developed a high-reliability offline POS billing application designed for supermarkets, retail chains, and multi-counter stores. Built with an offline-first architecture utilizing a local transactional database for instant barcode scans and checkout operations without internet dependency. Features include ESC/POS thermal receipt printing, automated GST tax reports, batch & expiry tracking, cashier shift settlement, and automatic background data replication to centralized PostgreSQL cloud servers whenever network connection is restored.',
+      stack: ['Electron', 'Angular', 'SQLite', 'Node.js', 'Thermal Printing', 'GST Reports', 'PostgreSQL Sync'],
+      architecture: 'Offline-First Desktop/Web POS + Local SQLite + Background Cloud Replication',
+      teamSize: '3 Systems Engineers',
+      timeline: '6 Weeks',
+      roi: '100% Billing Uptime Without Internet, Sub-Second Scan Speed, Zero Sales Loss',
+      challenge: 'Network drops during peak shopping hours caused checkout counters to freeze, frustrating customers and causing sales discrepancies.',
+      seoSolution: 'Engineered a standalone offline-first POS architecture with transactional local SQLite storage that never interrupts counter billing and synchronizes automatically.',
+      seoImpact: '100% uptime during checkout counter operations, zero lost orders, and automated GST reconciliation.'
+    },
     {
       title: 'Myha Couture', category: 'E-Commerce', year: '2025',
       abbreviation: 'MHC', gradient: 'linear-gradient(135deg, rgba(244,114,182,0.2) 0%, rgba(244,114,182,0.05) 100%)',
