@@ -2,7 +2,7 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "installCommand": "npm install",
   "buildCommand": "npm install && npm run build",
-  "outputDirectory": "dist/conceptra-labs/browser",
+  "outputDirectory": "dist/conceptra-labs",
   "framework": "angular",
   "rewrites": [
     {
