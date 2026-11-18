@@ -2,6 +2,8 @@
 
 # Compiled output
 /dist
+/conceptra-labs
+/browser
 /tmp
 /out-tsc
 /bazel-out
