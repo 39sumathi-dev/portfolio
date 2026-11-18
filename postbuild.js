@@ -1,27 +1,34 @@
 const fs = require('fs');
 const path = require('path');
 
-const src = path.join(__dirname, 'dist', 'conceptra-labs');
+const distDir = path.join(__dirname, 'dist');
 
-if (fs.existsSync(src)) {
-  // Mirror to ./conceptra-labs
-  fs.cpSync(src, path.join(__dirname, 'conceptra-labs'), { recursive: true });
+if (fs.existsSync(distDir)) {
+  const conceptraDir = path.join(distDir, 'conceptra-labs');
+  const browserDir = path.join(conceptraDir, 'browser');
 
-  // Mirror to ./browser
-  fs.cpSync(src, path.join(__dirname, 'browser'), { recursive: true });
+  if (!fs.existsSync(conceptraDir)) {
+    fs.mkdirSync(conceptraDir, { recursive: true });
+  }
 
-  // Mirror inside dist/conceptra-labs/browser
-  const subBrowser = path.join(src, 'browser');
-  if (!fs.existsSync(subBrowser)) {
-    fs.mkdirSync(subBrowser, { recursive: true });
-    for (const item of fs.readdirSync(src)) {
-      if (item !== 'browser') {
-        fs.cpSync(path.join(src, item), path.join(subBrowser, item), { recursive: true });
-      }
+  // Copy all files in dist (except conceptra-labs folder itself) into dist/conceptra-labs
+  for (const item of fs.readdirSync(distDir)) {
+    if (item !== 'conceptra-labs') {
+      fs.cpSync(path.join(distDir, item), path.join(conceptraDir, item), { recursive: true });
     }
   }
 
-  console.log('Postbuild: Successfully mirrored output directories (conceptra-labs, dist/conceptra-labs, browser)');
+  // Also mirror into dist/conceptra-labs/browser
+  if (!fs.existsSync(browserDir)) {
+    fs.mkdirSync(browserDir, { recursive: true });
+  }
+  for (const item of fs.readdirSync(conceptraDir)) {
+    if (item !== 'browser') {
+      fs.cpSync(path.join(conceptraDir, item), path.join(browserDir, item), { recursive: true });
+    }
+  }
+
+  console.log('Postbuild: Successfully populated dist, dist/conceptra-labs, and dist/conceptra-labs/browser');
 } else {
-  console.warn('Postbuild: dist/conceptra-labs not found');
+  console.warn('Postbuild: dist directory not found');
 }
